@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RingAbout</title>
+     <!--CDN-->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     <link rel="stylesheet" href="./assets/CSS/profile.css">
+
+    <style>
+        .dropspace{
+            left:-3rem !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg" style="background-color: #026852;">
+            <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fas fa-bars open text-white fw-bold"></i>
+                <i class="fas fa-times close text-white fw-bold"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end mr-4" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                <a class="nav-link text-white" href="main.html">Home</a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                <a class="nav-link text-white" href="leaderboard.html">Leaderboard</a>
+                </li>
+                <li class="nav-item ml-lg-3 dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Profile
+                </a>
+                <div class="dropdown-menu dropspace" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                    <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+                </li>
+            </ul>
+            </div>
+        </nav>
+
+        <!-- profile content -->
+        <div class="d-flex  align-items-center" id="profileModal">
+            <!-- <div class=" svg-div"></div> -->
+            <!-- Profile page -->
+            <div class="prof-cls">
+                <div class="profile-up">
+                    <div class="up-left">
+                        <div class="profile-photo" style="border-radius: 50%;">
+                            <img src="./assets/IMG/undraw_sign_in_re_o58h.svg" class="profpic" alt="photo">
+                        </div>
+                        <div class="d-flex align-items-end ml-3 border-0">
+                            <h1 class="user_name mb-3">Username</h1>
+                            <button class="btn px-4 ml-5 text-white editbtn">Edit profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-down">
+                    <div class="name">
+                        <label class="tagl">Name : </label>
+                        <h4 class="name1 ml-4">John Doe</h4>
+                    </div>
+                    <div class="email">
+                        <label class="tagl">Email ID : </label>
+                        <h4 class="email1 ml-4">shdbhsdas@gmail.com</h4>
+                    </div>
+                    <div class="zipcode">
+                        <label class="tagl">Zip Code : </label>
+                        <h4 class="zip1 ml-4">256478</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Edit profile page -->
+            <div class="inner-cls" >
+                <form action="">
+                    <div class="profile-up">
+                        <div class="up-left">
+                            <div class="profile-photo" style="border-radius: 50%;">
+                                <img src="./assets/IMG/undraw_sign_in_re_o58h.svg" class="profpic" alt="photo">
+                            </div>
+                            <div class="upbtn ml-4">
+                                <button class="btn picUpload">Upload Picture</button>
+                                <input type="file" id="fileUpload" style="display: none;">
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="profile-down">
+                        <div class="username">
+                            <label for="username" class="tagl">Username : </label>
+                            <input type="text" name="username" class="inp">
+                        </div>
+                        <div class="name">
+                            <label for="name" class="tagl">Name : </label>
+                            <input type="text" name="name" class="inp">
+                        </div>
+                        <div class="email">
+                            <label for="email" class="tagl">Email ID : </label>
+                            <input type="email" name="email"  class="inp">
+                        </div>
+                        <div class="zipcode">
+                            <label for="zipcode" class="tagl">Zip Code : </label>
+                            <input type="text" name="zipcode"  class="inp">
+                        </div>
+                        <button type="button" class="btn saveprof">Save a Profile</button>
+                    </div>
+                </form>
+            </div> 
+        </div>
+
+        <!-- profile page -->
+
+    </div>
+
+    <script>
+        $('.picUpload').on('click',function(e){
+            e.preventDefault();
+            $('#fileUpload').click();
+        });
+
+        $('.editbtn').on('click',function(e){
+            e.preventDefault();
+            $('.prof-cls').css('display','none');
+            $('.inner-cls').css('display','block');
+        });
+    </script>
+</body>
+</html>

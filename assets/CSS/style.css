@@ -1,0 +1,210 @@
+body {
+  background-color: #f8fafb; 
+}
+/* IMPORT FONTS */
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+}
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+}
+@font-face {
+  font-family: "Merriweather-BoldItalic";
+  src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "Merriweather-LightItalic";
+  src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
+}
+@font-face {
+  font-family: "Merriweather-Italic";
+  src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+}
+@font-face {
+  font-family: "Merriweather-Black";
+  src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
+}
+
+.active > .nav-link{
+  color: black !important;
+}
+.signup,.login{
+    display: none;
+}
+nav{
+    /* background-color: #218A7C; */
+    background-color: #026852;
+}
+.navbar button[aria-expanded="false"] > .close{
+  display:none;
+}
+.navbar button[aria-expanded="true"] > .open{
+  display:none;
+}
+.nav-link,.navbar-brand{
+  font-family: "Merriweather-Regular";
+}
+.content {
+    padding: 3rem 0 0 0; 
+}
+input::placeholder{
+    font-size: 16px;
+    font-family: "Merriweather-LightItalic";
+}
+input{
+  font-size: 16px !important;
+  font-family: "Merriweather-LightItalic";
+}
+a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; 
+}
+a:hover {
+    text-decoration: none !important; 
+}
+.login{
+    padding: 7rem 0 ; 
+}
+  
+.login h2,.signup h2{
+  color: #026852;
+  font-family: "Merriweather-BoldItalic";
+  /* font-size: 31px; */
+}
+
+
+@media (max-width: 991.98px) {
+  .content .bg {
+      height: 500px; 
+  } 
+}
+  
+.content .contents, .content .bg {
+    width: 50%; 
+}
+
+@media (max-width: 1199.98px) {
+    .content .contents, .content .bg {
+        width: 100%; 
+    } 
+}
+
+.content .contents .form-group, .content .bg .form-group {
+      position: relative; 
+}
+   
+.content .contents .form-group input, .content .bg .form-group input {
+    background: transparent;
+    border-bottom: 1px solid #ccc; 
+}
+
+.content .contents .form-group.first, .content .bg .form-group.first {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px; 
+}
+
+.content .contents .form-group.last, .content .bg .form-group.last {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px; 
+}
+
+.content .contents .form-group.focus, .content .bg .form-group.focus {
+    background: #fff; 
+}
+
+.content .contents .form-control, .content .bg .form-control {
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    border-radius: 0; 
+}
+
+.content .contents .form-control:active, .content .contents .form-control:focus, .content .bg .form-control:active, .content .bg .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; 
+}
+  
+.content .bg {
+    background-size: cover;
+    background-position: center; 
+}
+  
+.content a {
+    color: #888;
+    text-decoration: underline; 
+}
+  
+.content .btn {
+    height: 54px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: "Merriweather-Italic";
+    font-size: 19px;
+}
+  
+.content .forgot-pass {
+    position: relative;
+    top: 2px;
+    font-size: 14px; 
+    font-family: "Merriweather-Italic";
+}
+ 
+  
+/* carousel  */
+.carousel-class{
+  width: 100%;
+  height: 80vh;
+}
+.carousel-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#mwon{
+  height: 75vh;
+}
+.card{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.card h3{
+  font-family: "Merriweather-BoldItalic";
+  font-size: 30px;
+  color: #026852;
+}
+.card h1{
+  line-height: 5rem;
+  font-family: "Merriweather-Black";
+  font-size: 55px;
+  color: #004532;
+}
+.about{
+  background-image: url(../IMG/green-slate.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3rem 7rem 6rem;
+}
+.about h1{
+  font-family: "Merriweather-Bold";
+  font-size: 43px;
+}
+.about-para{
+  color: #f8fafb;
+  font-size: 16px;
+  font-family: "Merriweather-LightItalic";
+}
+.about-para p{
+  margin-bottom: 1.5rem;
+}
+@media screen and (max-width:767px) {
+  .logimg{
+    margin-bottom: 2rem;
+  }
+}

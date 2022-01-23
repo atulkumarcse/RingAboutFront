@@ -1,0 +1,239 @@
+/* IMPORT FONTS */
+@font-face {
+    font-family: "Merriweather-Bold";
+    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Regular";
+    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+}
+@font-face {
+    font-family: "Merriweather-BoldItalic";
+    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Italic";
+    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-LightItalic";
+    src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Black";
+    src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Light";
+    src: url(../FONTS/Merriweather/Merriweather-Light.ttf);
+}
+@font-face {
+    font-family: "Poppins-Light";
+    src: url(../FONTS/Poppins/Poppins-Light.ttf);
+}
+@font-face {
+    font-family: "Poppins-MediumItalic";
+    src: url(../FONTS/Poppins/Poppins-MediumItalic.ttf);
+}
+
+/* Scrollbar width reduced---snippet-- */
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.main-container{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: #f8fafb;
+    /* background-image: url(../IMG/green-slate.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.navbar button[aria-expanded="false"] > .close{
+    display:none;
+}
+.navbar button[aria-expanded="true"] > .open{
+    display:none;
+}
+.nav-link,.dropdown-item,.navbar-brand{
+    font-family: "Merriweather-Regular";
+}
+.dropdown-item:hover{
+    color: #005d49;
+}
+.afterheaderad{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #000;
+}
+.afterheaderad img{
+    object-fit: cover;
+}
+.dollar{
+    height: 40%;
+}
+
+.classified > h1{
+    color: #026852;
+    font-family: "Merriweather-BoldItalic";
+}
+.classified > h1:hover{
+    cursor: pointer;
+    color: #004532;
+}
+.upbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 1rem;
+    
+}
+.igUpload{
+    background-color:  #026852;
+    margin-bottom: 0;
+    padding: 7px 15px;
+    font-size: 12px;
+    color: #ffffff;
+    font-family: "Merriweather-Italic";
+}
+.igUpload:hover{
+    color: #ffffff;
+    background-color:#004532;
+}
+
+.uadphoto{
+    width: 180px;
+    height: 150px;
+    border: 1px solid grey;
+    position: relative;
+    background-color: #fafafa;
+}
+.uadpic{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img-opt,.text-opt{
+    display: none;
+}
+.text-opt textarea,.text-opt textarea::placeholder{
+    font-family: "Merriweather-LightItalic";
+    font-size: 16px;
+}
+.modal-title{
+    font-family: "Merriweather-BoldItalic";
+    color: #004532;
+}
+.modal-body h5{
+    font-family: "Merriweather-Italic";
+}
+.modal-body option{
+    font-family: "Poppins-Light";
+    font-size: 15px;   
+}
+.note{
+    font-family: "Poppins-MediumItalic";
+}
+
+/* Online users  */
+.onliners{
+    background-image: url(../IMG/green-slate.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.onliners h4{
+    font-family: "Merriweather-Bold";
+}
+.onliners a{
+    text-decoration: none;
+}
+.onliners a:hover .ou_name,.onliners a:hover .ou_img{
+    color: #000;
+    border-color: #000;
+
+}
+.ou_img{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid grey;
+}
+.ou_img img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.ou_name{
+    font-size: 16px;
+    font-family: "Merriweather-Light";
+    color: #ffffff;
+}
+
+
+/* challenge div */
+.challenge_div {
+    border: 1px solid #000;
+}
+.challenge_div > div{
+    position: relative;
+}
+.challenge_div > div > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+/* highest money winner */
+.money{
+    height: 54%;
+    border: 1px solid #000;
+    overflow:hidden;
+}
+.money h4{
+    text-align: center;
+    font-family: "Merriweather-BoldItalic";
+    font-size: 1.4rem;
+    color: #004532;
+}
+.money h1{
+    text-align: center;
+    font-family: "Merriweather-Black";
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.money h2{
+    text-align: center;
+    font-family: "Merriweather-Bold";
+    font-size: 1.5rem;
+}

@@ -1,0 +1,204 @@
+
+/* IMPORT FONTS */
+@font-face {
+    font-family: "Merriweather-Bold";
+    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Regular";
+    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+}
+@font-face {
+    font-family: "Merriweather-BoldItalic";
+    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Italic";
+    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-LightItalic";
+    src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Black";
+    src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Light";
+    src: url(../FONTS/Merriweather/Merriweather-Light.ttf);
+}
+/* navbar-light" style="background-color: #218A7C; */
+.main-container{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../IMG/green-slate.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.navbar button[aria-expanded="false"] > .close{
+    display:none;
+}
+.navbar button[aria-expanded="true"] > .open{
+    display:none;
+}
+
+.nav-link,.dropdown-item,.navbar-brand{
+    font-family: "Merriweather-Regular";
+}
+.dropdown-item:hover{
+    color: #005d49;
+}
+#profileModal{
+    width: 100%;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    position: relative;
+}
+.svg-div{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../IMG/undraw_personal_information_re_vw8a.svg);
+    background-repeat: no-repeat;
+    background-size:40%;
+    background-position-x: right;
+    background-position-y: center;
+    z-index: 0;
+}
+.svg-img{
+    position: absolute;
+    object-fit: contain;
+}
+.prof-cls{
+    width: 45%;
+    margin: 0 auto;
+    z-index: 2;
+    /* display: none; */
+}
+h1,h4,label{
+    color: #ffffff;
+}
+.editbtn{
+    background-color: #283b79 ;
+}
+.editbtn:hover{
+    background-color: #4232a8;
+    color: #ffffff;
+}
+.inner-cls{
+    width: 70%;
+    margin: 0 auto;
+    display: none;
+}
+form{
+    width: 85%;
+    /* width: auto; */
+    margin: 0 auto;
+}
+.profile-up{
+    display: flex;
+}
+.up-left{
+    display: flex;
+    padding-left: 1rem;
+    justify-content: space-evenly;
+}
+.up-right{
+    margin-left: auto;
+    margin-top: auto;
+}
+.profile-photo{
+    width: 120px;
+    height: 120px;
+    border: 1px solid grey;
+    position: relative;
+    border-radius: 50%;
+    background-color: #fafafa;
+}
+.profpic{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.upbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 1rem;
+}
+.picUpload{
+    background-color: rgba(0,0,0,0.3);
+    background-color: #283b79;
+    margin-bottom: 0;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #ffffff;
+}
+.picUpload:hover,.saveprof:hover{
+    background-color: #4232a8;
+    color: #ffffff;
+}
+.up-left p{
+    font-size: 10px;
+    font-style: italic;
+    color: rgba(0,0,0,0.7);
+    width: 5rem;
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+}
+
+.profile-down{
+    margin-top: 2.5rem;
+}
+.profile-down h4{
+    /* margin-left: ; */
+}
+.name,.email,.zipcode,.username{
+    display: flex;
+    margin-bottom: 0.8rem;
+  
+}
+
+.profile-down .tagl{
+    text-align: right;
+    width: 18%;
+    padding: 0;
+    font-size: 20px;
+}
+.profile-down input{
+    margin-left: 1rem;
+    border: 0;
+    border-bottom: 0.5px solid grey;
+    background-color: transparent;
+    padding: 1rem 0.5rem;
+    /* border-radius: 8px; */
+    height: 25px;
+    width: 48%;
+    font-size: 18px;
+    color: #ffffff;
+}
+.profile-down input:focus{
+    outline: none;
+    border-color: blue;
+    border-color: #4232a8;
+    border-color: #283b79;
+}
+.profile-down a{
+    /* width: 3rem; */
+    margin-left: 1rem;
+}
+
+.saveprof{
+    background-color: #283b79;
+    color: #ffffff;
+    margin-top: 0.7rem;
+    margin-left: 20%;
+    font-size: 15px;
+    padding: 5px 15px;
+}

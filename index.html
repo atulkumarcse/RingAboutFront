@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RingAbout</title>
+
+    <!-- CDNs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+</head>
+<body>
+    <div class="main-container bg-light">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand text-white" href="#">RingAbout</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fas fa-bars open text-white fw-bold"></i>
+                <i class="fas fa-times close text-white fw-bold"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end mr-3" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link text-white" href="#"id="homelink">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#" id="signlink">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#" id="loglink">Log In</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+
+        <!-- Home -->
+        <div class="" id="home">
+            <!-- carousel -->
+            <div class="carousel-class">
+                <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" style="width: 100%; height: 100%;" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleSlidesOnly" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleSlidesOnly" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleSlidesOnly" data-slide-to="2"></li>
+                      </ol>
+                    <div class="carousel-inner h-100">
+                        <div class="carousel-item h-100 position-relative active">
+                            <img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="d-block w-100 position-absolute" alt="...">
+                        </div>
+                        <div class="carousel-item h-100 position-relative">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="d-block w-100  position-absolute" alt="...">
+                        </div>
+                        <div class="carousel-item h-100 position-relative">
+                            <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="d-block w-100  position-absolute" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- money won till date-->
+            <div class="won-money" id="mwon">
+                <div class="d-flex justify-content-center align-items-center w-100 h-100">
+                    <div class="card px-5 py-4">
+                        <div class="card-body">
+                            <h3 class="text-center ">Money Won on <br> our platform</h3>
+                            <h1 class="m1 text-center ">$ <span id="number">15</span></h1>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <!-- about -->
+            <div class="about d-flex align-items-center justify-content-center">
+                <div class="inner-about d-flex flex-column align-iems-center justify-content-center p-5 pt-0">
+                    <h1 class="text-center mb-5 text-white">About Us</h1>
+                    <div class="about-para">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum error alias laudantium delectus veniam quas ex dolore temporibus labore odit nisi accusamus, consectetur repellat molestias voluptas iste vero odio. Consequuntur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio eveniet eum officia fuga mollitia in! Tempore laboriosam mollitia consequatur ullam tempora recusandae nulla dolorum qui, illum quod corrupti quae?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum error alias laudantium delectus veniam quas ex dolore temporibus labore odit nisi accusamus, consectetur repellat molestias voluptas iste vero odio. Consequuntur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio eveniet eum officia fuga mollitia in! Tempore laboriosam mollitia consequatur ullam tempora recusandae nulla dolorum qui, illum quod corrupti quae?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum error alias laudantium delectus veniam quas ex dolore temporibus labore odit nisi accusamus, consectetur repellat molestias voluptas iste vero odio. Consequuntur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio eveniet eum officia fuga mollitia in! Tempore laboriosam mollitia consequatur ullam tempora recusandae nulla dolorum qui, illum quod corrupti quae?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Log in -->
+        
+        <div class="content login" id="log">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 order-md-2 logimg">
+                        <img src="./assets/IMG/login.svg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 contents">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="mb-4">
+                                <h2>Log In</h2>
+                                </div>
+                                <form action="#" method="post">
+                                    <div class="form-group first">
+                                        <input type="text" class="form-control" id="logusername" placeholder="Username">
+                                    </div>
+                                    <div class="form-group last mb-4">
+                                        <input type="password" class="form-control" id="logpassword" placeholder="Password">
+                                    </div>
+                                    <div class="d-flex mb-5 align-items-center">
+                                        <span class=""><a href="#" class="forgot-pass">Forgot Password</a></span> 
+                                    </div>
+                                    <button class="btn btn-block text-white logbtn"style="background-color: #026852;">Log In</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign UP -->
+        <div class="content signup" id="sign">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex mb-5">
+                <img src="./assets/IMG/signin.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents mb-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h2>Sign Up</h2>
+                        </div>
+                        <form action="#" method="post" id="regform">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="user_name" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="zipcode" placeholder="ZipCode">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="pass_word" placeholder="Password">
+                            </div>
+                            <div class="form-group mb-4">
+                                <input type="password" class="form-control" id="confirm-pass" placeholder="Confirm Password">
+                            </div>
+                            <button type="submit" class="btn btn-block text-white" id="regbtn" style="background-color: #026852;">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="./assets//JS/script.js"></script>
+</body>
+</html>

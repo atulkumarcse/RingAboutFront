@@ -1,0 +1,67 @@
+/* IMPORT FONTS */
+@font-face {
+    font-family: "Merriweather-Bold";
+    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Regular";
+    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+}
+@font-face {
+    font-family: "Merriweather-BoldItalic";
+    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Italic";
+    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+}
+
+.main-container{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../IMG/green-slate.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+nav{
+    position: sticky !important;
+    top: 0;
+
+}
+.navbar button[aria-expanded="false"] > .close{
+    display:none;
+}
+.navbar button[aria-expanded="true"] > .open{
+    display:none;
+}
+.nav-link,.dropdown-item,.navbar-brand{
+    font-family: "Merriweather-Regular";
+}
+.dropdown-item:hover{
+    color: #005d49;
+}
+.leaderboard{
+    width: 100%;
+    height: 100%;
+}
+.leaderboard h1{
+    font-size: 42px;
+    font-family: "Merriweather-Bold";
+}
+.leaderboard div{
+    width: 45%;
+}
+table,tr,td,th{
+    border-bottom: 1px solid #2d2d2e;
+}
+td{
+    text-align: center;
+    color: #faf8fa;
+    font-size: 17px;
+    font-family: "Merriweather-Italic";
+}
+th{
+    font-size: 22px;
+    font-family: "Merriweather-BoldItalic";
+}
