@@ -16,7 +16,7 @@ coms.noop = function() {};
 coms.webRTCAdapter = adapter;
 if(window.location.protocol=="http:")
 {
-   window.location.href = urlwebsite;
+  // window.location.href = urlwebsite;
 }
 // Helper method to check whether WebRTC is supported by this browser
 // coms.isWebrtcSupported = function() {
