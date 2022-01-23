@@ -28,7 +28,44 @@
 <body>
     <div class="main-container">
 
-        <!-- Modal -->
+
+    	 <!-- Lottery Popup -->
+        <div class="modal fade" id="eModalLong" tabindex="-1" role="dialog" aria-labelledby="eModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="eModalLongTitle">Win a Prize!!!!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form action="">
+                                <h5 class="mb-3">Add your details to win prize</h5>
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="pname form-control" placeholder="Enter your name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Bank Name</label>
+                                    <input type="text" class="bankname form-control" placeholder="Enter your bank name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Account Number</label>
+                                    <input type="text" class="bankacc form-control" placeholder="Enter your account number">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <button class="btn btn-block prize_submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- advertisement Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 650px;">
                 <div class="modal-content" style="height: 500px;">
@@ -51,7 +88,7 @@
                                     <!-- image option -->
                                     <div class="img-opt mt-5">
                                         <p class="note"><strong>*** Image should be of dimension 300*100 for better visuals</strong></p>
-                                        <div class="d-flex">
+                                        <div class="d-flex mb-4">
                                             <div class="uadphoto">
                                                 <img src="" class="uadpic" alt="photo">
                                             </div>
@@ -60,11 +97,13 @@
                                                 <input type="file" id="imgUpload" style="display: none;">
                                             </div> 
                                         </div>
+                                        <button class="btn submitbtn">Submit</button>
                                     </div>
                                     <!-- text option -->
                                     <div class="text-opt mt-5">
                                         <p class="mb-1 note"><strong>*** Maximum 150 letters</strong></p>
                                         <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
+                                        <button class="btn txtsubmitbtn">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -121,8 +160,8 @@
                         <!-- dollar lucky draw -->
                         <div class="dollar">
                             <div class="w-100 h-100 py-2" style="background-color: white;">
-                                <!-- <img src="./IMG/Happy_Gift_Surprise.svg" style="width: 100%; height: 100%; object-fit: cover;" alt=""> -->
-                                <div style="width:100%;height:100%;position:relative;"><iframe src="https://giphy.com/embed/69f6kp3FRMJEk8uemU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" sandbox="allow-forms allow-scripts" allowFullScreen></iframe></div>
+                                <!-- <div style="width:100%;height:100%;position:relative;"><iframe src="https://giphy.com/embed/69f6kp3FRMJEk8uemU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" sandbox="allow-forms allow-scripts" allowFullScreen></iframe></div> -->
+                                <div style="width:100%;height:100%;position:relative;"><img src="./assets/IMG/gift-present.gif"width="100%" height="100%" style="position:absolute" alt=""></div>
                             </div>
                         </div>
                         <!-- high money winner -->
@@ -328,6 +367,7 @@
             $('#exampleModalLong').modal();
         });
 
+
         $('.igUpload').on('click',function(e){
             e.preventDefault();
             $('#imgUpload').click();
@@ -355,5 +395,23 @@
 
 
     </script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>  
+     <script type="text/javascript" src="./assets/JS/script.js"></script>
+     <script type="text/javascript" src="./assets/JS/coms.js"></script> 
+       <script type="text/javascript" src="./assets/JS/message.js"></script>
+       <script type="text/javascript">
+           $( document ).ready(function() {
+
+             $.ajax({
+        type: "GET",
+        data : {},
+        url: 'https://steponexp.net/IHMdata/createRoom/RingAbout',
+        success: function(data) {
+         startwindow();
+        }});
+
+               
+            });
+       </script>
 </body>
 </html>

@@ -104,6 +104,7 @@ $('#regbtn').on('click',function(e){
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
+            if(jqXHR.responseJSON.error)
             var  i=0;
             Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
               if(i==0){
@@ -137,7 +138,7 @@ $('.logbtn').on('click',function(e){
 
     eraseCookie('token');
     eraseCookie('userdetails');
-    
+    deleteAllCookies();
     // setup some local variables
 
     var $form = $(this);
@@ -159,7 +160,9 @@ $('.logbtn').on('click',function(e){
         console.log(response);
         if(response.status == "ok"){
             setCookie("token",response.token,1)
-            setCookie("userdetails",response.user,1)
+            setCookie("roomid","RingAbout",1)
+            setCookie("type","student",1)
+            setCookie("userdetails",JSON.stringify(response.user),1)
             window.location.href = "main.html"
 
         }
@@ -171,10 +174,15 @@ $('.logbtn').on('click',function(e){
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
            //console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error.status_code == 403)
+           {
+            $("#loginmsg").html("Please Register yourself"); 
+            return true;
+           }
             var  i=0; 
             Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
               if(i==0){
-               $("#msg").html(val); 
+               $("#loginmsg").html(val); 
                i++;
               }     
             });
@@ -198,6 +206,7 @@ function setCookie(name,value,days) {
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
+
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -208,8 +217,37 @@ function getCookie(name) {
     }
     return null;
 }
+
+  function createCookie(key, value, expiry) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 1000));
+        document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+    }
+
+    function readCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2] : null;
+    }
+
+
+   async function areadCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2] : null;
+    }
+
 function eraseCookie(name) {   
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 }
 
 
