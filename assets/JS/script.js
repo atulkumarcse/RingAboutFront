@@ -51,60 +51,141 @@ $(document).on('scroll',function(){
 });
     
 
-// Registration
+//Registration
 
-// function sendData(data){
-//     const XHR = new XMLHttpRequest(),
-//         FD  = new FormData();
+$('#regbtn').on('click',function(e){
+    e.preventDefault();
+    let fullname = document.getElementById('name').value;
+    let username = document.getElementById('user_name').value;
+    let email = document.getElementById('email').value;
+    let zipcode = document.getElementById('zipcode').value;
+    let password = document.getElementById('pass_word').value;
+    let cpass = document.getElementById('confirm-pass').value;
 
-   
-//     for( n in data ) {
-//         FD.append( n, data[ n ] );
-//     }
-
+    data = {
+        name:fullname,
+        user_name:username,
+        email:email,
+        zip_code:zipcode,
+        password:password,
+        cpass:cpass
+    }
     
-//     XHR.addEventListener( 'load', function( event ) {
-//         alert( 'Yeah! Data sent and response loaded.' );
-//     } );
+    // setup some local variables
 
+    // Serialize the data in the form
+    var serializedData = $('#regform').serialize()
+
+    var $form = $(this);
+
+    var $inputs = $form.find("input, select, button, textarea password");
+
+
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/auth/signup",
+        type: "post",
+        data: data
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+
+        console.log(response);
+        if(response.status == "ok"){
+            document.getElementById("myForm").reset();
+            $("#msg").html("Registration Successfully")
+        }
+        else{
+             $("#msg").html("Please Try Again")
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+            var  i=0;
+            Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+              if(i==0){
+               $("#msg").html(val); 
+               i++;
+              }     
+            });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+        $inputs.prop("disabled", false);
+    });
+});
+
+
+
+//Login
+
+$('.logbtn').on('click',function(e){
+    e.preventDefault();
+    let logusername = document.getElementById('logusername').value;
+    let logpassword = document.getElementById('logpassword').value;
+
+    data = {
+        email:logusername,
+        password:logpassword
+    }
     
-//     XHR.addEventListener(' error', function( event ) {
-//         alert( 'Oops! Something went wrong.' );
-//     } );
+    // setup some local variables
 
-    
-//     XHR.open( 'POST', 'https://steponexp.net/ring_about/api/auth/signup?name=atul&user_name=ask&email=atula.kumar@steponexp.com&zip_code=201001&password=atul' );
+    var $form = $(this);
 
-    
-//     XHR.send( FD );
-// }
+    var $inputs = $form.find("input, select, button, textarea password");
 
 
-// $('#regbtn').on('click',function(e){
-//     e.preventDefault();
-//     let fullname = document.getElementById('name').value;
-//     let username = document.getElementById('user_name').value;
-//     let email = document.getElementById('email').value;
-//     let zipcode = document.getElementById('zipcode').value;
-//     let password = document.getElementById('pass_word').value;
-//     let cpass = document.getElementById('confirm-pass').value;
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/auth/login",
+        type: "post",
+        data: data
+    });
 
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
 
-//     data = {
-//         name:fullname,
-//         username:username,
-//         email:email,
-//         zipcode:zipcode,
-//         password:password,
-//         cpass:cpass
-//     }
+        console.log(response);
+        if(response.status == "ok"){
+            $.removeCookie("token");
+            $.removeCookie("userdetails");
+            $.cookie("token",response.token);
+            $.cookie("userdetails", response.user);
+            window.location.href = "main.html"
 
-//     sendData(data);
-// });
+        }
+        else{
+             $("#msg").html("Please register yourself")
+        }
+    });
 
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           //console.log(jqXHR.responseJSON);
+            var  i=0; 
+            Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+              if(i==0){
+               $("#msg").html(val); 
+               i++;
+              }     
+            });
+    });
 
-
-
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+        $inputs.prop("disabled", false);
+    });
+});
 
 
 
