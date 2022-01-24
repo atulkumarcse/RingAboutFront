@@ -279,3 +279,14 @@
 .dollar:hover{
     cursor: pointer;
 }
+
+.u-para{
+    color: #ffffff;
+    font-family: "Merriweather-Italic";
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center;
+    margin: 0.2rem;
+}

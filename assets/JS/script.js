@@ -11,7 +11,9 @@ $('.nav-item a').on('click',function(){
     $('#navbarNav').removeClass('show');
 
 });
-signlink.addEventListener("click",function(){
+if(signlink != null)
+{
+   signlink.addEventListener("click",function(){
     home.style.display="none";
     log.style.display="none";
     sign.style.display="block";
@@ -27,7 +29,9 @@ homelink.addEventListener("click",function(){
     sign.style.display="none";
     log.style.display="none";
     home.style.display="block";
-});
+}); 
+}
+
 
 
 // home
@@ -252,7 +256,195 @@ function deleteAllCookies() {
 
 
 
+$('.submitbtnadv').on('click',function(e){
+    e.preventDefault();
+    //var formData = $("#formadv").serialize();
+     var form = $('#formadv')[0];
+    var formData = new FormData(form);
+    console.log(formData);
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/AdvertiseStore",
+        type: "post",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: formData
+    });
 
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+
+        console.log(response);
+        if(response.status == true)
+           {
+            $("#uploadmsg").html("Advertise Created Succefully"); 
+            //return true;
+           }
+        else{
+             
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+});
+
+
+
+function advlist(){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/Advertiselist",
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log(response);
+        if(response.status == "true"){
+           $(".classifiedrow").html("");
+             $.each(response.data, function (key, val) {
+                if(response.data[key].url != null){
+                    text = '<img src="https://steponexp.net/ring_about/'+response.data[key].url+'" class="img-fluid w-100"  alt="">'
+                } else {
+                    text = '<p class="img-fluid w-100 u-para " style="color:black">'+response.data[key].detail+'</p>';
+                }
+                $data = '<div class="col-md-4 mb-4" style="height: 200px; ">'+
+                        '<div class="h-100 d-flex " style="border: 1px solid #000;">'+
+                        text + '</div>'+
+                    '</div>'
+                    $(".classifiedrow").append($data);
+                });
+            //$("#uploadmsg").html("Advertise Created Succefully"); 
+            //return true;
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+}
+
+function mnylist(){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/Moneylist",
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log(response);
+        if(response.status === true){
+          
+             $.each(response.data.data, function (key, val) {
+                if(key == 0){
+                  $(".high_money").html(response.data.data[key].money) 
+                   $(".high_user").html(response.data.data[key].name)  
+                }
+                
+                });
+            //$("#uploadmsg").html("Advertise Created Succefully"); 
+            //return true;
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+}
+if(window.location.pathname == '/RingAbout/main.html')
+{
+  advlist();
+  mnylist();  
+}
+//
 
 
 

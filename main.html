@@ -41,7 +41,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <form action="">
+                            <form action="#"  >
                                 <h5 class="mb-3">Add your details to win prize</h5>
                                 <div class="form-group">
                                     <label>Name</label>
@@ -77,10 +77,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <form action="">
+                            <h1 id="uploadmsg"></h1>
+                            <form action="" id="formadv">
                                 <h5>Choose the form of advertisement you want to post</h5>
-                                <select class="custom-select">
-                                    <option selected>Select one from below</option>
+                                <select name="name" class="custom-select">
+                                    <option selected >Select one from below</option>
                                     <option class="one opts" value="1">Image</option>
                                     <option class="two opts" value="2">Text</option>
                                 </select>
@@ -94,16 +95,16 @@
                                             </div>
                                             <div class="upbtn ml-4">
                                                 <button class="btn igUpload">Upload Picture</button>
-                                                <input type="file" id="imgUpload" style="display: none;">
+                                                <input type="file" id="imgUpload" name="file" style="display: none;">
                                             </div> 
                                         </div>
-                                        <button class="btn submitbtn">Submit</button>
+                                        <button class="btn submitbtn submitbtnadv ">Submit</button>
                                     </div>
                                     <!-- text option -->
                                     <div class="text-opt mt-5">
                                         <p class="mb-1 note"><strong>*** Maximum 150 letters</strong></p>
-                                        <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
-                                        <button class="btn txtsubmitbtn">Submit</button>
+                                        <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name ="detail" ></textarea>
+                                        <button class="btn txtsubmitbtn submitbtnadv">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -148,8 +149,8 @@
         <div class="up-content w-100 container-fluid">
             <!-- Ad 1   -->
             <div class="afterheaderad my-4 mb-5">
-                <div class="w-100 h-100">
-                    <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="w-100 h-100" style="object-fit: cover;" alt="">
+                <div class="h-100 d-flex">
+                    <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100 " alt="">
                 </div>
             </div>
 
@@ -179,10 +180,10 @@
 
                 <!-- challenge div -->
                 <div class="col-md-8" style="height: 500px;">
-                    <div class="bg-light challenge_div h-100 w-100">
-                        <div class="w-100 h-100">
-                            <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" alt="">
-                        </div>
+                    <div class="bg-dark challenge_div h-100 d-flex">
+                        <!-- <div class="w-100 h-100"> -->
+                            <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100" alt="">
+                        <!-- </div> -->
                     </div>
                 </div>
 
@@ -302,9 +303,9 @@
             </div>
 
             <!-- ad 2 -->
-            <div class="ad2 bg-dark my-4 w-100" style="height: 160px;border: 1px solid #000;">
-            	<div class="w-100 h-100">
-            		<img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="w-100 h-100" style="object-fit: cover;">
+            <div class="ad2 bg-dark my-4 w-100" style="height: 160px; border: 1px solid #000;">
+                <div class="h-100 d-flex">
+            		<img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="img-fluid w-100">
             	</div>
             </div>
 
@@ -314,35 +315,36 @@
                 <div class="classified bg-light mb-4">
                     <h1 class="text-center mx-0 p-1">CLASSIFIEDS <i class="far fa-plus-square"></i></h1>
                 </div>
-                <div class="row">
+                <div class="row classifiedrow">
                     <div class="col-md-4 mb-4" style="height: 200px; ">
-                        <div class="w-100 h-100 d-flex gap-2" style="border: 1px solid #000;">
-
+                        <div class="h-100 d-flex " style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100"  alt="">
+                            <!-- <p class="img-fluid w-100 u-para">error in magnam debitis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque fugiat ad molestias ducimus modi voluptatum beatae ipsa soluta veniam corrupti dignissimos ex assumenda voluptatibus, quos magnam reiciendis nemo reprehenderit sapiente?</p> -->
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" style="height: 200px;">
-                        <div class="w-100 h-100  d-flex gap-2" style="border: 1px solid #000;">
-
+                        <div class="h-100 d-flex " style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" style="height: 200px;">
-                        <div class="w-100 h-100" style="border: 1px solid #000;">
-
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" style="height: 200px;">
-                        <div class="w-100 h-100" style="border: 1px solid #000;">
-
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" style="height: 200px;">
-                        <div class="w-100 h-100" style="border: 1px solid #000;">
-
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
-                    <div class="col-md-4 gap-2" style="height: 200px;">
-                        <div class="w-100 h-100" style="border: 1px solid #000;">
-
+                    <div class="col-md-4 mb-4" style="height: 200px;">
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
                 </div>
@@ -351,8 +353,8 @@
 
             <!-- ad 3 -->
             <div class="ad2 bg-dark my-3 w-100" style="height: 160px;border: 1px solid #000;">
-            	<div class="w-100 h-100">
-            		<img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="w-100 h-100" style="object-fit: cover;">
+                <div class="h-100 d-flex">
+            		<img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100">
             	</div>
             </div>
 
