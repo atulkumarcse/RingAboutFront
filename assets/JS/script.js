@@ -4,7 +4,7 @@ let homelink = document.getElementById("homelink");
 let sign = document.getElementById("sign");
 let log = document.getElementById("log");
 let home = document.getElementById("home");
-
+let imgurl = "https://steponexp.net/ring_about/";
 $('.nav-item a').on('click',function(){
     $('button').attr('aria-expanded','false');
     $('button').addClass("collapsed");
@@ -439,10 +439,134 @@ function mnylist(){
        // $inputs.prop("disabled", false);
     });
 }
+function chllist(){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/challengeslist",
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log(response);
+        if(response.status === true){
+          
+             $.each(response.data.data, function (key, val) {
+                if(key == 0){
+                  $(".challenge_img").attr("src",imgurl+response.data.data[key].url)   
+                }
+                
+                });
+            //$("#uploadmsg").html("Advertise Created Succefully"); 
+            //return true;
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+}
+
+function progilelist($id){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/userProfile/"+$id,
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log(response);
+        $(".tweet").html("");
+        $(".insta").html("");
+        $(".others").html("");
+        if(response.status === true){
+          $(".name1").html(response.data[0].name);
+          $(".email1").html(response.data[0].email);
+          $(".zip1").html(response.data[0].zip_code);
+          $(".tweet").html(response.data[0].tweet);
+          $(".insta").html(response.data[0].insta );
+          $(".others").html(response.data[0].linkedin );
+             // $.each(response.data.data, function (key, val) {
+             //    if(key == 0){
+             //      $(".challenge_img").attr("src",imgurl+response.data.data[key].url)   
+             //    }
+                
+             //    });
+            //$("#uploadmsg").html("Advertise Created Succefully"); 
+            //return true;
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+}
 if(window.location.pathname == '/RingAbout/main.html')
 {
   advlist();
-  mnylist();  
+  mnylist(); 
+  chllist() 
 }
 //
 

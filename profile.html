@@ -151,5 +151,37 @@
             $('.inner-cls').css('display','block');
         });
     </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>  
+     <script type="text/javascript" src="./assets/JS/script.js"></script>
+     <script type="text/javascript" src="./assets/JS/coms.js"></script> 
+       <script type="text/javascript" src="./assets/JS/message.js"></script>
+       <script type="text/javascript">
+        function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }
+           $( document ).ready(function() {
+
+            userdetails =   getCookie("userdetails");
+            userdetails = JSON.parse(userdetails);  
+            $id =   userdetails.id;
+            var url = new URL(window.location.href);
+            var uid = url.searchParams.get("id");
+            if(uid==null){
+              progilelist($id)  
+          } else {
+            progilelist(uid)
+            $(".editbtn").css("display","none");
+          }
+            
+            });
+       </script>
 </body>
 </html>
