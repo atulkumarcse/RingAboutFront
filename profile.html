@@ -51,7 +51,7 @@
         </nav>
 
         <!-- profile content -->
-        <div class="d-flex  align-items-center" id="profileModal">
+        <div class="d-flex  align-items-center pt-5 pb-5" id="profileModal">
             <!-- <div class=" svg-div"></div> -->
             <!-- Profile page -->
             <div class="prof-cls">
@@ -62,7 +62,7 @@
                         </div>
                         <div class="d-flex align-items-end ml-3 border-0">
                             <h1 class="user_name mb-3">Username</h1>
-                            <button class="btn px-4 ml-5 text-white editbtn">Edit profile</button>
+                            <!-- <button class="btn px-4 ml-5 text-white editbtn">Edit profile</button> -->
                         </div>
                     </div>
                 </div>
@@ -81,18 +81,19 @@
                     </div>
                     <div class="social_links">
                         <label class="tagl mb-auto">Social Media : </label>
-                        <div class="d-flex flex-column">
-                            <h4 class="tweet mb-2 ml-4">abc@twitter.com</h4>
-                            <h4 class="insta mb-2 ml-4">pqr@instagram.com</h4>
-                            <h4 class="others ml-4">abcd@linkedin.com</h4>
+                        <div class="d-flex flex-column addsocial">
+                            <h4 class="tweet mb-2 ml-4"></h4>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-start mt-4">
+                        <button class="btn px-4 ml-5 editbtn">Edit profile</button>
                     </div>
                 </div>
             </div>
             
             <!-- Edit profile page -->
             <div class="inner-cls" >
-                <form action="">
+                <form action="" id="updprofile">
                     <div class="profile-up">
                         <div class="up-left">
                             <div class="profile-photo" style="border-radius: 50%;">
@@ -100,36 +101,62 @@
                             </div>
                             <div class="upbtn ml-4">
                                 <button class="btn picUpload">Upload Picture</button>
-                                <input type="file" id="fileUpload" style="display: none;">
+                                <input type="file" name="file" id="fileUpload" style="display: none;">
                             </div> 
                         </div>
                     </div>
                     <div class="profile-down">
+                        <h1 id="msgedit"></h1>
                         <div class="username">
-                            <label for="username" class="tagl">Username : </label>
-                            <input type="text" name="username" class="inp" >
+                            <!-- <label for="username" class="tagl">Username : </label> -->
+                            <input type="text" name="user_name" class="inp" placeholder="username">
                         </div>
                         <div class="name">
-                            <label for="name" class="tagl">Name : </label>
-                            <input type="text" name="name" class="inp" >
+                            <!-- <label for="name" class="tagl">Name : </label> -->
+                            <input type="text" name="name" class="inp" placeholder="name">
                         </div>
                         <div class="email">
-                            <label for="email" class="tagl">Email ID : </label>
-                            <input type="email" name="email"  class="inp">
-                        </div>
-                        <div class="zipcode">
-                            <label for="zipcode" class="tagl">Zip Code : </label>
-                            <input type="text" name="zipcode"  class="inp" >
-                        </div>
-                        <div class="social_links">
-                            <label class="tagl mt-2">Social Media : </label>
-                            <div class="d-flex flex-column" style="width: 48%;">
-                                <input type="url" class="inp t1 w-100 mb-2" >
-                                <input type="url" class="inp i1 w-100 mb-2" >
-                                <input type="url" class="inp th1 w-100" >
+                            <!-- <label for="email" class="tagl">Email ID : </label> -->
+                            <input type="email" name="email"  class="inp" placeholder="email">
+                            <input type="hidden" name="password" value="password" >
+                            <div class="toggletxt">
+                                <p class="txt">hide</p>
+                                <label class="switch">
+                                    <input type="checkbox" class="check">
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                         </div>
-                        <button type="button" class="btn saveprof">Save a Profile</button>
+                        <div class="zipcode">
+                            <!-- <label for="zipcode" class="tagl">Zip Code : </label> -->
+                            <input type="text" name="zip_code"  class="inp" placeholder="zipcode" >
+                            <div class="toggletxt">
+                                <p class="txt">hide</p>
+                                <label class="switch">
+                                    <input type="checkbox" class="check">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="social_link">
+                        	<div class="d-flex">
+	                            <label class="tagl mt-2 w-50" style="text-align: left; margin-left: 1rem;">Social Media Handlers : </label>
+	                            <button class="btn p-0 addmore" style="margin-left: 8.5%;">Add <i class="far fa-plus-square fa-lg"></i></button>
+	                            <div class="toggletxt">
+	                                <p class="txt">hide</p>
+	                                <label class="switch">
+	                                    <input type="checkbox" class="check">
+	                                    <span class="slider round"></span>
+	                                </label>
+	                            </div>
+	                        </div>
+                            <div class="d-flex flex-column socials" id="social">
+                                <input type="url" name="others[]" class="inp mb-2" placeholder="social link 1">
+                                <input type="url" name="others[]" class="inp mb-2"  placeholder="social link 2">
+                                <input type="url" name="others[]" class="inp mb-2"  placeholder="social link 3">
+                            </div>
+                        </div>
+                        <button type="button" class="btn saveprof updbtn">Save</button>
                     </div>
                 </form>
             </div> 
@@ -147,9 +174,43 @@
 
         $('.editbtn').on('click',function(e){
             e.preventDefault();
+            userdetails =   getCookie("userdetails");
+            userdetails = JSON.parse(userdetails);  
+            $id =   userdetails.id;
+            editlist($id)
             $('.prof-cls').css('display','none');
             $('.inner-cls').css('display','block');
         });
+
+        $('.check').on('change',function(e){
+            if($(this).is(':checked')){
+                $(this).closest('.toggletxt').children('.txt').html('show');
+            }else{
+                $(this).closest('.toggletxt').children('.txt').html('hide');
+            }    
+        });
+
+      
+        $('.addmore').on('click',function(e){
+            e.preventDefault();
+            var inputCount = document.getElementById('social').getElementsByTagName('input').length;
+            console.log(inputCount);
+            if(inputCount < 5){
+                var input = document.createElement("input");
+                input.classList.add('inp', 'mb-2');
+                var count = inputCount+1;
+                var num = 'social link '+ count; 
+                input.setAttribute('placeholder',num);
+                $('.socials').append(input);
+                console.log(input);
+            }else{
+                $('.addmore').attr('disabled','disabled');
+                return;
+            }
+        });
+
+
+
     </script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>  
@@ -175,9 +236,9 @@
             var url = new URL(window.location.href);
             var uid = url.searchParams.get("id");
             if(uid==null){
-              progilelist($id)  
+              profilelist($id)  
           } else {
-            progilelist(uid)
+            profilelist(uid)
             $(".editbtn").css("display","none");
           }
             

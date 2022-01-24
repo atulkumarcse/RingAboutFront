@@ -259,9 +259,8 @@ function deleteAllCookies() {
 $('.submitbtnadv').on('click',function(e){
     e.preventDefault();
     //var formData = $("#formadv").serialize();
-     var form = $('#formadv')[0];
+    var form = $('#formadv')[0];
     var formData = new FormData(form);
-    console.log(formData);
     bearertoken = readCookie('token');
     // Fire off the request to /form.php
     request = $.ajax({
@@ -497,7 +496,7 @@ function chllist(){
     });
 }
 
-function progilelist($id){
+function profilelist($id){
     bearertoken = readCookie('token');
     // Fire off the request to /form.php
     request = $.ajax({
@@ -522,17 +521,17 @@ function progilelist($id){
           $(".name1").html(response.data[0].name);
           $(".email1").html(response.data[0].email);
           $(".zip1").html(response.data[0].zip_code);
-          $(".tweet").html(response.data[0].tweet);
-          $(".insta").html(response.data[0].insta );
-          $(".others").html(response.data[0].linkedin );
-             // $.each(response.data.data, function (key, val) {
-             //    if(key == 0){
-             //      $(".challenge_img").attr("src",imgurl+response.data.data[key].url)   
-             //    }
-                
-             //    });
-            //$("#uploadmsg").html("Advertise Created Succefully"); 
-            //return true;
+          $(".user_name").html(response.data[0].user_name);
+          $(".profpic").attr("src",imgurl+response.data[0].url);
+          $arr = response.data[0].twitter.split(",");
+          if($arr.length>0){
+          $.each($arr,function(key,value){
+               $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
+          });
+          }
+          // $(".tweet").html(response.data[0].tweet);
+          // $(".insta").html(response.data[0].insta );
+          // $(".others").html(response.data[0].linkedin );
            } else {
 
         }
@@ -544,15 +543,51 @@ function progilelist($id){
            if(jqXHR.responseJSON.error == "token_expired"){
             window.location.href = "/RingAbout";
            }
+    });
 
-           
-           //  var  i=0; 
-           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
-           //    if(i==0){
-           //     $("#loginmsg").html(val); 
-           //     i++;
-           //    }     
-           //  });
+}
+
+//Registration
+
+$('.updbtn').on('click',function(e){
+    e.preventDefault();
+     var form = $('#updprofile')[0];
+    var formData = new FormData(form);
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/updateProfile",
+        type: "post",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: formData
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        if(response.status == "ok"){
+            document.getElementById("#updprofile").reset();
+            $("#msgedit").html("Profile Edit Successfully")
+        }
+        else{
+             $("#msgedit").html("Please Try Again")
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+            if(jqXHR.responseJSON.error)
+            var  i=0;
+            Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+              if(i==0){
+               $("#msgedit").html(val); 
+               i++;
+              }     
+            });
     });
 
     // Callback handler that will be called regardless
@@ -561,7 +596,52 @@ function progilelist($id){
         // Reenable the inputs
        // $inputs.prop("disabled", false);
     });
+});
+
+function editlist($id){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/userProfile/"+$id,
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log(response);
+        $(".tweet").html("");
+        $(".insta").html("");
+        $(".others").html("");
+        if(response.status === true){
+          $("input[name='name']").val(response.data[0].name);
+          $("input[name='email']").val(response.data[0].email);
+          $("input[name='zip_code']").val(response.data[0].zip_code);
+          $("input[name='user_name']").val(response.data[0].user_name);
+           $(".profpic").attr("src",imgurl+response.data[0].url);
+          $("input[name='others']").val(response.data[0].twitter );
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+    });
+
 }
+
+
 if(window.location.pathname == '/RingAbout/main.html')
 {
   advlist();

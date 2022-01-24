@@ -79,7 +79,7 @@
                         <div class="container-fluid">
                             <h1 id="uploadmsg"></h1>
                             <form action="" id="formadv">
-                                <h5>Choose the form of advertisement you want to post</h5>
+                                <h5>Choose from the options below to create your advertisement</h5>
                                 <select name="name" class="custom-select">
                                     <option selected >Select one from below</option>
                                     <option class="one opts" value="1">Image</option>
@@ -88,7 +88,7 @@
                                 <div>
                                     <!-- image option -->
                                     <div class="img-opt mt-5">
-                                        <p class="note"><strong>*** Image should be of dimension 300*100 for better visuals</strong></p>
+                                        <p class="note"><strong>*** Image should be of 2:1 (width:height) aspect ratio (Svg format recommended)</strong></p>
                                         <div class="d-flex mb-4">
                                             <div class="uadphoto">
                                                 <img src="" class="uadpic" alt="photo">
@@ -102,7 +102,7 @@
                                     </div>
                                     <!-- text option -->
                                     <div class="text-opt mt-5">
-                                        <p class="mb-1 note"><strong>*** Maximum 150 letters</strong></p>
+                                        <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
                                         <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name ="detail" ></textarea>
                                         <button class="btn txtsubmitbtn submitbtnadv">Submit</button>
                                     </div>
@@ -148,29 +148,28 @@
           <!-- main content -->
         <div class="up-content w-100 container-fluid">
             <!-- Ad 1   -->
-            <div class="afterheaderad my-4 mb-5">
+            <div class="afterheaderad my-4 mb-5" id="advert1">
                 <div class="h-100 d-flex">
                     <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100 " alt="">
                 </div>
             </div>
 
             <!-- challenge row -->
-            <div class="row">
-                <div class="col-md-2" style="height: 500px;">
+            <div class="row row1">
+                <div class="col-md-2 r1" style="height: 500px;">
                     <div class="h-100 w-100 d-flex flex-column justify-content-between">
                         <!-- dollar lucky draw -->
                         <div class="dollar">
-                            <div class="w-100 h-100 py-2" style="background-color: white;">
-                                <!-- <div style="width:100%;height:100%;position:relative;"><iframe src="https://giphy.com/embed/69f6kp3FRMJEk8uemU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" sandbox="allow-forms allow-scripts" allowFullScreen></iframe></div> -->
+                            <div class="w-100 h-100" style="background-color: white;">
                                 <div style="width:100%;height:100%;position:relative;"><img src="./assets/IMG/gift-present.gif"width="100%" height="100%" style="position:absolute" alt=""></div>
                             </div>
                         </div>
                         <!-- high money winner -->
                         <div class="money">
                         	<div class="w-100 h-100 p-2">
-                                <h4 class="text-center mb-4">Highest Money Winner</h4>
+                                <h4 class="text-center mb-4">Highest Single Winning</h4>
                                 <div class="d-flex flex-column align-items-center justify-content-between">
-                                    <h1>$<br><span class="high_money">54,25,32,214</span></h1>
+                                    <h1>$ <span class="high_money">54,25,32,214</span></h1>
                                     <h2 class="high_user">UserName</h1>
                                 </div>
                             </div>
@@ -179,16 +178,38 @@
                 </div>
 
                 <!-- challenge div -->
-                <div class="col-md-8" style="height: 500px;">
-                    <div class="bg-dark challenge_div h-100 d-flex">
-                        <!-- <div class="w-100 h-100"> -->
-                            <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100 challenge_img" alt="">
-                        <!-- </div> -->
+                <div class="col-md-8 r1" style="height: 500px;">
+                    <div class="challenge_div w-100 h-100 carousel-class">
+                        <!-- carousel -->
+                        <div id="carouselSlidesOnly" class="carousel slide" style="width: 100%; height: 100%;" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselSlidesOnly" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselSlidesOnly" data-slide-to="1"></li>
+                                <li data-target="#carouselSlidesOnly" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item h-100 position-relative active">
+                                    <img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="d-block img-fluid w-100 h-100 position-absolute " alt="...">
+                                    <!-- <p class="text-white text-center p-5 d-block img-fluid w-100 h-100 position-absolute"></p> -->
+                                </div>
+                                <div class="carousel-item h-100 position-relative">
+                                    <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="d-block position-absolute img-fluid w-100 h-100" alt="...">
+                                <!-- <p class="text-white text-center p-5 d-block img-fluid w-100 h-100 position-absolute"></p> -->
+                                </div>
+                                <div class="carousel-item h-100 position-relative">
+                                    <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="d-block position-absolute img-fluid w-100 h-100" alt="...">
+                                    <!-- <p class="text-white text-center p-5 d-block img-fluid w-100 h-100 position-absolute"></p> -->
+                                </div>
+                            </div>
+                        </div>
+
+                            <!-- <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100 challenge_img" alt=""> -->
+                        
                     </div>
                 </div>
 
                 <!-- online users -->
-                <div class="col-md-2" style="height: 500px;">
+                <div class="col-md-2 r1" style="height: 500px;">
                     <div class="onliners h-100 w-100 pt-3 pb-3">
                     	<h4 class="text-center text-white">Online Users</h4>
                         <div class="onilneusers mt-3 d-flex flex-column px-1">
@@ -303,7 +324,7 @@
             </div>
 
             <!-- ad 2 -->
-            <div class="ad2 bg-dark my-4 w-100" style="height: 160px; border: 1px solid #000;">
+            <div class="ad2 bg-dark mt-3 mb-5 w-100" id="advert2"  style="border: 1px solid #000;">
                 <div class="h-100 d-flex">
             		<img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="img-fluid w-100">
             	</div>
@@ -311,38 +332,38 @@
 
 
              <!-- classifieds -->
-            <div class="downcontent mt-4">
-                <div class="classified bg-light mb-4">
-                    <h1 class="text-center mx-0 p-1">CLASSIFIEDS <i class="far fa-plus-square"></i></h1>
+            <div class="downcontent mb-5 pb-3">
+                <div class="classified py-3">
+                    <h1 class="text-center mt-3 mx-0 p-1">CLASSIFIEDS <i class="far fa-plus-square"></i></h1>
                 </div>
                 <div class="row classifiedrow">
-                    <div class="col-md-4 mb-4" style="height: 200px; ">
+                    <div class="col-md-3 clsf" style="margin-bottom: 30px; ">
                         <div class="h-100 d-flex " style="border: 1px solid #000;">
                             <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100"  alt="">
                             <!-- <p class="img-fluid w-100 u-para">error in magnam debitis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque fugiat ad molestias ducimus modi voluptatum beatae ipsa soluta veniam corrupti dignissimos ex assumenda voluptatibus, quos magnam reiciendis nemo reprehenderit sapiente?</p> -->
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4" style="height: 200px;">
+                    <div class="col-md-3 clsf" style="margin-bottom: 30px;">
                         <div class="h-100 d-flex " style="border: 1px solid #000;">
                             <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4" style="height: 200px;">
+                    <div class="col-md-3 clsf" style="margin-bottom: 30px;">
                         <div class="h-100 d-flex" style="border: 1px solid #000;">
                             <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4" style="height: 200px;">
+                    <div class="col-md-3 clsf" style="margin-bottom: 30px;">
                         <div class="h-100 d-flex" style="border: 1px solid #000;">
                             <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4" style="height: 200px;">
+                    <div class="col-md-3 clsf" style="margin-bottom: 30px;">
                         <div class="h-100 d-flex" style="border: 1px solid #000;">
                             <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4" style="height: 200px;">
+                    <div class="col-md-3 clsf" style="margin-bottom: 30px;">
                         <div class="h-100 d-flex" style="border: 1px solid #000;">
                             <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
                         </div>
@@ -352,7 +373,7 @@
         
 
             <!-- ad 3 -->
-            <div class="ad2 bg-dark my-3 w-100" style="height: 160px;border: 1px solid #000;">
+            <div class="ad2 bg-dark w-100 mb-4" id="advert3" style="border: 1px solid #000;">
                 <div class="h-100 d-flex">
             		<img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100">
             	</div>
@@ -395,6 +416,25 @@
             }
         });
 
+         // advertisements divs
+        var w1 = document.getElementById('advert1').offsetWidth;
+        var w2 = document.getElementById('advert2').offsetWidth;
+        var w3 = document.getElementById('advert3').offsetWidth;
+
+        var h1 = w1 / 4;
+        var h2 = w2 / 4;
+        var h3 = w3 / 4;
+
+
+        document.getElementById('advert1').style.height = h1 +'px';
+        document.getElementById('advert2').style.height = h2 +'px';
+        document.getElementById('advert3').style.height = h3 +'px';
+
+        // classified divs
+        var uw = $('.clsf').outerWidth();
+        var uh = uw / 2;
+        var uhh = uh + 'px';
+        $('.clsf').css('height', uhh);
 
     </script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>  

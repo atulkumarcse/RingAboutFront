@@ -36,6 +36,11 @@
     src: url(../FONTS/Poppins/Poppins-MediumItalic.ttf);
 }
 
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../FONTS/Poppins/Poppins-Regular.ttf);
+}
+
 /* Scrollbar width reduced---snippet-- */
 
 
@@ -82,24 +87,17 @@
 }
 .afterheaderad{
     width: 100%;
-    height: 100px;
+    /* height: 160px; */
     border: 1px solid #000;
 }
-/*.afterheaderad img{
-    object-fit: cover;
-}*/
+.afterheaderad img{
+    /* object-fit: cover; */
+}
 .dollar{
     height: 40%;
+    border: 1px solid #000;
 }
 
-.classified > h1{
-    color: #026852;
-    font-family: "Merriweather-BoldItalic";
-}
-.classified > h1:hover{
-    cursor: pointer;
-    color: #004532;
-}
 .upbtn{
     display: flex;
     flex-direction: column;
@@ -209,18 +207,25 @@
 
 
 /* challenge div */
+.r1{
+    margin-bottom: 2rem;
+}
 .challenge_div {
     border: 1px solid #000;
+    background-image: url(../IMG/dark-green-texture.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .challenge_div > div{
     position: relative;
 }
-/*.challenge_div > div > img{
+/* .challenge_div > div > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
-}*/
+} */
 
 /* highest money winner */
 .money{
@@ -247,8 +252,6 @@
     font-family: "Merriweather-Bold";
     font-size: 1.5rem;
 }
-
-
 
 /* Lottery pop up */
 #eModalLong label{
@@ -289,4 +292,31 @@
     word-wrap: break-word;
     text-align: center;
     margin: 0.2rem;
+    display: none;
 }
+
+/* classified */
+.downcontent{
+    background-image: url(../IMG/green-slate.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    padding: 0 15px 0 15px;
+}
+
+
+
+.classified > h1{
+    color: #026852;
+    color: #ffffff;
+    font-family: "Merriweather-BoldItalic";
+}
+.classified > h1:hover{
+    cursor: pointer;
+    color: #004532;
+    color: #000;
+}
+
+
