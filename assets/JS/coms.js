@@ -136,7 +136,7 @@ function coms() {
 			disconnectedCB();
 		};
 		this.server.onmessage = function(message) {
-			console.log(message);
+			// console.log(message);
 			var json = JSON.parse(message.data);
 			var transaction = json["id"];
 			if(transaction) {
@@ -208,7 +208,12 @@ function coms() {
 					//console.log('Message event', info);
 					var messageCB = (typeof that.callbacks["messageallsupport"] == "function") ? that.callbacks["messageallsupport"] : coms.noop;
 					messageCB(info);
-				} else if(event === "messageonetoone") {
+				} else if(event === "senddollarmessage") {
+					var info = json["payload"];
+					//console.log('Message event', info);
+					//var messageCB = (typeof that.callbacks["senddollarmessage"] == "function") ? that.callbacks["senddollarmessage"] : coms.noop;
+					senddollarmessage(info);
+				}  else if(event === "messageonetoone") {
 					var info = json["payload"];
 					if(info.text.userid === "supportpanel")
 					{

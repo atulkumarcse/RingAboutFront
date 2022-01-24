@@ -41,19 +41,20 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <form action="#"  >
+                            <form action="#" id="awardform" >
                                 <h5 class="mb-3">Add your details to win prize</h5>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="pname form-control" placeholder="Enter your name">
+                                    <input type="text" name="name" class="pname form-control" placeholder="Enter your name">
                                 </div>
                                 <div class="form-group">
                                     <label>Bank Name</label>
-                                    <input type="text" class="bankname form-control" placeholder="Enter your bank name">
+                                    <input type="text"  name="bank_name" class="bankname form-control" placeholder="Enter your bank name">
                                 </div>
                                 <div class="form-group">
                                     <label>Account Number</label>
-                                    <input type="text" class="bankacc form-control" placeholder="Enter your account number">
+                                    <input type="text"  name="bank_acc" class="bankacc form-control" placeholder="Enter your account number">
+                                    <input type="hidden"  name="info" class="bankacc form-control" placeholder="Enter your account number">
                                 </div>
                                 <div class="form-group mt-4">
                                     <button class="btn btn-block prize_submit">Submit</button>
@@ -161,7 +162,7 @@
                         <!-- dollar lucky draw -->
                         <div class="dollar">
                             <div class="w-100 h-100" style="background-color: white;">
-                                <div style="width:100%;height:100%;position:relative;"><img src="./assets/IMG/gift-present.gif"width="100%" height="100%" style="position:absolute" alt=""></div>
+                                <div style="width:100%;height:100%;position:relative;"><img class="giftimg" src="./assets/IMG/gift.jpg"width="100%" height="100%" style="position:absolute" alt=""></div>
                             </div>
                         </div>
                         <!-- high money winner -->

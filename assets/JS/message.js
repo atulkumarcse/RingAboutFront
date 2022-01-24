@@ -1537,7 +1537,7 @@ function userlist(usersida){
            	{
            	if($('.userlist'+value.std_id).html() === undefined)
            	{
-           	$('.onilneusers').append('<a href="#" class="users mb-3 d-block userlist'+value.std_id+'">'+
+           	$('.onilneusers').append('<a href="profile.html?id='+value.std_id+'" class="users mb-3 d-block userlist'+value.std_id+'">'+
                                 '<div class=" d-flex justify-content-center align-items-center">'+
                                     '<div class="ou_img">'+
                                         '<img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">'+

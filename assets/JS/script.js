@@ -5,6 +5,7 @@ let sign = document.getElementById("sign");
 let log = document.getElementById("log");
 let home = document.getElementById("home");
 let imgurl = "https://steponexp.net/ring_about/";
+let dollarinfo = ""
 $('.nav-item a').on('click',function(){
     $('button').attr('aria-expanded','false');
     $('button').addClass("collapsed");
@@ -340,9 +341,9 @@ function advlist(){
                 if(response.data[key].url != null){
                     text = '<img src="https://steponexp.net/ring_about/'+response.data[key].url+'" class="img-fluid w-100"  alt="">'
                 } else {
-                    text = '<p class="img-fluid w-100 u-para " style="color:black">'+response.data[key].detail+'</p>';
+                    text = '<p class="img-fluid w-100 u-para " style="color:black; display:block">'+response.data[key].detail+'</p>';
                 }
-                $data = '<div class="col-md-4 mb-4" style="height: 200px; ">'+
+                $data = '<div class="col-md-3 " style="height: 200px; margin-bottom:30px; ">'+
                         '<div class="h-100 d-flex " style="border: 1px solid #000;">'+
                         text + '</div>'+
                     '</div>'
@@ -457,10 +458,31 @@ function chllist(){
         // Log a message to the console
         console.log(response);
         if(response.status === true){
-          
+          $(".carousel-indicators").html("");
+          $(".carousel-inner").html("");
              $.each(response.data.data, function (key, val) {
+                active = "";
                 if(key == 0){
-                  $(".challenge_img").attr("src",imgurl+response.data.data[key].url)   
+                    active = "active";
+                }
+                if(response.data.data[key].url != null){
+                var htmldata = '<div class="carousel-item h-100 position-relative '+active+'">'+
+                                    '<img src="'+imgurl+response.data.data[key].url+'" class="d-block img-fluid w-100 h-100 position-absolute " alt="...">'+
+                                    '</div>';
+                $(".carousel-inner").append(htmldata) 
+                }  else {
+                    var htmldata = '<div class="carousel-item h-100 position-relative '+active+'">'+
+                                    
+                                    '<p class="text-white text-center p-5 d-block img-fluid w-100 h-100 position-absolute">'+response.data.data[key].detail+'</p>'+
+                                '</div>';
+                $(".carousel-inner").append(htmldata)
+                }              
+                               
+
+                if(key == 0){
+                  $(".carousel-indicators").append('<li data-target="#carouselSlidesOnly" data-slide-to="'+key+'" class="active"></li>')   
+                }else{
+                    $(".carousel-indicators").append('<li data-target="#carouselSlidesOnly" data-slide-to="'+key+'" ></li>')   
                 }
                 
                 });
@@ -641,6 +663,115 @@ function editlist($id){
 
 }
 
+$('.prize_submit').on('click',function(e){
+    e.preventDefault();
+    clearInterval(intervald);
+     var form = $('#awardform')[0];
+    var formData = new FormData(form);
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/Awards",
+        type: "post",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: formData
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        if(response.status == "ok"){
+           closemodal()
+        }
+        else{
+            senddollar()
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+            console.log(jqXHR.responseJSON.error)
+           
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+});
+
+
+
+
+function startinter(delay, repetitions) {
+var countinr = 0;
+
+// function creation
+var intervald = setInterval(function(){
+
+    // increasing the count by 1
+    countinr++;
+
+    // when count equals to 5, stop the function
+    if(countinr === repetitions){
+        clearInterval(intervald);
+        senddollar();
+        
+    }
+
+    // display the current time
+    let dateTime= new Date();
+    let time = dateTime.toLocaleTimeString();
+    console.log(time);
+
+}, delay);
+}
+
+function senddollarmessage(info){
+    dollarinfo = info;
+    $("input[name='info']").val(JSON.stringify(dollarinfo));
+    startinter(3000, 10);
+    $(".giftimg").attr("src","./assets/IMG/gift-present.gif")
+    $(".giftimg").attr("onclick","openmodel()")
+    
+}
+function openmodel(){
+    $("#eModalLong").modal();
+}
+function closemodal(){
+     $("#eModalLong").modal('hide');
+     dollarinfo = "";
+     $(".giftimg").removeAttr("onclick");
+     $(".giftimg").attr("src","./assets/IMG/gift.jpg")
+}
+function senddollar(){
+     $("input[name='info']").val("");
+     bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    if(dollarinfo == ""){
+        return true;
+    }
+    dollarinfo.ids = dollarinfo.ids.filter(function(entry) { return /\S/.test(entry); });
+    dollarinfo.ids.push(userid);
+    var ids = dollarinfo.ids.toString()
+    $.ajax({
+        url: "https://steponexp.net:8096/api/senddollarmessage?message=122&ids="+ids,
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+    closemodal();
+}
 
 if(window.location.pathname == '/RingAbout/main.html')
 {
@@ -649,6 +780,8 @@ if(window.location.pathname == '/RingAbout/main.html')
   chllist() 
 }
 //
+
+
 
 
 
