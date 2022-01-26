@@ -653,11 +653,19 @@ function editlist($id){
           $("input[name='zip_code']").val(response.data[0].zip_code);
           $("input[name='user_name']").val(response.data[0].user_name);
            $(".profpic").attr("src",imgurl+response.data[0].url);
-           
+           if(response.data[0].emailstatus === 1){
+            $("#socialstatus").attr("checked","checked")
+           }
+           if(response.data[0].zipstatus === 1){
+            $("#zipstatus").attr("checked","checked")
+           }
+           if(response.data[0].socialstatus === 1){
+            $("#socialstatus").attr("checked","checked")
+           }
             $arr = response.data[0].twitter.split(",");
           if($arr.length>0){
           $.each($arr,function(key,value){
-               $(".socials").append('<input type="text" name="others[]" value="'+value+'" class="inp mb-2" placeholder="social link 1">');
+               $(".socials").append('<input type="text" name="others[]" value="'+value+'" class="inp mb-2" placeholder="enter social link">');
           });
           }
           // $("input[name='others']").val(response.data[0].twitter );
