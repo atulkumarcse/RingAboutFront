@@ -3,32 +3,27 @@ body {
 }
 /* IMPORT FONTS */
 @font-face {
-  font-family: "Merriweather-Bold";
-  src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+  font-family: "Montserrat-Light";
+  src: url(../FONTS/Montserrat/Montserrat-Light.ttf);
 }
 @font-face {
-  font-family: "Merriweather-Regular";
-  src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+  font-family: "Montserrat-Bold";
+  src: url(../FONTS/Montserrat/Montserrat-Bold.ttf);
 }
 @font-face {
-  font-family: "Merriweather-BoldItalic";
-  src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+  font-family: "Montserrat-Regular";
+  src: url(../FONTS/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face {
-  font-family: "Merriweather-LightItalic";
-  src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
-}
-@font-face {
-  font-family: "Merriweather-Italic";
-  src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
-}
-@font-face {
-  font-family: "Merriweather-Black";
-  src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
+  font-family: "Montserrat-SemiBold";
+  src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
 }
 
-.active > .nav-link{
-  color: black !important;
+.navbar-light .navbar-nav .nav-link{
+  color: #ffffff;
+}
+.active{
+  color: black;
 }
 .signup,.login{
     display: none;
@@ -44,18 +39,18 @@ nav{
   display:none;
 }
 .nav-link,.navbar-brand{
-  font-family: "Merriweather-Regular";
+  font-family: "Montserrat-Regular";
 }
 .content {
     padding: 3rem 0 0 0; 
 }
 input::placeholder{
     font-size: 16px;
-    font-family: "Merriweather-LightItalic";
+   font-family: "Montserrat-Light";
 }
 input{
   font-size: 16px !important;
-  font-family: "Merriweather-LightItalic";
+ font-family: "Montserrat-Light";
 }
 a {
     -webkit-transition: .3s all ease;
@@ -71,7 +66,7 @@ a:hover {
   
 .login h2,.signup h2{
   color: #026852;
-  font-family: "Merriweather-BoldItalic";
+ font-family: "Montserrat-Bold";
   /* font-size: 31px; */
 }
 
@@ -142,15 +137,15 @@ a:hover {
     height: 54px;
     padding-left: 30px;
     padding-right: 30px;
-    font-family: "Merriweather-Italic";
-    font-size: 19px;
+    font-family: "Montserrat-Bold";
+    font-size: 18px;
 }
   
 .content .forgot-pass {
     position: relative;
     top: 2px;
     font-size: 14px; 
-    font-family: "Merriweather-Italic";
+   font-family: "Montserrat-SemiBold";
 }
  
   
@@ -165,23 +160,25 @@ a:hover {
   object-fit: cover;
 }
 #mwon{
-  height: 75vh;
+  background-image: url(../IMG/g-patternn.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .card{
-  border-top: 0 !important;
-  border-bottom: 0 !important;
+  border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
 }
 .card h3{
-  font-family: "Merriweather-BoldItalic";
-  font-size: 30px;
+  font-family: "Montserrat-SemiBold";
+  font-size: 50px;
   color: #026852;
 }
 .card h1{
-  line-height: 5rem;
-  font-family: "Merriweather-Black";
-  font-size: 55px;
+  line-height: 8rem;
+ font-family: "Montserrat-Bold";
+  font-size: 70px;
   color: #004532;
 }
 .about{
@@ -192,13 +189,13 @@ a:hover {
   padding: 3rem 7rem 6rem;
 }
 .about h1{
-  font-family: "Merriweather-Bold";
+ font-family: "Montserrat-Bold";
   font-size: 43px;
 }
 .about-para{
   color: #f8fafb;
   font-size: 16px;
-  font-family: "Merriweather-LightItalic";
+   font-family: "Montserrat-Regular";
 }
 .about-para p{
   margin-bottom: 1.5rem;

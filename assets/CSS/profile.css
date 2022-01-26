@@ -1,39 +1,32 @@
 /* IMPORT FONTS */
 @font-face {
-    font-family: "Merriweather-Bold";
-    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+    font-family: "Montserrat-Light";
+    src: url(../FONTS/Montserrat/Montserrat-Light.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Regular";
-    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+    font-family: "Montserrat-Bold";
+    src: url(../FONTS/Montserrat/Montserrat-Bold.ttf);
 }
 @font-face {
-    font-family: "Merriweather-BoldItalic";
-    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+    font-family: "Montserrat-Regular";
+    src: url(../FONTS/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Italic";
-    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+    font-family: "Montserrat-SemiBold";
+    src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
 }
 @font-face {
-    font-family: "Merriweather-LightItalic";
-    src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
+    font-family: "PlayfairDisplay-Italic";
+    src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Italic.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Black";
-    src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
+    font-family:"Montserrat-ExtraBold";
+    src: url(../FONTS/Montserrat/Montserrat-ExtraBold.ttf);
 }
+
 @font-face {
-    font-family: "Merriweather-Light";
-    src: url(../FONTS/Merriweather/Merriweather-Light.ttf);
-}
-@font-face {
-    font-family: "Poppins-Light";
-    src: url(../FONTS/Poppins/Poppins-Light.ttf);
-}
-@font-face {
-    font-family: "Poppins-ExtraLight";
-    src: url(../FONTS/Poppins/Poppins-ExtraLight.ttf);
+    font-family: "PlayfairDisplay-Bold";
+    src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
 }
 
 /* navbar-light" style="background-color: #218A7C; */
@@ -60,7 +53,7 @@ nav{
 }
 
 .nav-link,.dropdown-item,.navbar-brand{
-    font-family: "Merriweather-Regular";
+    font-family: "Montserrat-Regular";
 }
 .dropdown-item:hover{
     color: #005d49;
@@ -98,7 +91,7 @@ h1,h4,label{
 .editbtn{
     background-color: #ffffff;
     color: #026852;
-    font-family: "Merriweather-Italic";
+    font-family: "Montserrat-Bold";
     font-size: 15px;
    
 }
@@ -156,7 +149,7 @@ form{
     padding: 5px 10px;
     font-size: 12px;
     color: #026852;
-    font-family: "Merriweather-Italic";
+    font-family: "Montserrat-Bold";
 }
 .picUpload:hover,.saveprof:hover{
     background-color: rgba(255,255,255,0.9);
@@ -186,11 +179,11 @@ form{
     width: 23%;
     padding: 0;
     font-size: 18px;
-    font-family: "Poppins-Light";
+    font-family: "Montserrat-Light";
     font-size: 1.1rem;
 }
 .profile-down h4{
-    font-family: "Poppins-ExtraLight";
+    font-family: "Montserrat-Regular";
     font-size: 1.2rem;
 }
 .profile-down input{
@@ -204,7 +197,7 @@ form{
     width: 65%;
     font-size: 16px;
     color: #ffffff;
-    font-family: "Merriweather-LightItalic";
+    font-family: "Montserrat-Light";
 }
 .profile-down input:focus{
     outline: none;
@@ -224,22 +217,25 @@ form{
     margin-left: 1rem;
     font-size: 15px;
     padding: 5px 18px;
-    font-family: "Merriweather-Italic";
+   font-family: "Montserrat-Bold";
 }
 
 .user_name{
-    font-family: "Merriweather-BoldItalic";
+   font-family: "PlayfairDisplay-Italic";
 }
 
 .inner-cls .tagl{
     font-size: 17px;
     margin: auto 0 0 0;
+    font-family: "Montserrat-Light";
 }
 .inner-cls input::placeholder{
     color: rgb(202, 200, 200);
+    font-family: "Montserrat-Regular";
 }
 .addmore{
     color: #ffffff;
+     font-family: "Montserrat-SemiBold";
 }
 .addmore:hover{
     color: #000;

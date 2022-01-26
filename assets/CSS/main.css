@@ -1,44 +1,32 @@
 /* IMPORT FONTS */
 @font-face {
-    font-family: "Merriweather-Bold";
-    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+    font-family: "Montserrat-Light";
+    src: url(../FONTS/Montserrat/Montserrat-Light.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Regular";
-    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+    font-family: "Montserrat-Bold";
+    src: url(../FONTS/Montserrat/Montserrat-Bold.ttf);
 }
 @font-face {
-    font-family: "Merriweather-BoldItalic";
-    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+    font-family: "Montserrat-Regular";
+    src: url(../FONTS/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Italic";
-    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+    font-family: "Montserrat-SemiBold";
+    src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
 }
 @font-face {
-    font-family: "Merriweather-LightItalic";
-    src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
+    font-family: "PlayfairDisplay-Italic";
+    src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Italic.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Black";
-    src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
-}
-@font-face {
-    font-family: "Merriweather-Light";
-    src: url(../FONTS/Merriweather/Merriweather-Light.ttf);
-}
-@font-face {
-    font-family: "Poppins-Light";
-    src: url(../FONTS/Poppins/Poppins-Light.ttf);
-}
-@font-face {
-    font-family: "Poppins-MediumItalic";
-    src: url(../FONTS/Poppins/Poppins-MediumItalic.ttf);
+    font-family:"Montserrat-ExtraBold";
+    src: url(../FONTS/Montserrat/Montserrat-ExtraBold.ttf);
 }
 
 @font-face {
-    font-family: "Poppins-Regular";
-    src: url(../FONTS/Poppins/Poppins-Regular.ttf);
+    font-family: "PlayfairDisplay-Bold";
+    src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
 }
 
 /* Scrollbar width reduced---snippet-- */
@@ -80,7 +68,7 @@
     display:none;
 }
 .nav-link,.dropdown-item,.navbar-brand{
-    font-family: "Merriweather-Regular";
+    font-family: "Montserrat-Regular";
 }
 .dropdown-item:hover{
     color: #005d49;
@@ -111,7 +99,7 @@
     padding: 7px 15px;
     font-size: 12px;
     color: #ffffff;
-    font-family: "Merriweather-Italic";
+   font-family: "Montserrat-Bold";
 }
 .igUpload:hover{
     color: #ffffff;
@@ -136,28 +124,29 @@
     display: none;
 }
 .text-opt textarea,.text-opt textarea::placeholder{
-    font-family: "Merriweather-LightItalic";
+    font-family: "PlayfairDisplay-Italic";
     font-size: 16px;
 }
 .modal-title{
-    font-family: "Merriweather-BoldItalic";
+    font-family: "Montserrat-Bold";
     color: #004532;
 }
 .modal-body h5{
-    font-family: "Merriweather-Italic";
+    font-family: "Montserrat-SemiBold";
+    font-size: 17px;
 }
 .modal-body option{
-    font-family: "Poppins-Light";
+    font-family: "Montserrat-Regular";
     font-size: 15px;   
 }
 .note{
-    font-family: "Poppins-MediumItalic";
+    font-family: "Montserrat-SemiBold";
 }
 .submitbtn,.txtsubmitbtn{
     padding: 7px 18px;
     font-size: 12px;
     color: #ffffff;
-    font-family: "Merriweather-Italic";
+    font-family: "Montserrat-Bold";
     background-color: #026852;
 }
 .submitbtn:hover,.txtsubmitbtn:hover{
@@ -175,7 +164,7 @@
     overflow-x: hidden;
 }
 .onliners h4{
-    font-family: "Merriweather-Bold";
+   font-family: "Montserrat-Bold";
 }
 .onliners a{
     text-decoration: none;
@@ -201,7 +190,7 @@
 }
 .ou_name{
     font-size: 16px;
-    font-family: "Merriweather-Light";
+    font-family: "Montserrat-ExtraBold";
     color: #ffffff;
 }
 
@@ -220,6 +209,11 @@
 .challenge_div > div{
     position: relative;
 }
+
+.challenge_div p{
+	font-family: "PlayfairDisplay-Italic";
+	font-size: 20px;
+}
 /* .challenge_div > div > img{
     width: 100%;
     height: 100%;
@@ -235,13 +229,13 @@
 }
 .money h4{
     text-align: center;
-    font-family: "Merriweather-BoldItalic";
+    font-family: "Montserrat-Bold";
     font-size: 1.4rem;
     color: #004532;
 }
 .money h1{
     text-align: center;
-    font-family: "Merriweather-Black";
+    font-family: "Montserrat-ExtraBold";
     font-size: 1.7rem;
     margin-bottom: 1.5rem;
     word-wrap: break-word;
@@ -249,19 +243,22 @@
 }
 .money h2{
     text-align: center;
-    font-family: "Merriweather-Bold";
+    font-family: "PlayfairDisplay-Bold";
     font-size: 1.5rem;
 }
 
 /* Lottery pop up */
 #eModalLong label{
-    font-family: "Poppins-Regular";
+   font-family: "Montserrat-Regular";
     font-size: 16px;
     margin-bottom: 0.3px !important;
 }
+#eModalLong .modal-title{
+    font-family: "Montserrat-Bold";
+}
 
 #eModalLong input{
-    font-family: "Merriweather-LightItalic";
+    font-family: "Montserrat-Light";
     font-size: 14px;
 }
 
@@ -269,7 +266,7 @@
     padding: 7px 18px;
     font-size: 16px;
     color: #ffffff;
-    font-family: "Merriweather-Italic";
+     font-family: "Montserrat-Bold";
     background-color: #026852;
 }
 
@@ -311,7 +308,7 @@
 .classified > h1{
     color: #026852;
     color: #ffffff;
-    font-family: "Merriweather-BoldItalic";
+    font-family: "Montserrat-Bold";
 }
 .classified > h1:hover{
     cursor: pointer;

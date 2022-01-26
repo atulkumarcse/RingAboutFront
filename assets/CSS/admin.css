@@ -1,0 +1,159 @@
+/* IMPORT FONTS */
+@font-face {
+    font-family: "Montserrat-Light";
+    src: url(../FONTS/Montserrat/Montserrat-Light.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url(../FONTS/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url(../FONTS/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: "Montserrat-SemiBold";
+    src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
+}
+@font-face {
+    font-family: "PlayfairDisplay-Italic";
+    src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Italic.ttf);
+}
+
+/* Scrollbar width reduced---snippet-- */
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.modal-header{
+    padding:0.5rem 1rem !important;
+}
+.close:focus{
+    outline: none;
+}
+.main-container{
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f8fafb;
+    background-image: url(../IMG/dark-green-texture.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+    position: sticky;
+    top: 0;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #ffffff;
+}
+.active{
+    color: #000;
+}
+.navbar button[aria-expanded="false"] > .close{
+    display:none;
+}
+.navbar button[aria-expanded="true"] > .open{
+    display:none;
+}
+.nav-link,.dropdown-item,.navbar-brand{
+   font-family: "Montserrat-Regular";
+}
+
+.a1{
+    width: 100%;
+    height: 100%;
+}
+
+h1,#lottery h3,.modal-title,.modal-body button,button{
+    font-family: "Montserrat-Bold";
+}
+.modal-body h4{
+    font-family: "Montserrat-SemiBold";
+}
+input,input::placeholder{
+    font-family: "Montserrat-Light";
+}
+textarea,textarea::placeholder{
+    font-family: "PlayfairDisplay-Italic";
+}
+.instruct{
+    font-family: "Montserrat-Regular";
+}
+option{
+    font-family: "Montserrat-Regular";
+    font-size: 15px;   
+}
+
+td{
+    font-size: 17px;
+    font-family: "Montserrat-Light";
+}
+th{
+    font-size: 22px;
+    font-family: "Montserrat-SemiBold";
+}
+
+#challenges,#leaderboards,#lottery{
+    display: none;
+}
+/* ,*/
+
+
+/* Leaderboard page */
+.pull-right a{
+    background-color: #026852;
+    color: #ffffff;
+}
+.pull-right a:hover{
+    color: #026852;
+    background-color: #ffffff;
+}
+
+#leaderboards th,#leaderboards td,#challenges th,#challenges td,#posts th,#posts td{
+    color: #ffffff;
+    text-align: center;
+}
+.tebtn,.backbtn{
+    background-color: #ffffff;
+    color: #026852;
+}
+.tebtn:hover,.backbtn:hover{
+    background-color: #026852;
+    color: #ffffff;
+}
+
+
+/* backbtn */
+.backbtn{
+    border: 2px solid #026852;
+}
+.subbtn,.lotbtn{
+    background-color: #026852;
+    color: #ffffff;
+}
+.subbtn:hover,.lotbtn:hover{
+    background-color: #ffffff;
+    color: #026852;
+}
+
+.adimg,.adtext,.adposts,.useposts{
+    display: none;
+}
