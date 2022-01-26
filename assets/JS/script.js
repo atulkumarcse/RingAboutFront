@@ -133,7 +133,50 @@ $('#regbtn').on('click',function(e){
 
 
 
-//Login
+//logout
+
+$('.logout').on('click',function(e){
+   bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/logout",
+        type: "post",
+         headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+
+        console.log(response);
+        if(response.status == "ok"){
+             eraseCookie('token');
+             eraseCookie('userdetails');
+             deleteAllCookies();
+            window.location.href = "/RingAbout"
+
+        }
+        else{
+             $("#msglogout").html("Please register yourself")
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           //console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error.status_code == 403)
+           {
+            $("#msglogout").html("Please Register yourself"); 
+            return true;
+           }
+    });
+
+});
+
 
 $('.logbtn').on('click',function(e){
     e.preventDefault();
@@ -296,7 +339,7 @@ $('.submitbtnadv').on('click',function(e){
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
-           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided"){
+           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided" || jqXHR.responseJSON.error == "token_invalid"){
             window.location.href = "/RingAbout";
            }
 
@@ -362,7 +405,7 @@ function advlist(){
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
            console.log(jqXHR.responseJSON);
-           if(jqXHR.responseJSON.error == "token_expired"){
+           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_invalid"){
             window.location.href = "/RingAbout";
            }
 
