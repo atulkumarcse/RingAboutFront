@@ -544,16 +544,32 @@ function profilelist($id){
         $(".others").html("");
         if(response.status === true){
           $(".name1").html(response.data[0].name);
-          $(".email1").html(response.data[0].email);
-          $(".zip1").html(response.data[0].zip_code);
+          
+           if(response.data[0].emailstatus === 1){
+            $(".email1").html(response.data[0].email);
+            $("#socialstatus").attr("checked","checked")
+            } else {
+             $(".email").html("") 
+            }
+           if(response.data[0].zipstatus === 1){
+            $(".zip1").html(response.data[0].zip_code);
+            }else { 
+                $(".zipcode").html("") 
+            }
+            if(response.data[0].socialstatus === 1){
+             $arr = response.data[0].twitter.split(",");
+              if($arr.length>0){
+              $.each($arr,function(key,value){
+                   $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
+              });
+              }
+            } else { 
+              $(".social_links").html("") 
+            }
+          
           $(".user_name").html(response.data[0].user_name);
           $(".profpic").attr("src",imgurl+response.data[0].url);
-          $arr = response.data[0].twitter.split(",");
-          if($arr.length>0){
-          $.each($arr,function(key,value){
-               $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
-          });
-          }
+         
           // $(".tweet").html(response.data[0].tweet);
           // $(".insta").html(response.data[0].insta );
           // $(".others").html(response.data[0].linkedin );
