@@ -34,6 +34,10 @@ homelink.addEventListener("click",function(){
 }
 
 
+// Navbar
+$('a.nav-link').on('click', function(e) {
+    $(this).parent().addClass('active').siblings().removeClass('active');
+});
 
 // home
 var animatebox = document.getElementById('mwon');
@@ -292,8 +296,7 @@ $('.submitbtnadv').on('click',function(e){
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
-           console.log(jqXHR.responseJSON);
-           if(jqXHR.responseJSON.error == "token_expired"){
+           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided"){
             window.location.href = "/RingAbout";
            }
 
@@ -417,8 +420,8 @@ function mnylist(){
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
-           console.log(jqXHR.responseJSON);
-           if(jqXHR.responseJSON.error == "token_expired"){
+        console.log(jqXHR.responseJSON);
+          if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided"){
             window.location.href = "/RingAbout";
            }
 

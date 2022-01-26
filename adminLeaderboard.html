@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RingAbout</title>
+
+     <!-- CDNs -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+     <!-- Font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+     <!-- css styling -->
+     <link rel="stylesheet" href="./assets/CSS/admin.css">
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="d-flex justify-content-end mb-5">
+            <a class="btn backbtn px-4" href="./admin.html"><i class="fas fa-backspace"></i> Back</a>
+        </div>
+        <h1 class="text-center text-white mb-5">Add New Entry</h1>
+
+        <form action="" method="POST" multipart="true" class="d-flex justify-content-center">
+            <input type="hidden" name="csrf-token" content="otkPv1ehvyS0zBALu4roy2PWJIcbaDbedZCJ8DsX" value="otkPv1ehvyS0zBALu4roy2PWJIcbaDbedZCJ8DsX">
+            <input type="hidden" name="_token" content="otkPv1ehvyS0zBALu4roy2PWJIcbaDbedZCJ8DsX" value="otkPv1ehvyS0zBALu4roy2PWJIcbaDbedZCJ8DsX">        
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mb-4">
+                        <div class="form-group">
+                            <!-- <strong>Name:</strong> -->
+                            <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 mb-4">
+                        <div class="form-group">
+                            <!-- <strong>Money:</strong> -->
+                            <input class="form-control" type="number" name="money" placeholder="Enter Money"/>
+                        </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
+                        <button type="submit" class="btn subbtn">Submit</button>
+                  </div>
+                </div>
+          </form>
+    </div>
+
+</body>
+</html>
