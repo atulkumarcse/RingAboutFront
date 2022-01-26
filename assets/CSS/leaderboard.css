@@ -1,19 +1,19 @@
 /* IMPORT FONTS */
 @font-face {
-    font-family: "Merriweather-Bold";
-    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+    font-family: "Montserrat-Light";
+    src: url(../FONTS/Montserrat/Montserrat-Light.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Regular";
-    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+    font-family: "Montserrat-Bold";
+    src: url(../FONTS/Montserrat/Montserrat-Bold.ttf);
 }
 @font-face {
-    font-family: "Merriweather-BoldItalic";
-    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+    font-family: "Montserrat-Regular";
+    src: url(../FONTS/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face {
-    font-family: "Merriweather-Italic";
-    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+    font-family: "Montserrat-SemiBold";
+    src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
 }
 
 .main-container{
@@ -36,7 +36,7 @@ nav{
     display:none;
 }
 .nav-link,.dropdown-item,.navbar-brand{
-    font-family: "Merriweather-Regular";
+    font-family: "Montserrat-Regular";
 }
 .dropdown-item:hover{
     color: #005d49;
@@ -47,7 +47,7 @@ nav{
 }
 .leaderboard h1{
     font-size: 42px;
-    font-family: "Merriweather-Bold";
+    font-family: "Montserrat-Bold";
 }
 .leaderboard div{
     width: 45%;
@@ -55,13 +55,28 @@ nav{
 table,tr,td,th{
     border-bottom: 1px solid #2d2d2e;
 }
-td{
+td,.leaderboarddata th{
     text-align: center;
     color: #faf8fa;
     font-size: 17px;
-    font-family: "Merriweather-Italic";
+    font-family: "Montserrat-Light";
 }
 th{
     font-size: 22px;
-    font-family: "Merriweather-BoldItalic";
+    font-family: "Montserrat-SemiBold";
+}
+
+.modal-header{
+    padding:0.5rem 1rem !important;
+}
+.modal-title{
+    font-family: "Montserrat-Bold";
+    color: #004532;
+}
+.modal-body h5{
+    font-family: "Montserrat-SemiBold";
+    font-size: 17px;
+}
+.modal-body button{
+    font-family: "Montserrat-Bold";
 }

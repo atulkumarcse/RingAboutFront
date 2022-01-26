@@ -139,6 +139,12 @@
     font-family: "Montserrat-Regular";
     font-size: 15px;   
 }
+.modal-body button{
+    font-family: "Montserrat-Bold";
+}
+#logoutModal .modal-header{
+    padding:0.5rem 1rem !important;
+}
 .note{
     font-family: "Montserrat-SemiBold";
 }

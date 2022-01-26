@@ -776,6 +776,50 @@ function senddollar(){
     closemodal();
 }
 
+
+function getleaderboard(){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/leaderboarddata",
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        $(".leaderboarddata").html("");
+        $(".tweet").html("");
+        $(".insta").html("");
+        $(".others").html("");
+        if(response.status === true){
+          $.each(response.data.data,function(key,value){
+               $(".leaderboarddata").append('<tr>'+
+                        ' <td class="py-3 rank">'+value.order+'</td>'+
+                        ' <td class="py-3 rank-user">'+value.name+'</td>'+
+                    '</tr>');
+          });
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired"){
+            window.location.href = "/RingAbout";
+           }
+    });
+
+}
+
 if(window.location.pathname == '/RingAbout/main.html')
 {
   advlist();
