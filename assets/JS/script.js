@@ -595,7 +595,7 @@ $('.updbtn').on('click',function(e){
     request.done(function (response, textStatus, jqXHR){
         // Log a message to the console
         if(response.status == "ok"){
-            document.getElementById("#updprofile").reset();
+            // document.getElementById("#updprofile").reset();
             $("#msgedit").html("Profile Edit Successfully")
         }
         else{
@@ -623,6 +623,9 @@ $('.updbtn').on('click',function(e){
     });
 });
 
+
+
+
 function editlist($id){
     bearertoken = readCookie('token');
     // Fire off the request to /form.php
@@ -643,14 +646,21 @@ function editlist($id){
         console.log(response);
         $(".tweet").html("");
         $(".insta").html("");
-        $(".others").html("");
+        $(".socials").html("");
         if(response.status === true){
           $("input[name='name']").val(response.data[0].name);
           $("input[name='email']").val(response.data[0].email);
           $("input[name='zip_code']").val(response.data[0].zip_code);
           $("input[name='user_name']").val(response.data[0].user_name);
            $(".profpic").attr("src",imgurl+response.data[0].url);
-          $("input[name='others']").val(response.data[0].twitter );
+           
+            $arr = response.data[0].twitter.split(",");
+          if($arr.length>0){
+          $.each($arr,function(key,value){
+               $(".socials").append('<input type="text" name="others[]" value="'+value+'" class="inp mb-2" placeholder="social link 1">');
+          });
+          }
+          // $("input[name='others']").val(response.data[0].twitter );
            } else {
 
         }
@@ -820,6 +830,26 @@ function getleaderboard(){
 
 }
 
+function toggle(e){
+    $keyname = $(e).attr("key");
+     bearertoken = readCookie('token');
+    var status = 0
+    if(e.checked === true){
+        status = 1
+    } else {
+        status = 0
+    }
+    $.ajax({
+        url: "/ring_about/api/userstatus/"+$keyname+"/"+status,
+        type: "post",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+}
 if(window.location.pathname == '/RingAbout/main.html')
 {
   advlist();
