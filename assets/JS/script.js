@@ -103,7 +103,7 @@ $('#regbtn').on('click',function(e){
 
         console.log(response);
         if(response.status == "ok"){
-            document.getElementById("myForm").reset();
+            //document.getElementById("myForm").reset();
             $("#msg").html("Registration Successfully")
         }
         else{

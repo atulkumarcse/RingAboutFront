@@ -38,3 +38,19 @@ $('a.nav-link').on('click', function(e) {
 
 
 // Posts selection
+$('select').on('click',function(e){
+    var optval = e.target.value;
+    console.log(optval);
+    if(optval==1){
+        $('.adposts').css('display','none');
+        $('.useposts').css('display','block');
+    }
+    else if(optval==2){
+        $('.useposts').css('display','none');
+        $('.adposts').css('display','block');
+    }
+    else{
+        $('.adposts').css('display','none');
+        $('.useposts').css('display','none');
+    }
+});

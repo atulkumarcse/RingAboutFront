@@ -1,0 +1,45 @@
+@media screen and (max-width:767px) {
+    .prof-cls{
+        width: 90%;
+        margin-left: 2rem;
+    }
+    .profile-photo{
+        width: 90px;
+        height: 90px;
+    }
+    .user_name{
+        font-size: 1.5rem;
+    }
+    .profile-down .tagl{
+        font-size: 0.8rem;
+    }
+    .profile-down h4{
+        font-size: 0.9rem;
+    }
+    .inner-cls{
+        width: 95%;
+        margin: 0 1rem 0 1rem;
+    }
+    .inner-cls form{
+        width: 100%;
+    }
+    .profile-down input{
+        width: 70%;
+    }
+    .toggletxt{
+        margin-right:0rem ;
+    }
+    .addmore{
+        font-size: 0.8rem;
+        margin-left: 5.7%;
+    }
+    .leaderboard div {
+        width: 85%;
+    }
+    .challenge_div p {
+        font-size: 14px;
+    }
+    .u-para{
+        font-size: 0.6rem;
+    }
+}
