@@ -1509,8 +1509,9 @@ function unreaduserlist(usersida){
 							'</div>'+
 						'</div>'+
 						'</div>');
-           	$(".circlered"+value.from).addClass("blink")
+           	
            }
+           $(".circlered"+value.from).addClass("blink")
            }
             });
          //$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
@@ -1565,7 +1566,7 @@ function userlist(usersida){
 						'</div>');
            }
            }
-            });
+           });
          //$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
           //qna();
           //alert("question asked for you");
