@@ -1570,7 +1570,10 @@ function userlist(usersida){
          //$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
           //qna();
           //alert("question asked for you");
-          unreaduserlist(userid)
+          if(window.location.pathname == '/RingAbout/chatroom.html')
+	         {
+	          unreaduserlist(userid)
+	        }
         }
          });
 }
