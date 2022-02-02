@@ -1,0 +1,805 @@
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 25px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+.memory-screen{
+    position: absolute;
+    left: 58px;
+    /* width: 1308px; */
+    /* height: 584px; */
+    width: 95.75%;
+    /* height: 89vh; */
+    height: 91vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.memory-grids{
+    width: 100%;
+    height: 100%;
+    padding: 2% 0;
+    /* padding: 2% 5%; */
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    grid-template-rows: 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px;
+    grid-template-areas: 
+        "sec1   sec2   sec3   sec3   sec4"
+        "sec5   sec6   sec7   sec206 sec206"
+        "sec10  sec11  sec11  sec8   sec12"
+        "sec13  sec14  sec14  sec15  sec16"
+        "sec17  sec18  sec19  sec20  sec21"
+        "sec22  sec18  sec23  sec23  sec24"      /*6*/
+        "sec25  sec26  sec27  sec27  sec28"
+        "sec29  sec30  sec31  sec32  sec33"
+        "sec34  sec35  sec35  sec32  sec36"
+        "sec37  sec38  sec38  sec39  sec40"
+        "sec41  sec42  sec43  sec44  sec45"
+        "sec46  sec42  sec47  sec47  sec48"       /*12*/
+        "sec49  sec50  sec53  sec53  sec54"
+        "sec55  sec56  sec57  sec58  sec59"
+        "sec60  sec61  sec61  sec58  sec62"
+        "sec63  sec64  sec64  sec65  sec66"
+        "sec67  sec68  sec69  sec70  sec71"
+        "sec72  sec68  sec73  sec73  sec74"       /*6*/
+        "sec75  sec76  sec77  sec77  sec78"
+        "sec79  sec80  sec81  sec82  sec83"
+        "sec84  sec85  sec85  sec82  sec86"
+        "sec87  sec88  sec88  sec89  sec90"
+        "sec91  sec92  sec93  sec94  sec95"
+        "sec96  sec92  sec97  sec97  sec98"      /*12*/
+        "sec99  sec100 sec101 sec101 sec102"
+        "sec103 sec104 sec105 sec106 sec107"
+        "sec108 sec109 sec109 sec106 sec110"
+        "sec111 sec112 sec112 sec113 sec114"
+        "sec115 sec116 sec117 sec118 sec119"
+        "sec120 sec116 sec121 sec121 sec122"     /*6*/
+        "sec123 sec124 sec125 sec125 sec126"
+        "sec127 sec128 sec129 sec130 sec131"
+        "sec132 sec133 sec134 sec130 sec135"
+        "sec136 sec137 sec137 sec138 sec139"
+        "sec140 sec141 sec142 sec143 sec144"
+        "sec145 sec141 sec146 sec146 sec147"    /*12*/
+        "sec148 sec149 sec150 sec150 sec151"
+        "sec152 sec153 sec154 sec155 sec156"
+        "sec157 sec158 sec158 sec155 sec159"
+        "sec160 sec161 sec161 sec162 sec163"
+        "sec164 sec165 sec166 sec167 sec168"
+        "sec169 sec165 sec170 sec170 sec171"    /*6*/
+        "sec172 sec173 sec174 sec174 sec175"
+        "sec176 sec177 sec178 sec179 sec180"
+        "sec181 sec182 sec183 sec179 sec184"
+        "sec185 sec186 sec186 sec187 sec188"
+        "sec189 sec190 sec191 sec192 sec193"
+        "sec194 sec190 sec195 sec195 sec196"    /*12*/
+        "sec197 sec198 sec199 sec199 sec200"
+        "sec201 sec202 sec203 sec204 sec205"
+        "sec51  sec52  sec52  sec204 sec9"
+        "sec301 sec302 sec302 sec303 sec304";    /*6-3*/
+        
+
+    overflow-y: auto;    
+}
+
+.memory-grids div{
+    margin: 5%;
+    box-shadow: -3px 4px 9px 4px rgba(0,0,0,0.17);
+}
+
+.sec3,.sec206,.sec11,.sec14,.sec23,.sec27,.sec35,.sec38,.sec47,.sec53,.sec61,.sec64,.sec73,.sec77,.sec85,.sec88,.sec97,.sec101,.sec109,.sec112,.sec121,.sec125,.sec137,.sec146,.sec150,.sec158,.sec161,.sec170,.sec174,.sec186,.sec195,.sec199,.sec52{
+     margin: 2.5% !important;
+}
+.sec206{
+    padding: 2%;
+}
+.lane{
+    color: #283b79;
+    font-size: 25px;
+    font-family: "Montserrat-Bold";
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 0px;
+}
+
+.trip{
+    font-size: 40px;
+    font-family: "Montserrat-Medium";
+    color: #283b79;
+    text-align: center;
+}
+
+.mfeel{
+    color: #ffffff;
+}
+.memoryp:hover{
+	cursor: pointer;
+}
+
+.memory-grids div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sec301{
+    grid-area: sec301;
+    box-shadow: none !important;
+}
+
+.sec1{
+    grid-area: sec1;
+}
+.sec2{
+    grid-area: sec2;
+}
+.sec3{
+    grid-area: sec3;
+}
+.sec4{
+    grid-area: sec4;
+}
+.sec5{
+    grid-area: sec5;
+}.sec6{
+    grid-area: sec6;
+}
+.sec7{
+    grid-area: sec7;
+}
+.sec8{
+    grid-area: sec8;
+}
+.sec9{
+    grid-area: sec9;
+}
+.sec10{
+    grid-area: sec10;
+}.sec11{
+    grid-area: sec11;
+}
+.sec12{
+    grid-area: sec12;
+}
+.sec13{
+    grid-area: sec13;
+}
+.sec14{
+    grid-area: sec14;
+}
+.sec15{
+    grid-area: sec15;
+}
+.sec16{
+    grid-area: sec16;
+}.sec17{
+    grid-area: sec17;
+}
+.sec18{
+    grid-area: sec18;
+}
+.sec19{
+    grid-area: sec19;
+}
+
+.sec20{
+    grid-area: sec20;
+}
+.sec21{
+    grid-area: sec21;
+}
+.sec22{
+    grid-area: sec22;
+}
+.sec23{
+    grid-area: sec23;
+}
+.sec24{
+    grid-area: sec24;
+}
+.sec25{
+    grid-area: sec25;
+}
+.sec26{
+    grid-area: sec26;
+}
+.sec27{
+    grid-area: sec27;
+}
+.sec28{
+    grid-area: sec28;
+}
+.sec29{
+    grid-area: sec29;
+}
+.sec30{
+    grid-area: sec30;
+}
+.sec31{
+    grid-area: sec31;
+}
+.sec32{
+    grid-area: sec32;
+}
+.sec33{
+    grid-area: sec33;
+}
+.sec34{
+    grid-area: sec34;
+}
+.sec35{
+    grid-area: sec35;
+}
+.sec36{
+    grid-area: sec36;
+}
+.sec37{
+    grid-area: sec37;
+}
+.sec38{
+    grid-area: sec38;
+}
+.sec39{
+    grid-area: sec39;
+}
+.sec40{
+    grid-area: sec40;
+}
+.sec41{
+    grid-area: sec41;
+}
+.sec42{
+    grid-area: sec42;
+}
+.sec43{
+    grid-area: sec43;
+}
+.sec44{
+    grid-area: sec44;
+}
+.sec45{
+    grid-area: sec45;
+}
+.sec46{
+    grid-area: sec46;
+}
+.sec47{
+    grid-area: sec47;
+}
+.sec48{
+    grid-area: sec48;
+}
+.sec49{
+    grid-area: sec49;
+}
+.sec50{
+    grid-area: sec50;
+}
+.sec51{
+    grid-area: sec51;
+}
+.sec52{
+    grid-area: sec52;
+}
+.sec53{
+    grid-area: sec53;
+}
+.sec54{
+    grid-area: sec54;
+}
+.sec55{
+    grid-area: sec55;
+}
+.sec56{
+    grid-area: sec56;
+}
+.sec57{
+    grid-area: sec57;
+}
+.sec58{
+    grid-area: sec58;
+}
+.sec59{
+    grid-area: sec59;
+}
+.sec60{
+    grid-area: sec60;
+}
+.sec61{
+    grid-area: sec61;
+}
+.sec62{
+    grid-area: sec62;
+}
+.sec63{
+    grid-area: sec63;
+}
+.sec64{
+    grid-area: sec64;
+}
+.sec65{
+    grid-area: sec65;
+}
+.sec66{
+    grid-area: sec66;
+}
+.sec67{
+    grid-area: sec67;
+}
+.sec68{
+    grid-area: sec68;
+}
+.sec69{
+    grid-area: sec69;
+}
+.sec70{
+    grid-area: sec70;
+}
+.sec71{
+    grid-area: sec71;
+}
+.sec72{
+    grid-area: sec72;
+}
+.sec73{
+    grid-area: sec73;
+}
+.sec74{
+    grid-area: sec74;
+}
+.sec75{
+    grid-area: sec75;
+}
+.sec76{
+    grid-area: sec76;
+}
+.sec77{
+    grid-area: sec77;
+}
+.sec78{
+    grid-area: sec78;
+}
+.sec79{
+    grid-area: sec79;
+}
+.sec80{
+    grid-area: sec80;
+}
+.sec81{
+    grid-area: sec81;
+}
+.sec82{
+    grid-area: sec82;
+}
+.sec83{
+    grid-area: sec83;
+}
+.sec84{
+    grid-area: sec84;
+}
+.sec85{
+    grid-area: sec85;
+}
+.sec86{
+    grid-area: sec86;
+}
+.sec87{
+    grid-area: sec87;
+}
+.sec88{
+    grid-area: sec88;
+}
+.sec89{
+    grid-area: sec89;
+}
+.sec90{
+    grid-area: sec90;
+}
+.sec91{
+    grid-area: sec91;
+}
+.sec92{
+    grid-area: sec92;
+}
+.sec93{
+    grid-area: sec93;
+}
+.sec94{
+    grid-area: sec94;
+}
+.sec95{
+    grid-area: sec95;
+}
+.sec96{
+    grid-area: sec96;
+}
+.sec97{
+    grid-area: sec97;
+}
+.sec98{
+    grid-area: sec98;
+}
+.sec99{
+    grid-area: sec99;
+}
+.sec100{
+    grid-area: sec100;
+}
+.sec101{
+    grid-area: sec101;
+}
+.sec102{
+    grid-area: sec102;
+}
+.sec103{
+    grid-area: sec103;
+}
+.sec104{
+    grid-area: sec104;
+}
+.sec105{
+    grid-area: sec105;
+}
+.sec106{
+    grid-area: sec106;
+}
+.sec107{
+    grid-area: sec107;
+}
+.sec108{
+    grid-area: sec108;
+}
+.sec109{
+    grid-area: sec109;
+}
+.sec110{
+    grid-area: sec110;
+}
+.sec111{
+    grid-area: sec111;
+}
+.sec112{
+    grid-area: sec112;
+}
+.sec113{
+    grid-area: sec113;
+}
+.sec114{
+    grid-area: sec114;
+}
+.sec115{
+    grid-area: sec115;
+}
+.sec116{
+    grid-area: sec116;
+}
+.sec117{
+    grid-area: sec117;
+}
+.sec118{
+    grid-area: sec118;
+}
+.sec119{
+    grid-area: sec119;
+}
+.sec120{
+    grid-area: sec120;
+}
+.sec121{
+    grid-area: sec121;
+}
+.sec122{
+    grid-area: sec122;
+}
+.sec123{
+    grid-area: sec123;
+}
+.sec124{
+    grid-area: sec124;
+}
+.sec125{
+    grid-area: sec125;
+}
+.sec126{
+    grid-area: sec126;
+}
+.sec127{
+    grid-area: sec127;
+}
+.sec128{
+    grid-area: sec128;
+}
+.sec129{
+    grid-area: sec129;
+}
+.sec130{
+    grid-area: sec130;
+}
+.sec131{
+    grid-area: sec131;
+}
+.sec132{
+    grid-area: sec132;
+}
+.sec133{
+    grid-area: sec133;
+}
+.sec134{
+    grid-area: sec134;
+}
+.sec135{
+    grid-area: sec135;
+}
+.sec136{
+    grid-area: sec136;
+}
+.sec137{
+    grid-area: sec137;
+}
+.sec138{
+    grid-area: sec138;
+}
+.sec139{
+    grid-area: sec139;
+}
+.sec140{
+    grid-area: sec140;
+}
+.sec141{
+    grid-area: sec141;
+}
+.sec142{
+    grid-area: sec142;
+}
+.sec143{
+    grid-area: sec143;
+}
+.sec144{
+    grid-area: sec144;
+}
+.sec145{
+    grid-area: sec145;
+}
+.sec146{
+    grid-area: sec146;
+}
+.sec147{
+    grid-area: sec147;
+}
+.sec148{
+    grid-area: sec148;
+}
+.sec149{
+    grid-area: sec149;
+}
+.sec150{
+    grid-area: sec150;
+}
+.sec151{
+    grid-area: sec151;
+}
+.sec152{
+    grid-area: sec152;
+}
+.sec153{
+    grid-area: sec153;
+}
+.sec154{
+    grid-area: sec154;
+}
+.sec155{
+    grid-area: sec155;
+}
+.sec156{
+    grid-area: sec156;
+}
+.sec157{
+    grid-area: sec157;
+}
+.sec158{
+    grid-area: sec158;
+}
+.sec159{
+    grid-area: sec159;
+}
+.sec160{
+    grid-area: sec160;
+}
+.sec161{
+    grid-area: sec161;
+}
+.sec162{
+    grid-area: sec162;
+}
+.sec163{
+    grid-area: sec163;
+}
+.sec164{
+    grid-area: sec164;
+}
+.sec165{
+    grid-area: sec165;
+}
+.sec166{
+    grid-area: sec166;
+}
+.sec167{
+    grid-area: sec167;
+}
+.sec168{
+    grid-area: sec168;
+}
+.sec169{
+    grid-area: sec169;
+}
+.sec170{
+    grid-area: sec170;
+}
+.sec171{
+    grid-area: sec171;
+}
+.sec172{
+    grid-area: sec172;
+}
+.sec173{
+    grid-area: sec173;
+}
+.sec174{
+    grid-area: sec174;
+}
+.sec175{
+    grid-area: sec175;
+}
+.sec176{
+    grid-area: sec176;
+}
+.sec177{
+    grid-area: sec177;
+}
+.sec178{
+    grid-area: sec178;
+}
+.sec179{
+    grid-area: sec179;
+}
+.sec180{
+    grid-area: sec180;
+}
+.sec181{
+    grid-area: sec181;
+}
+.sec182{
+    grid-area: sec182;
+}
+.sec183{
+    grid-area: sec183;
+}
+.sec184{
+    grid-area: sec184;
+}
+.sec185{
+    grid-area: sec185;
+}
+.sec186{
+    grid-area: sec186;
+}
+.sec187{
+    grid-area: sec187;
+}
+.sec188{
+    grid-area: sec188;
+}
+.sec189{
+    grid-area: sec189;
+}
+.sec190{
+    grid-area: sec190;
+}
+.sec191{
+    grid-area: sec191;
+}
+.sec192{
+    grid-area: sec192;
+}
+.sec193{
+    grid-area: sec193
+}
+.sec194{
+    grid-area: sec194;
+}
+.sec195{
+    grid-area: sec195;
+}
+.sec196{
+    grid-area: sec196;
+}
+.sec197{
+    grid-area: sec197;
+}
+.sec198{
+    grid-area: sec198;
+}
+.sec199{
+    grid-area: sec199;
+}
+.sec200{
+    grid-area: sec200;
+}
+.sec201{
+    grid-area: sec201;
+}
+.sec202{
+    grid-area: sec202;
+}
+.sec203{
+    grid-area: sec203;
+}
+.sec204{
+    grid-area: sec204;
+}
+.sec205{
+    grid-area: sec205;
+}
+.sec206{
+    grid-area: sec206;
+    background-color: #c6b079;
+}
+
+
+#memoryModal .modal-header{
+    padding-bottom: 0;
+    padding-top: 0.7rem;
+}
+
+#memoryModal .close{
+    color: #beb090;
+    opacity: 1;
+    text-shadow: none;
+}
+#memoryModal .modal-body{
+    background-color: #245083;
+}
+.downloadp{
+    margin-left: 2%;
+}
+
+.downloadp img{
+  /*  width: 18%;
+    height: 18%;*/
+    width: 1rem;
+}
+
+
+
+.mp{
+    width: 100%;
+    height: 100%;
+    /* padding: 0% 2%; */
+}
+.mp img{
+    width: 100%;
+    height: 100%;
+}
+

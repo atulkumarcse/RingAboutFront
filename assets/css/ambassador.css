@@ -1,0 +1,257 @@
+@font-face {
+    font-family: "PlayfairDisplay-Italic";
+    src: url(../fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+
+
+
+::-webkit-scrollbar-thumb {
+    background: #ddc8a4; 
+    border-radius: 25px;
+  }
+
+
+.ambassador-screen{
+    position: absolute;
+    left: 58px;
+    /* width: 1308px; */
+    /* height: 584px; */
+    width: 95.75%;
+    /* height: 89vh; */
+    height: 91vh;
+    background-color: gray;
+    overflow-x: hidden;
+    background-image: url(../img/ambassadors.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.ambassador-left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ambassador-right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.alumni-box{
+    width: 65%;
+    height: 90%;
+    background-color: #245083;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+.alumni-title{
+    width: 100%;
+    height: 10%;
+    background-color: #245083;
+    display: flex;
+    align-items: flex-end;
+}
+.alumni-title h4{
+    font-size: 18px;
+    color: #ffffff;
+    font-family: "Montserrat-Bold";
+    margin-bottom: 0;
+    padding-left:5%;
+    padding-bottom: 3%;
+}
+.alumni-list{
+    background-color: #beb090;
+    width: 100%;
+    height: 85%;
+    overflow-y: auto;
+}
+.a-row{
+    margin: 0;
+    padding: 1rem 0 0.5rem 0;
+}
+.alumni{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alumni:hover{
+    cursor: pointer;
+}
+
+.alumni-pic{
+    width: 60px;
+    height:60px;
+    background-color: white;
+    border:0.5px solid #ffffff;
+    
+}
+.alumni-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.alumni-ishort{
+    text-align: center;
+}
+.alumni-name{
+    font-size: 10px;
+    font-family: "Montserrat-Bold";
+    margin-bottom: 1rem;
+    margin-top: 7px;
+}
+.alumni-des{
+    font-size: 8px;
+    font-family: "Montserrat-Regular";
+    margin-bottom: 1rem;
+}
+
+
+.ambassador-text{
+     margin-top: auto;
+    margin-bottom: 10%;
+    margin: auto;
+}
+.get{
+    font-size: 30px;
+    font-family: "Montserrat-Bold";
+    color: #283b79;
+    text-align: center;
+    line-height: 35px;
+    margin-bottom: 0;
+}
+.theA{
+    font-size: 35px;
+    text-align: center;
+    font-family: "Montserrat-Medium";
+    color: #283b79;
+}
+.build{
+    color: #b2975d;
+}
+
+.alumni-pbox{
+    width: 88%;
+    width: 550px;
+    margin:auto;
+    display: none;
+    
+}
+
+#alumniModal .modal-dialog{
+    margin-left:auto;
+    margin-right: 6.5rem;
+}
+#alumniModal .modal-body{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding:4% 2%;
+    overflow-y: hidden;
+}
+#alumniModal .modal-body i{
+    color: #e5e5e5;
+}
+#alumniModal .modal-body i:hover{
+    color: #808080;
+    cursor: pointer;
+}
+#alumniModal .modal-title{
+    font-size: 18px;
+    font-family: "Montserrat-Bold";
+    margin-top: 2px;
+}
+#alumniModal .modal-title h4{
+    padding-top: 17px;
+}    
+.al-social{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.al-img{
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+}
+
+.in-btn{
+    margin-top: 5%;
+    width: 100px;
+    font-size: 8px;
+    font-family: "Montserrat-SemiBold";
+    background-color: #283b79;
+    color: #ffffff;
+    border: 0;
+    border-radius: 0;
+    padding: 3% 0;
+}
+.in-btn:hover{
+    background-color: #c6b079;
+    color: #ffffff;
+}
+.al-inform{
+    height: 100%;
+    width: 70%;
+    overflow-y: auto;
+}
+
+/* .al-inform p{
+
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.a1,.a2,.a3,.a4{
+    background-color: red;
+    width: 20px;
+    text-align: right;
+} */
+
+.fname,.gclass,.company,.des{
+    display: flex;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.a1{
+    width: 35%;
+    font-size: 13px;
+    text-align: right;
+    font-family: "Montserrat-Regular";
+    color: #245083;
+    margin-bottom: 0;
+}
+.a2{
+    width: 65%;
+    padding-left: 2%;
+    font-size: 12px;
+    font-family: "Montserrat-SemiBold";
+    color: #283b79;
+    margin-bottom: 0;
+}
+
+.al-fname{
+    font-family: "Montserrat-Bold";
+}
+

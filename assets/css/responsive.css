@@ -1,0 +1,738 @@
+
+.mobile{
+    display: none;
+}
+
+
+.mclass-screen{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    /* height: 89vh; */
+    height: 91vh;
+    height: calc(100vh - 68px);
+    background-color: #ffffff;
+    overflow-x: hidden;
+    /* background-image: url(); */
+    background-image: url('../img/mobile\ message.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.mpc{
+    display: none;
+}
+
+
+
+@media screen and (min-device-height:320px) and (max-device-height:500px) and (orientation:landscape) {
+    /* login page */
+    
+    .classphoto-screen,.photobooth-screen{
+        display: none;
+    }
+    .mpc{
+        display: block;
+    }		
+
+
+    .login{
+        width: 47%;
+        padding: 0px 0px 2.5% 0px;
+    }
+    .loginT{
+        margin: 0.4rem 0.3rem ;
+    }
+    .loginT p{
+        padding: 0.5rem 0;
+    }
+    .login-div{
+        flex-direction: row-reverse;
+    }
+    .logo-pic{
+        border-left: 1px solid #c6b079;
+        border-right: 0;
+        padding: 3%;
+        display: flex;
+        align-items: center;
+        width: 30%;
+    }
+    .logo-pic img{
+        margin-top: 0;
+    }
+    .login-form{
+        width: 70%;
+        padding-left: 0.5rem;
+    }
+    .row{
+        flex-direction: column;
+    }
+    .row .col-6{
+        max-width: 90%;
+    }
+    .row .col-6:nth-child(1){
+        margin-bottom: 1rem;
+    }
+    .login-form input{
+        height: 2rem;
+    }
+
+
+    /* entry page */
+    .entry-content{
+        bottom: 16%;
+    }
+    .entry-content p{
+        font-size: 27px;
+        margin-bottom: 1rem;
+
+    }
+    .entry-content button{
+        font-size: 16px;
+        padding: 5px 40px;
+
+    }
+
+    /* dashboard page */
+    .main-container{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .desktop{
+        /* opacity: 0; */
+        display: none;
+    }
+    .mobile{
+        display: none;
+        animation: pop 0.2s linear;
+    }
+    @keyframes pop {
+        from{
+            opacity: 0;    
+        }
+        to{
+            opacity: 1;
+        }
+    }
+    .m-burger{
+        position: relative;
+        width: 3rem;
+        height: 3rem;
+        background-color: #283b79;
+        border-radius: 50%;
+        padding: 1rem;
+        margin: auto 0;
+        margin-left: 0.5rem;
+        z-index: 1;
+    }
+    .burger-icon{
+        position: absolute;
+        width: 1.2rem;
+        height: 0.1875rem;
+        border-radius: 0.25rem;
+        background-color: #f7f7f7;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .burger-icon::before,.burger-icon::after{
+        content: "";    
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        background: inherit;
+    }
+
+    .burger-icon::before{
+        top: -0.425rem;
+    }
+    .burger-icon::after{
+        top: 0.425rem;
+    }
+
+    .mobile .submenu{
+        display: block !important;
+        width: 100px;
+        margin-right: 10px;
+    }
+    .mobile .sidebar-wrapper{
+        height: calc(100vh - 69px);
+        top: 0;
+    }
+    .menutag{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddc38a;
+       
+    }
+    .menutag h3{
+        font-size: 16px;
+        margin-left: 0.5rem;
+        margin-bottom: 0;
+        color: #ddc38a;
+    }
+    .menu-close{
+        font-size: 16px;
+        margin-right: 0.5rem;
+    }
+    .menu-close i{
+        color: #ddc38a;
+    }
+    .s-wrapper{
+        width: 0;
+        background-color: transparent;
+        height: 0;
+    }
+    /* #ecertificate{ */
+    .modal{
+        margin-left: 5rem;
+    }
+    #msupport {
+        margin-top: 0rem;
+    }
+    #msupport .modal-content{
+        height: 275px !important;
+    }
+    #msupport .modal-footer{
+        padding: 1% 2%;
+    }
+    .logsub-btn{
+        margin-bottom: 10%;
+    }
+    #notificationModal .modal-body {
+        padding-bottom: 10%;
+    }
+    #ecertificate .modal-dialog {
+        max-width: 600px;
+    }
+    #ecertificate .modal-header,#msupport .modal-header{
+        padding: 0.6rem 1rem;
+    }
+    #ecertificate .row{
+        flex-direction: row;
+    }
+    .w-name{
+        font-size: 13px;
+        margin-top: 0.5rem;
+    }
+    .wall-img{
+        width: 100px;
+        height: 100px;
+    }
+    .wall-ishort p{
+        font-size: 8px;
+    }
+    .w2 .w-name{
+        height: 2.2rem;
+    }
+    .w2 .w-name{
+        height: 1.2rem;
+    }
+    .downbar-wrapper{
+        margin-left: 0;
+        padding: 0;
+        box-shadow: 3px 10px 15px 5px grey;
+    }
+    .menu2 a{
+        font-size: 8px;
+    }
+    .lobby-screen,.audi-screen,.slam-screen,.chatroom-screen,.classphoto-screen,.memory-screen,.photobooth-screen,.ambassador-screen,.faculty-screen{
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 69px);
+    }
+
+    .lblink-1{
+        left: 38% !important;
+        top: 58% !important;
+    }
+    .lblink-2{
+        left: 59% !important;
+        top: 58% !important;
+    }
+    .firstimg{
+    	top: 20% !important;
+    	left: 32% !important;
+    }
+    .secondimg{
+    	top: 32% !important;
+    	left: 32% !important;
+    }
+    .audi-frame{
+        width: 560px;
+        height: calc(560px * 0.5625);
+    }
+    .slam-left{
+        width: 45%;
+    }
+    .slam-right{
+        width: 55%;
+        display: flex;
+        align-items: center;
+        margin-left: -3%;
+    }
+    .slam-left .row{
+        flex-direction: row;
+    }
+    .row1{
+        margin-left: 5%;
+    }
+    .box-left{
+        margin-left: 6%;
+        margin-bottom: 4%;
+        height: 130px;
+    }
+    .box-msg{
+        padding: 0 8%;
+    }
+    .msg-slam{
+        font-size: 13px;
+    }
+    .name-slam{
+        font-size: 11px;
+    }
+    .slam-text{
+        margin-top: 0;
+        width: 40%;
+        margin-right: 0rem;
+        margin-left: 1.2rem;
+    }
+    .wish{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .aura{
+        font-size: 18px;
+    }
+    .slamip-box{
+        width: 250px;
+        height: 230px;
+    }
+    .slamip-box .slam-ip textarea::placeholder{
+        font-size: 25px;
+    }
+    .slamip-box .slam-ip textarea{
+        font-size: 25px;
+    }
+    .emoticon img,.slam-send img{
+        width: 1.5rem;
+    }
+    .people .heading h4{
+        font-size: 15px;
+    }
+    .search-bar input {
+        height: 1.5rem;
+        font-size: 11px;
+    }
+    .search-bar input::placeholder{
+        font-size: 11px;
+    }
+    .search-bar i{
+        font-size: 12px;
+        top: 39%;
+    }
+    .user-initial{
+        width: 40px;
+        height: 40px;
+    }
+    .user-initial h2{
+        font-size: 21px;
+    }    
+    .user-list .people .person .user-info .f-body .meta-info .user-name {
+        font-size: 14px;
+    }    
+    .class-left{
+        width: 40%;
+    }
+    .class-text{
+        padding-left: 4rem;
+    }
+    .class-click{
+        font-size: 25px;
+        line-height: 33px;
+    }
+    .class-click br{
+        display: none;
+    }
+    .cls-ihm{
+        font-size: 28px;
+    }
+    .class-right{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+        justify-content: center;
+    }
+    .class-frame{
+        width: 300px;
+        height: 290px;
+        margin: 0;
+    }
+    .class-btn{
+        padding: 0.5rem 2rem;
+        font-size: 16px;
+        text-align: center;
+        margin-left:2rem ;
+    }
+    .imgvideo{
+        top: 4% !important;
+        left: 40% !important;
+        width: 270px !important;
+        /* left: 32%; */
+    }
+    .photob-2{
+        display: flex;
+    }
+    .photob3-cap{
+        /*flex-direction: column;*/
+        /*margin-right: 6rem;*/
+    }
+    .photob2-frame,.photob3-frame{
+        margin: 0;
+    }
+    .photob3-cap{
+        margin-left: 7rem;
+        flex-direction: column;
+    }
+    .photob2-btn{
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    .photob3save-btn,.photob3ret-btn{
+        width: 100%;
+        margin-right: 12%;
+        margin-bottom: 2rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .memory-grids{
+        grid-template-columns: 130px 130px 130px 130px 130px;   
+    
+    }
+    .sec206{
+        padding: 5%;
+    }
+    .lane{
+        font-size: 21px;
+    }
+    .trip{
+        font-size: 30px;
+    }
+    .alumni-list .row{
+        flex-direction: row;
+    }
+    .alumni-list .row .col-3{
+        max-width: 33.3333% !important;
+        flex: 0 0 33.33%;
+    }    
+    .alumni-title h4{
+        font-size: 15px;
+        padding-bottom: 1%;
+    }
+    .alumni-name{
+        font-size: 8px;
+    }
+    .alumni-des{
+        font-size: 6px;
+    }
+    #alumniModal .modal-dialog{
+        margin-left:auto;
+        margin-right: 1rem;
+        max-width: 440px !important;
+        margin-top: 1rem;
+    }
+    #alumniModal .modal-dialog .modal-content {
+        height: 200px !important;
+    }
+    #alumniModal .modal-dialog .modal-content .modal-header{
+        padding: 0.2rem 1rem;
+    }
+    #alumniModal .modal-title{
+        font-size: 15px;
+    }
+    #alumniModal .modal-body{
+    	padding-bottom: 2%;
+    }
+    .alumni-pbox{
+    	width: 405px;
+      	/*margin-right: 2rem;*/
+    	margin-left: 0;
+    }
+    .al-inform p{
+        margin-bottom: 0.3rem;
+    }
+    .a1,.a2{
+        font-size: 9px;
+    }
+    .fname, .gclass, .company, .des {
+	    margin-bottom: 4px;
+	}
+    .al-img{
+    	width: 80px;
+    	height: 80px;
+    }
+    .in-btn{
+    	width: 80px;
+    }
+    .ambassador-text{
+        margin-bottom: 0;
+        margin-right: 9%;
+        margin: auto;
+    }
+    .get{
+        font-size: 17px;
+        line-height: 19px;
+    }
+    .theA{
+        font-size: 28px;
+    }
+    .get br{
+        display: none;
+    }
+    .faculty-div{
+        width: 39%;
+        left: 51%;
+        padding: 1%;
+        bottom: 4%;
+    }
+    .faculty-div h4{
+        font-size: 21px;
+        margin-top: 3%;
+    }
+    .hm h5{
+        font-size: 16px;
+        line-height: 17px;
+        padding-bottom: 4%;
+    }
+    .ca h5{
+        font-size: 16px;
+        line-height: 17px;
+        padding-top: 6%;
+        padding-bottom: 11%;
+    }
+    .hm p,.ca p{
+        font-size: 12px;
+        line-height: 36px;
+    }
+    .classp-1{
+        /* display: none; */
+    }    
+    .classp-2{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        flex-direction: row;
+        /*display: none;*/
+    }
+    .imgvideoss1{
+        left: 33%;
+    }
+    .photoss{
+        width: 300px !important;
+        height: 250px !important;
+    }
+    .save-btn{
+        width: 100%;
+        padding: 0.5rem 0;
+        font-size: 15px;
+    }
+    .classp-2 .clsret-frame{
+        margin: 0;
+    }
+    .classp-2 .clsret-cap{
+        display: flex;
+        flex-direction: column;
+        /*margin-left: 6rem;*/
+        margin-left: 24rem;
+    }
+    .classp-2 .clsret-cap button{
+        width: 100%;
+        padding: 0.5rem 2.2rem;
+        font-size: 15px;
+    }    
+    .classp-2 .clsret-cap .ret-btn{
+        margin-bottom: 1rem;
+    }
+    .photob-1 .photob-left{
+        width: 50%;
+    }
+    .s-options{
+    	margin-top: 1.5rem;
+    }
+    .se-opt button{
+        font-size: 7px;
+        line-height: 12px;
+    }
+    .photob-inner{
+        margin-top: -9rem;
+        margin-left: 1.8rem;
+        width: 70.6%;
+        height: 51%;
+    }
+    .photob-click{
+        font-size: 10px;
+        line-height: 14px;
+    }
+    .photob-ihm{
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .photob-right{
+        width: 50%;
+    }
+    .photob-frame{
+        width: 200px;
+        height: 195px;
+        margin-top: 2%
+    }
+    .photob-cap{
+        margin: auto;
+        margin-bottom: 0.6rem;
+        /* margin-right: 1rem; */
+    }
+    .photob-btn{
+        padding: 0.3rem 0.5rem;
+        font-size: 11px;
+    }
+    #vid{
+        top: 7%;
+        width:27%;
+        left: 22.2rem;
+    }
+
+
+
+
+}
+
+
+@media screen and (min-device-height:360px) and (max-device-height:374px) and (orientation:landscape) {
+
+
+    .entry-content p{
+        font-size: 23px;
+    }
+   #msupport .modal-header{
+        padding: 0.25rem 1rem;
+    }
+   #msupport .modal-header .modal-title{
+        font-size: 18px;
+    }
+    .alumni-pbox{
+    	width: 302px;
+    }
+    .a1,.a2{
+    	font-size: 6px;
+    }
+    .al-img{
+    	width: 60px;
+    	height: 60px;
+    }
+    .in-btn{
+    	width: 60px;
+    	font-size: 6px;
+    }
+    .get{
+    	font-size: 15px;
+    	line-height: 17px;
+    }
+    .theA{
+    	font-size: 24px;
+    }
+     #msupport {
+        margin-top: -2rem;
+    }
+    .hm p,.ca p{
+		font-size: 9px;
+		line-height: 18px;
+	}
+	.hm h5{
+		font-size: 15px;
+		padding-bottom: 16%;
+	}
+	.ca h5{
+		font-size: 15px;
+	}
+	.hm button,.ca button{
+		font-size: 9px;
+	}
+
+	.modal{
+		margin-left: 0rem;
+	}
+}
+
+@media screen and (min-device-height:414px) and (max-device-height:416px) and (orientation:landscape) {
+
+	.hm p,.ca p{
+		font-size: 10px;
+		line-height: 29px;
+	}
+	.hm h5{
+		padding-bottom: 3%;
+		/*line-height: 15px;*/
+	}
+	.hm button,.ca button{
+		font-size: 12px;
+	}
+}	
+
+@media screen and (min-device-height:393px) and (max-device-height:395px) and (orientation:landscape) {
+
+	.hm p,.ca p{
+		font-size: 10px;
+		line-height: 23px;
+	}
+	.hm h5{
+		padding-bottom: 3%;
+		/*line-height: 15px;*/
+	}
+}	
+
+@media screen and (min-device-height:375px) and (max-device-height:413px) and (orientation:landscape) {
+
+	.hm p,.ca p{
+		font-size: 11px;
+		line-height: 25px;
+	}
+	.hm h5{
+		padding-bottom: 3%;
+	}
+	.hm button,.ca button{
+		font-size: 13px;
+	}
+}	
+
+@media screen and (min-device-height:320px) and (max-device-height:325px) and (orientation:landscape) {
+
+	.hm p,.ca p{
+		font-size: 12px;
+		line-height: 20px;
+	}
+	.faculty-div h4{
+		font-size: 20px;
+		margin-top: 0;
+		margin-bottom: 2%;
+	}
+	.hm h5 {
+	    font-size: 17px;
+	    line-height: 17px;
+	    padding-bottom: 7%;
+	}
+	.hm h5,.ca h5{
+		margin-bottom: 3%;
+	}
+}	

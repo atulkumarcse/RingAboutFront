@@ -1,0 +1,85 @@
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+.faculty-screen{
+    position: absolute;
+    left: 58px;
+    /* width: 1308px; */
+    /* height: 584px; */
+    width: 95.75%;
+    /* height: 89vh; */
+    height: 91vh;
+    background-color: gray;
+    overflow-x: hidden;
+    background-image: url(../img/facultylounge.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.faculty-div{
+    background-color: #beb090;
+    width: 37%;
+    margin: 0 auto;
+    padding: 2%;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);    
+    border:1px solid #ffffff;
+}
+.faculty-div h4{
+    text-align: center;
+    color: #ffffff;
+    font-family: "Montserrat-Bold";
+    margin-bottom: 7%;
+}
+.faculty-options{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.hm,.ca{
+    width: 50%;
+    background-color: #ffffff;
+    padding: 3% 3%;
+    text-align: center;
+}
+.hm{
+    margin-right: 3%;
+}
+.hm h5,.ca h5{
+    font-size: 16px;
+    line-height: 35px;
+    margin-bottom: 10%;
+    color: #245083;
+    font-family: "Montserrat-Bold";
+    border-bottom: 2px solid #ddc38a;
+
+}
+
+.hm p,.ca p{
+    font-size: 14px;
+    line-height: 25px;
+    margin-bottom: 0;
+    color: #245083;
+    font-family: "Montserrat-Regular";
+}
+.hm button,.ca button{
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10%;
+    background-color: #283b79;
+    border-radius: 0;
+    color: #ffffff;
+    font-family: "Montserrat-Bold";
+}
+
+.hm button:hover,.ca button:hover{
+    background-color: #8a7450;
+    color: #ffffff;
+
+} 

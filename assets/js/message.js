@@ -39,17 +39,17 @@ var typestreamstu = null;
 var names = [];
 var idforstu  = null;
 var user_name = null;
-var userdetails = "";
+var userdetails = "";	
 function startwindow(){
 	setTimeout(async function() {
-	userdetails =  await getCookie("userdetails");
-	userdetails = JSON.parse(userdetails); 	
-	getCookie("roomid").then(function(result){	
-          roomiddata = roomid  = result;
-          })
-    getCookie("hash").then(function(result){	
-           hash  = result;
-          })
+	userdetails =  await getCookie("userdetails");	
+	userdetails = JSON.parse(userdetails); 		
+	getCookie("roomid").then(function(result){		
+          roomiddata = roomid  = result;	
+          })	
+    getCookie("hash").then(function(result){		
+           hash  = result;	
+          })	
     user_name =  userdetails.name;    	
 	getCookie("type").then(function(result){
 	// 	if(result == "teacher")
@@ -473,7 +473,7 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 		// msg = msg.replace(new RegExp('<', 'g'), '&lt');
 		// msg = msg.replace(new RegExp('>', 'g'), '&gt');
 		var dateString = getDateString();
-		if(info.text.userid.includes("support") === true ){
+		if(info.text.userid.toString().includes("support") === true ){
 			supportids = useridn;
 			username = info.text.userid;
 			username = username.split("_");
@@ -566,7 +566,7 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 		// msg = msg.replace(new RegExp('<', 'g'), '&lt');
 		// msg = msg.replace(new RegExp('>', 'g'), '&gt');
 		var dateString = getDateString();
-		if(info.text.userid.includes("support") === true ){
+		if(info.text.userid.toString().includes("support") === true ){
 			// if($('.bubble-areasupport'+info.text.userid).html() == undefined)
 			// {
    //           $('.bubble-areasupport').append('<div class="bubble-areasupport'+info.text.userid+'" style="height:200px;overflow-x:auto;"><p>User ID: '+info.text.userid+'</p></div>'+
@@ -1394,7 +1394,7 @@ function toggleAudio()
 
 
 async function startvideo(type,user_type,user_name)
-{   
+{  
 	uuid = userdetails.id
     // uuid = Math.floor(Math.random()*100000000).toString();
 	if(type=="screen")
@@ -1529,22 +1529,40 @@ function userlist(usersida){
         url: 'https://steponexp.net:8096/api/user_list',
         success: function(data) {
           console.log(data.response);
-         $('.onilneusers').html("");
+         $('#joinwebcam').html("");
            $.each(data.response, function( key, value ) {
            	var arrays = value.name.split(",")
            	var datafun = value.std_id + "," +'"'+arrays[0].toString()+'"' ;
            	if(value.std_id != userid && value.name.indexOf("support") == -1  && value.std_id != "supportpanel" && value.std_id != "" )
            	{
+           	console.log(datafun);
            	if($('.userlist'+value.std_id).html() === undefined)
            	{
-           	$('.onilneusers').append('<a href="profile.html?id='+value.std_id+'" class="users mb-3 d-block userlist'+value.std_id+'">'+
-                                '<div class=" d-flex justify-content-center align-items-center">'+
-                                    '<div class="ou_img">'+
-                                        '<img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">'+
+           	$('#joinwebcam').append('<div class="userlist'+value.std_id+' listuser ">'+
+           		'<div class="person chat-active '+value.std_id+'" data-chat="person1">'+
+							'<div class="user-info"'+
+                            "onclick='setname("+datafun+")'"+
+							'>'+
+                                '<div class="meta-initial">'+
+                                    '<div class="user-initial">'+
+                                        '<h2 >'+arrays[0].charAt(0)+'</h2>'+
                                     '</div>'+
-                                    '<h1 class="ou_name ml-2">'+value.name+'</h1>'+
                                 '</div>'+
-                            '</a>');
+								'<div class="f-body">'+
+                                    '<div class="meta-info">'+
+                                        '<span '+
+                                        //"onclick='setname("+datafun+")'"+
+                                         'class="user-name" data-name="'+arrays[0]+'">'+arrays[0]+'</span>'+
+                                        '<span class="user-meta-status">'+
+                                            //'<div class="circle c-1"></div>'+
+                                            '<div class="circle c-2 removeb circlered'+value.std_id+'"></div>'+
+                                        '</span>'+
+                                    '</div>'+
+                                    '<span class="preview"><p></p></span>'+
+                                 '</div>'+
+							'</div>'+
+						'</div>'+
+						'</div>');
            }
            }
             });
@@ -1628,7 +1646,7 @@ $(".chat-box-inner").css("background-image","none");
            		{
            			$('.bubble-area').append('<div class="chats you">'+
 		      						'<div class="chat-content">'+
-		      							'<div class="message-content y-msg"><div class="u-name"><p></p></div> <p>' + value.message  + " </p> "+
+		      							'<div class="message-content y-msg"><div class="u-name"><p></p></div> <p>' + value.msg  + " </p> "+
 		      					 		'<div class="chat-time">'+
                                     		'<div>'+
                                         		'<div class="time"><p class="time">' +  value.date +"</p></div></div>"+
@@ -1640,7 +1658,7 @@ $(".chat-box-inner").css("background-image","none");
            		else{
            		$('.bubble-area').append('<div class="chats me" style="float:right">'+
 		      						'<div class="chat-content">'+
-		      							'<div class="message-content m-msg"><p>' + value.message  + " </p> "+
+		      							'<div class="message-content m-msg"><p>' + value.msg  + " </p> "+
 		      					 		'<div class="chat-time">'+
                                     		'<div>'+
                                         		'<div class="time"> <p class="time">' +  value.date +"</p></div></div>"+
