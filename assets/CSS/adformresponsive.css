@@ -1,0 +1,26 @@
+@media screen and (max-width:767px) {
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .bacdiv{
+        width: 100%;
+
+    }
+    h1{
+        font-size: 2rem;
+        margin-left: 0.5rem;
+   		margin-right: 0.5rem;
+    }
+    h5{
+        font-size: 0.8rem;
+    }
+    form{
+        width: 80% !important;
+    }
+    input,input::placeholder{
+        font-size: 15px;
+    }
+
+}

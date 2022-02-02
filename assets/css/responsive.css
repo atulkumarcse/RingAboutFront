@@ -248,8 +248,9 @@
     .lobby-screen,.audi-screen,.slam-screen,.chatroom-screen,.classphoto-screen,.memory-screen,.photobooth-screen,.ambassador-screen,.faculty-screen{
         left: 0;
         width: 100%;
-        height: calc(100vh - 69px);
+        /*height: calc(100vh - 69px);*/
     }
+
 
     .lblink-1{
         left: 38% !important;
@@ -326,9 +327,11 @@
     .emoticon img,.slam-send img{
         width: 1.5rem;
     }
-    .people .heading h4{
-        font-size: 15px;
+    .people .heading h4,.people .heading a {
+        /*font-size: 15px;*/
+        font-size: 11.3px;
     }
+
     .search-bar input {
         height: 1.5rem;
         font-size: 11px;
@@ -338,7 +341,10 @@
     }
     .search-bar i{
         font-size: 12px;
-        top: 39%;
+        top: 32%;
+    }
+    .meta-info{
+    	padding-left: 0.4rem;
     }
     .user-initial{
         width: 40px;
@@ -350,6 +356,13 @@
     .user-list .people .person .user-info .f-body .meta-info .user-name {
         font-size: 14px;
     }    
+    .cf-emoji img, .cf-send img {
+    	width: 1.7rem;
+    	margin-left: 0px;
+	}
+	.chat_form{
+		height: 2rem !important;
+	}
     .class-left{
         width: 40%;
     }

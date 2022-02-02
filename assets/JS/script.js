@@ -4,7 +4,7 @@ let homelink = document.getElementById("homelink");
 let sign = document.getElementById("sign");
 let log = document.getElementById("log");
 let home = document.getElementById("home");
-let imgurl = "https://steponexp.net/ring_about/";
+let imgurl = "/ring_about/";
 let dollarinfo = ""
 $('.nav-item a').on('click',function(){
     $('button').attr('aria-expanded','false');
@@ -115,6 +115,9 @@ $('#regbtn').on('click',function(e){
     request.fail(function (jqXHR, textStatus, errorThrown){
             if(jqXHR.responseJSON.error)
             var  i=0;
+          if(jqXHR.responseJSON.error.code == "23000"){
+            $("#msg").html("User is Already Register");
+          }
             Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
               if(i==0){
                $("#msg").html(val); 
@@ -325,11 +328,10 @@ $('.submitbtnadv').on('click',function(e){
     // Callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
         // Log a message to the console
-
-        console.log(response);
-        if(response.status == true)
+        if(response.status == true || response.status == 'true')
            {
             $("#uploadmsg").html("Advertise Created Succefully"); 
+            window.location.reload();
             //return true;
            }
         else{
@@ -385,7 +387,7 @@ function advlist(){
            $(".classifiedrow").html("");
              $.each(response.data, function (key, val) {
                 if(response.data[key].url != null){
-                    text = '<img src="https://steponexp.net/ring_about/'+response.data[key].url+'" class="img-fluid w-100"  alt="">'
+                    text = '<img src="/ring_about/'+response.data[key].url+'" class="img-fluid w-100"  alt="">'
                 } else {
                     text = '<p class="img-fluid w-100 u-para " style="color:black; display:block">'+response.data[key].detail+'</p>';
                 }
@@ -587,8 +589,10 @@ function profilelist($id){
         $(".others").html("");
         if(response.status === true){
           $(".name1").html(response.data[0].name);
-          
-           if(response.data[0].emailstatus === 1){
+            var url = new URL(window.location.href);
+            var uid = url.searchParams.get("id");
+           if(uid){
+             if(response.data[0].emailstatus === 1){
             $(".email1").html(response.data[0].email);
             $("#socialstatus").attr("checked","checked")
             } else {
@@ -609,6 +613,22 @@ function profilelist($id){
             } else { 
               $(".social_links").html("") 
             }
+           } else {
+
+            $(".email1").html(response.data[0].email);
+            $("#socialstatus").attr("checked","checked")
+            
+          
+            $(".zip1").html(response.data[0].zip_code);
+          
+             $arr = response.data[0].twitter.split(",");
+              if($arr.length>0){
+              $.each($arr,function(key,value){
+                   $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
+              });
+              }
+           }
+          
           
           $(".user_name").html(response.data[0].user_name);
           $(".profpic").attr("src",imgurl+response.data[0].url);

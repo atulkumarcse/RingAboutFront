@@ -1,0 +1,47 @@
+@media screen and (max-width:767px) {
+    .pull-right{
+        display: flex;
+        justify-content: center;
+    }
+    .adposts{
+        width: 100% !important;
+    }
+    .selectdrop{
+        width: 75% !important;
+    }
+    .useposts table .btn,#challenges table .btn,#leaderboards table .btn{
+        margin-bottom: 0.5rem !important;
+    }
+    th{
+        font-size: 15px;
+    }
+    td{
+        font-size: 13px;
+    }
+    table .btn{
+        font-size: 13px;
+    }
+    #challenges table th{
+        padding:0.75rem 0.25rem !important;
+    }
+    #leaderboards{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+}
+@media screen and (max-width:375px) {
+    #challenges table th{
+        padding:0.75rem 0.15rem !important;
+    }
+    th{
+        font-size: 13px;
+    }
+    td{
+        font-size: 9px;
+    }
+    #challenges{
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+}
