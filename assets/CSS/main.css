@@ -161,9 +161,10 @@
 }
 /* Online users  */
 .onliners{
-    background-image: url(../IMG/green-slate.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
+    /*background-image: url(../IMG/green-slate.jpg);*/
+    background-color: #283b79;
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
     background-size: cover;
     position: relative;
     overflow-y: auto;
@@ -207,10 +208,10 @@
 }
 .challenge_div {
     border: 1px solid #000;
-    background-image: url(../IMG/dark-green-texture.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-image: url(../IMG/dark-green-texture.jpg);*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
 }
 .challenge_div > div{
     position: relative;
@@ -300,10 +301,11 @@
 
 /* classified */
 .downcontent{
-    background-image: url(../IMG/green-slate.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-image: url(../IMG/green-slate.jpg);*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    background-color: #245083;
     margin-left: -15px !important;
     margin-right: -15px !important;
     padding: 0 15px 0 15px;

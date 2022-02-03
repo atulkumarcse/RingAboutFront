@@ -35,9 +35,10 @@
     min-height: 100vh;
     /* overflow: hidden; */
     /* overflow-y: scroll; */
-    background-image: url(../IMG/green-slate.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-image: url(../IMG/green-slate.jpg);*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    background-color: #245083;
     position: relative;
 }
 nav{
@@ -224,7 +225,7 @@ form{
     margin-left: 1rem;
 }
 
-.saveprof{
+.saveprof,.cancelprof{
     background-color: #ffffff;
     color: #026852;
     margin-top: 0.7rem;
@@ -319,14 +320,16 @@ form{
     /* top: 0; */
     left: 0px;
     bottom: 0px;
-    background-color: #026852;
+    /*background-color: #026852;*/
+    background-color: #283b79;
     border: 0.5px solid #ffffff;
     -webkit-transition: .4s;
     transition: .4s;
   }
   
 .switch input:checked + .slider {
-    background-color: #28e6bc;
+    /*background-color: #28e6bc;*/
+    background-color: #256fc4;
   }
   
 .switch  input:focus + .slider {

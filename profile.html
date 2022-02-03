@@ -46,7 +46,7 @@
         </div>
 
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg" style="background-color: #026852;">
+        <nav class="navbar navbar-expand-lg" style="background-color: #283b79;">
             <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon"></span> -->
@@ -61,11 +61,11 @@
                 <li class="nav-item ml-lg-3">
                 <a class="nav-link text-white" href="leaderboard.html">Leaderboard</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ml-lg-3">
                 <a class="nav-link text-white" href="chatroom.html">Chat</a>
                 </li>
                 <li class="nav-item ml-lg-3 dropdown">
-                <a class="nav-link dropdown-toggle" style="color: #000000" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" style="color: #adb5bd" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                     Profile
                 </a>
                 <div class="dropdown-menu dropspace" aria-labelledby="navbarDropdownMenuLink">
@@ -103,7 +103,7 @@
                         <h4 class="email1 ml-4">shdbhsdas@gmail.com</h4>
                     </div>
                     <div class="zipcode">
-                        <label class="tagl">Zip Code : </label>
+                        <label class="tagl">Post Code : </label>
                         <h4 class="zip1 ml-4">256478</h4>
                     </div>
                     <div class="social_links">
@@ -124,16 +124,16 @@
                     <div class="profile-up">
                         <div class="up-left">
                             <div class="profile-photo" style="border-radius: 50%;">
-                                <img src="./assets/IMG/undraw_sign_in_re_o58h.svg" class="profpic" alt="photo">
+                                <img src="./assets/IMG/undraw_sign_in_re_o58h.svg" id="photo" class="profpic" alt="photo">
                             </div>
                             <div class="upbtn ml-4">
                                 <button class="btn picUpload">Upload Picture</button>
-                                <input type="file" name="file" id="fileUpload" style="display: none;">
+                                <input type="file" name="file" onchange="loadFile(event)" id="fileUpload" style="display: none;">
                             </div> 
                         </div>
                     </div>
                     <div class="profile-down">
-                        <h1 id="msgedit"></h1>
+                        <h1 id="msgedit" class="ml-3"></h1>
                         <div class="username">
                             <!-- <label for="username" class="tagl">Username : </label> -->
                             <input type="text" name="user_name" class="inp" placeholder="username">
@@ -156,7 +156,7 @@
                         </div>
                         <div class="zipcode">
                             <!-- <label for="zipcode" class="tagl">Zip Code : </label> -->
-                            <input type="text" name="zip_code"  class="inp" placeholder="zipcode" >
+                            <input type="text" name="zip_code"  class="inp" placeholder="Post Code" >
                             <div class="toggletxt">
                                 <p class="txt">hide</p>
                                 <label class="switch">
@@ -168,7 +168,7 @@
                         <div class="social_link">
                         	<div class="d-flex">
                         		<div class="d-flex justify-content-between" style=" width:65%; margin-left:1rem;">
-		                            <label class="tagl mt-2" style="width:auto;text-align: left;">Social Media Handlers : </label>
+		                            <label class="tagl mt-2" style="width:auto;text-align: left;">Social Media Handles : </label>
 		                            <button class="btn p-0 addmore">Add <i class="far fa-plus-square fa-lg"></i></button>
 		                        </div>
 	                            <div class="toggletxt">
@@ -185,7 +185,10 @@
                                 <input type="url" name="others[]" class="inp mb-2"  placeholder="social link 3">
                             </div>
                         </div>
-                        <button type="button" class="btn saveprof updbtn">Save</button>
+                        <div class="d-flex">
+	                        <button type="button" class="btn saveprof updbtn">Save</button>
+	                        <button type="button" class="btn cancelprof">Cancel</button>
+	                    </div>
                     </div>
                 </form>
             </div> 
@@ -215,6 +218,13 @@
             $('.prof-cls').css('display','none');
             $('.inner-cls').css('display','block');
         });
+
+        $('.cancelprof').on('click',function(e){
+            e.preventDefault();
+            $('.inner-cls').css('display','none');
+            $('.prof-cls').css('display','block');
+        });
+
 
         $('.check').on('change',function(e){
             if($(this).is(':checked')){
@@ -278,6 +288,11 @@
           }
             
             });
+var loadFile = function(event) {
+    var image = document.getElementsByClassName('profpic');
+    image[0].src = URL.createObjectURL(event.target.files[0]);
+    image[1].src = URL.createObjectURL(event.target.files[0]);
+};
        </script>
 </body>
 </html>

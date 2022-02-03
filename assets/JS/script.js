@@ -40,24 +40,24 @@ $('a.nav-link').on('click', function(e) {
 });
 
 // home
-var animatebox = document.getElementById('mwon');
+// var animatebox = document.getElementById('mwon');
 
-$(document).on('scroll',function(){
-    const windowOffsetTop = window.innerHeight + window.scrollY;
-    const animateboxoffset =  animatebox.offsetTop;
+// $(document).on('scroll',function(){
+//     const windowOffsetTop = window.innerHeight + window.scrollY;
+//     const animateboxoffset =  animatebox.offsetTop;
 
-    // get target from admin
-    var target = 50;
     
-    var number = $('#number').text();
-    if(windowOffsetTop >= animateboxoffset){
-        var interval = setInterval(function() {
-        $('#number').text(number);
-        if (number >= target) clearInterval(interval);
-            number++;
-        }, 30);
-    }
-});
+//     var target = 55000;
+    
+//     var number = $('#number').text();
+//     if(windowOffsetTop >= animateboxoffset){
+//         var interval = setInterval(function() {
+//         $('#number').text(number);
+//         if (number >= target) clearInterval(interval);
+//             number++;
+//         }, 30);
+//     }
+// });
     
 
 //Registration
@@ -604,12 +604,14 @@ function profilelist($id){
                 $(".zipcode").html("") 
             }
             if(response.data[0].socialstatus === 1){
+             if( response.data[0].twitter !== null){
              $arr = response.data[0].twitter.split(",");
               if($arr.length>0){
               $.each($arr,function(key,value){
                    $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
               });
               }
+          }
             } else { 
               $(".social_links").html("") 
             }
@@ -620,19 +622,21 @@ function profilelist($id){
             
           
             $(".zip1").html(response.data[0].zip_code);
-          
+          if( response.data[0].twitter !== null){
              $arr = response.data[0].twitter.split(",");
               if($arr.length>0){
               $.each($arr,function(key,value){
                    $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
               });
               }
+              }
            }
           
           
           $(".user_name").html(response.data[0].user_name);
-          $(".profpic").attr("src",imgurl+response.data[0].url);
-         
+          if(response.data[0].url !== null){
+           $(".profpic").attr("src",imgurl+response.data[0].url); 
+          }
           // $(".tweet").html(response.data[0].tweet);
           // $(".insta").html(response.data[0].insta );
           // $(".others").html(response.data[0].linkedin );
@@ -731,7 +735,10 @@ function editlist($id){
           $("input[name='email']").val(response.data[0].email);
           $("input[name='zip_code']").val(response.data[0].zip_code);
           $("input[name='user_name']").val(response.data[0].user_name);
-           $(".profpic").attr("src",imgurl+response.data[0].url);
+          if(response.data[0].url !== null){
+           $(".profpic").attr("src",imgurl+response.data[0].url); 
+          }
+           
            if(response.data[0].emailstatus === 1){
             $("#socialstatus").attr("checked","checked")
            }
@@ -741,12 +748,14 @@ function editlist($id){
            if(response.data[0].socialstatus === 1){
             $("#socialstatus").attr("checked","checked")
            }
+           if( response.data[0].twitter !== null){
             $arr = response.data[0].twitter.split(",");
           if($arr.length>0){
           $.each($arr,function(key,value){
                $(".socials").append('<input type="text" name="others[]" value="'+value+'" class="inp mb-2" placeholder="enter social link">');
           });
           }
+      }
           // $("input[name='others']").val(response.data[0].twitter );
            } else {
 

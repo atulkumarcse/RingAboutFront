@@ -20,6 +20,36 @@
     <link rel="stylesheet" href="./assets/CSS/style.css">
 </head>
 <body>
+
+	<!-- Forgot Password -->
+    <div class="modal fade" id="fModalLong" tabindex="-1" role="dialog" aria-labelledby="fModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="fModalLongTitle">Forgot Password?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="">
+                            <h5 class="mb-3">Please enter your registered email id to change the password</h5>
+                            <div class="form-group">
+                                <input type="email" id="fpemail" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group mt-4">
+                                <button class="btn btn-block pass_submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="main-container bg-light">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -63,7 +93,7 @@
                                     <div class="card px-5 py-4">
                                         <div class="card-body">
                                             <h3 class="text-center ">Money Won on <br> our platform</h3>
-                                            <h1 class="m1 text-center ">$ <span id="number">15</span></h1>
+                                            <h1 class="m1 text-center ">$ <span id="number">50,000</span></h1>
                                         </div>
                                     </div>
                                 </div> 
@@ -119,7 +149,7 @@
                                 </div>
                                 <form action="#" method="post" id="loginform">
                                     <div class="form-group first">
-                                        <input type="text" class="form-control" id="logusername" placeholder="Username">
+                                        <input type="email" class="form-control" id="logusername" placeholder="Email">
                                     </div>
                                     <div class="form-group last mb-4">
                                         <input type="password" class="form-control" id="logpassword" placeholder="Password">
@@ -163,14 +193,15 @@
                                 <input type="email" class="form-control" id="email" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="zipcode" placeholder="ZipCode">
+                                <input type="text" class="form-control" id="zipcode" placeholder="Post Code">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="pass_word" placeholder="Password">
                             </div>
-                            <div class="form-group mb-4">
+                            <div class="form-group">
                                 <input type="password" class="form-control" id="confirm-pass" placeholder="Confirm Password">
                             </div>
+                            <p class="text-dark" style="font-size: 12px;">Note - Please remember the Email-ID as the same will be used for login</p>
                             <button type="submit" class="btn btn-block text-white" id="regbtn" style="background-color: #026852;">Sign In</button>
                         </form>
                     </div>
@@ -182,6 +213,11 @@
 
     </div>
 
+    <script>
+        $('.forgot-pass').on('click',function(){
+            $('#fModalLong').modal();
+        });
+    </script>
 
     <script src="./assets//JS/script.js"></script>
 

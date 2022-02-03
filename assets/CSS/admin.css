@@ -52,14 +52,16 @@
     min-height: 100vh;
     overflow-x: hidden;
     background-color: #f8fafb;
-    background-image: url(../IMG/dark-green-texture.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-image: url(../IMG/dark-green-texture.jpg);*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    background-color: #245083;
 }
 nav{
     position: sticky;
     top: 0;
+    background-color: #283b79 !important;
 }
 .navbar-light .navbar-nav .nav-link{
     color: #ffffff;
@@ -105,10 +107,14 @@ option{
 td{
     font-size: 17px;
     font-family: "Montserrat-Light";
+    color: #ffffff;
+    text-align: center;
 }
 th{
     font-size: 22px;
     font-family: "Montserrat-SemiBold";
+    color: #ffffff;
+    text-align: center;
 }
 
 #challenges,#leaderboards,#lottery{

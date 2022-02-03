@@ -18,19 +18,44 @@ body {
   font-family: "Montserrat-SemiBold";
   src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
 }
+/* Scrollbar width reduced---snippet-- */
 
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 .navbar-light .navbar-nav .nav-link{
   color: #ffffff;
 }
 .active{
   color: black;
+  color: grey;
+}
+.navbar-light .navbar-nav .active>.nav-link{
+	color: #adb5bd !important;
 }
 .signup,.login{
     display: none;
 }
 nav{
     /* background-color: #218A7C; */
-    background-color: #026852;
+    /*background-color: #026852;*/
+    background-color: #283b79;
 }
 .navbar button[aria-expanded="false"] > .close{
   display:none;
@@ -182,10 +207,11 @@ a:hover {
   color: #004532;
 }
 .about{
-  background-image: url(../IMG/green-slate.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  /*background-image: url(../IMG/green-slate.jpg);*/
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+  background-color: #245083;
   padding: 3rem 7rem 6rem;
 }
 .about h1{
@@ -200,6 +226,50 @@ a:hover {
 .about-para p{
   margin-bottom: 1.5rem;
 }
+
+
+.modal-title{
+  font-family: "Montserrat-Bold";
+  color: #004532;
+}
+.modal-body h5{
+  font-family: "Montserrat-SemiBold";
+  font-size: 17px;
+}
+.modal-body button{
+  font-family: "Montserrat-Bold";
+}
+#fModalLong label{
+  font-family: "Montserrat-Regular";
+  font-size: 16px;
+  margin-bottom: 0.3px !important;
+}
+#fModalLong .modal-title{
+  font-family: "Montserrat-Bold";
+}
+
+#fModalLong input{
+  font-family: "Montserrat-Light";
+  font-size: 14px;
+}
+
+.signup p{
+	font-family: "Montserrat-Regular";
+}
+
+.pass_submit{
+  padding: 7px 18px;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "Montserrat-Bold";
+  background-color: #026852;
+}
+
+.pass_submit:hover{
+  color: #ffffff;
+  background-color:#004532;
+}
+
 @media screen and (max-width:767px) {
   .logimg{
     margin-bottom: 2rem;
