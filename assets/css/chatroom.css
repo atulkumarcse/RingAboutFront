@@ -48,6 +48,8 @@
 .user-list{
     width: 25%;
     background-color: #ffffff;
+    /*background-color: rgba(23,29,38,0.73);*/
+    background-color: #171d26;
     height: 100%;
     box-shadow: 3px 2px 9px 2px rgba(0,0,0,0.10);
     overflow: hidden;
@@ -62,11 +64,13 @@
 .people .heading {
     width: 100%;
     height: 15%;
-    padding: 1% 7%;
-    background-color: #245083;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 1% 5% 1% 7%;
+    /*background-color: #245083;*/
+    background-color: #172a77;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: -4.7026px 3.1351px 14.1079px rgba(0,0,0,0.10);
+    border:1px solid #000;
     /*align-items: flex-end;*/
 }
 .people .heading a{
@@ -78,7 +82,7 @@
 	color: #000;
 }
 .people .heading h4{
-    font-size: 21px;
+    font-size: 25px;
     color: #ffffff;
     font-family: "Montserrat-SemiBold";
 }
@@ -86,20 +90,22 @@
     width: 100%;
     height: 15%;
     background-color: #ffffff;
+    background-color: #171d26;
     padding: 6% 4%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 0.5px solid #b1b1b1;
 }
 .search-bar input{
     width: 100%;
     height: 2rem;
-    background-color: #e5e5e5;
+    /*background-color: #e5e5e5;*/
+    background-color: #345256;
     border-radius: 25px;
     outline: none;
     border: 0;
-    color: #808080;
+    color: #b3b3b3;
     font-family: "Montserrat-Italic";
     font-size: 13px;
     padding: 2% 4%;
@@ -108,21 +114,21 @@
     color: #808080;
     position: absolute;
     right: 10%;
-    top: 30%;
+    top: 40%;
 }
 .search-bar input::placeholder{
     color: #808080;
     font-family: "Montserrat-Italic";
 }
 .active-users{
-    height: 100%;
+    height: 71%;
     overflow-y: auto;
 }
 .person {
     width: 100%;
     padding: 3% 5%;
     cursor: pointer;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 0.5px solid #b1b1b1;
     margin: auto 0;
 }
 .user-info{
@@ -165,7 +171,7 @@
 .user-list .people .person .user-info .f-body .meta-info .user-name {
     font-size: 15px;
     margin-bottom: 0;
-    color: #000000;
+    color: #b3b3b3;
     font-family: "Montserrat-SemiBold";
 }
 .user-list.people .person .user-info .f-body .meta-info .user-meta-status{
@@ -220,7 +226,7 @@
 
 }
 .person:hover{
-	background-color: #c6b079;
+	background-color: #252f3d;
 }
 .chat-active{
 
@@ -234,6 +240,7 @@
     width: 75%;
     height: 100%;
     background-image: url(../img/auditorium&chatroom.png);
+    background-image: url(../IMG/chat12.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -269,15 +276,20 @@
     display: flex;
     align-items: center;
     margin-left: 5%;
+    height: 100%;
 }
 .chat-box .chat-box-inner .chat-meta-user {
     width: 100%;
     height: 15%;
-    background-color: #283b79;
+    background-color: #172a77;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     display: flex;
     justify-content: space-between;
     padding-bottom: 3px; 
-    
+    box-shadow: -4.7026px 3.1351px 25px rgba(0,0,0,0.10);   
+    /*border:1px solid #000; */
+    /*border-left: 0;*/
  }
 
   .chat-box .chat-box-inner .chat-meta-user .current-chat-user-name span {
@@ -313,6 +325,8 @@
     margin-bottom: 2rem;
     display: flex;
     display: -webkit-flex;
+    border:0.5px solid #b1b1b1;
+    border-radius: 9px;
 }
 
 
@@ -338,7 +352,7 @@
     line-height: 16px;
 }
 .m-msg p{
-	color: #ffffff;
+	color: #b3b3b3;
 }
  .chat-time {
     display: flex;
@@ -349,7 +363,7 @@
 }
 
 .chat-time .time {
-    color: #828282;
+    color: #979797;
     margin-top: 2px;
     font-size: 9px;
     font-family: "Montserrat-Medium";
@@ -372,7 +386,10 @@
 }
 .y-msg{
 
-     background-color: #ffffff;
+     background-color: rgba(23, 29, 38, 0.94);
+}
+.y-msg p{
+	color:#4e95ce;
 }
 .y-msg .u-name p{
     font-size: 14px;
@@ -382,7 +399,7 @@
 
 .m-msg{
 
-    background-color: #cec2aa;
+    background-color: rgba(23, 29, 38, 0.94);
 }
 
 
@@ -393,6 +410,7 @@
 
 .chat-box-footer{
     background-color: #283b79;
+    background-color: #172a77;
     position: absolute;
     bottom:  0;
     height: 15%;
@@ -426,7 +444,8 @@
     width: 60%;
     height: 2rem;
     background-color: #4d6b9e;
-    color: #ffffff;
+    background-color: #171d26;
+    color: #808080;
     outline:none;
     border: 0;
     margin-left: 3%;
@@ -440,25 +459,28 @@
 
 
  .chat-box-footer .chat-footer textarea{
-    color: #ffffff;
+    color: #808080;
     font-family: "Montserrat-Medium";
     overflow: hidden;
     resize: none;
-   
+   	border-radius: 20px;
+   	border:1px solid #4d4d4d;
 }
 
 .chat-box-footer{
      height: 12% !important;
 }
 .chat-box-footer textarea::placeholder{
-    color: #ffffff;
+    color: #808080;
 }
 
 .chat-box-footer textarea:focus{
-    border-radius: 0;
+    /*border-radius: 0;*/
     border: 0;
     outline: none;
-    background-color: #4d6b9e;
+    box-shadow: none;
+    background-color: #171d26;
+    /*background-color: #4d6b9e;*/
 }
 
  .chat-box-footer .chat-footer input{
@@ -466,13 +488,14 @@
      font-family: "Montserrat-Medium";
  }
  .chat-box-footer input::placeholder{
-     color: #ffffff;
+     color: #808080;
  }
  .chat-box-footer input:focus{
      border-radius: 0;
      border: 0;
      outline: none;
      background-color: #4d6b9e;
+     background-color: #171d26;
  }
 
  .messages {

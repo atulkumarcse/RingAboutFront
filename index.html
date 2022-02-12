@@ -18,12 +18,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <link rel="stylesheet" href="./assets/CSS/style.css">
+
+    <style>
+    	#regbtn,.logbtn{ 
+    	 background-color: #278036 !important;
+    	 border-radius: 40px;
+    	}
+    	#regbtn:hover,.logbtn:hover{
+    		background-color: #207c2f;
+    	}
+    	#sign button:focus{
+    		box-shadow: none;
+    		outline: 0;
+    		border:0;
+    	}
+
+    </style>
 </head>
 <body>
 
 	<!-- Forgot Password -->
     <div class="modal fade" id="fModalLong" tabindex="-1" role="dialog" aria-labelledby="fModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document" style="max-width: 600px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="fModalLongTitle">Forgot Password?</h4>
@@ -35,11 +51,12 @@
                     <div class="container-fluid">
                         <form action="">
                             <h5 class="mb-3">Please enter your registered email id to change the password</h5>
+                            <h5 id="fgmsg"></h5>
                             <div class="form-group">
-                                <input type="email" id="fpemail" class="form-control" placeholder="Enter your email">
+                                <input type="email" id="fpemail"   class="form-control" placeholder="Enter your email">
                             </div>
-                            <div class="form-group mt-4">
-                                <button class="btn btn-block pass_submit">Submit</button>
+                            <div class="form-group mt-4 d-flex justify-content-center">
+                                <button class="btn pass_submit fgpbutton">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -50,7 +67,7 @@
 
 
 
-    <div class="main-container bg-light">
+    <div class="main-container">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand text-white" href="#">RingAbout</a>
@@ -84,8 +101,15 @@
                         <li data-target="#carouselExampleSlidesOnly" data-slide-to="1"></li>
                       </ol>
                     <div class="carousel-inner h-100">
-                        <div class="carousel-item h-100 position-relative active">
-                            <img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="d-block w-100 position-absolute" alt="...">
+                        <div class="carousel-item h-100 position-relative active" id="ringabout">
+                        	<div class="d-block w-100 h-100 position-absolute">
+                                <div class="d-flex justify-content-center align-items-center w-100 h-100">
+                                    <div class="container">
+                                        <h1>"Dreams are like Streams... <br>....they flow into Mighty Rivers"</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="d-block w-100 position-absolute" alt="..."> -->
                         </div>
                         <div class="carousel-item h-100 position-relative" id="mwon">
                            <div class="d-block w-100 h-100 position-absolute">
@@ -136,7 +160,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 order-md-2 logimg">
-                        <img src="./assets/IMG/login.svg" alt="Image" class="img-fluid">
+                        <img src="./assets/IMG/sign_in.svg" alt="Image" class="img-fluid">
                     </div>
                     <div class="col-md-6 contents">
                         <div class="row justify-content-center">
@@ -157,7 +181,7 @@
                                     <div class="d-flex mb-5 align-items-center">
                                         <span class=""><a href="#" class="forgot-pass">Forgot Password</a></span> 
                                     </div>
-                                    <button class="btn btn-block text-white logbtn"style="background-color: #026852;">Sign In</button>
+                                    <button class="btn btn-block text-white logbtn">Sign In</button>
                                 </form>
                             </div>
                         </div>
@@ -171,7 +195,7 @@
             <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex mb-5">
-                <img src="./assets/IMG/signin.svg" alt="Image" class="img-fluid">
+                <img src="./assets/IMG/sign_up.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6 contents mb-4">
                 <div class="row justify-content-center">
@@ -183,26 +207,32 @@
                             <h5 id="msg"></h5>
                         </div>
                         <form action="#" method="post" id="regform">
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="name" placeholder="Name">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter your first and last name here"><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="user_name" placeholder="Username">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Please enter a unique name that others could recognize you by"><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="email" class="form-control" id="email" placeholder="Email">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter your valid email address here"><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="zipcode" placeholder="Post Code">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter zipcode of your area of residence here"><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="password" class="form-control" id="pass_word" placeholder="Password">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Choose a combination of alphabets and numbers, but make sure its easy for you to remember"><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="password" class="form-control" id="confirm-pass" placeholder="Confirm Password">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Re-enter the same password entered above"><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <p class="text-dark" style="font-size: 12px;">Note - Please remember the Email-ID as the same will be used for login</p>
-                            <button type="submit" class="btn btn-block text-white" id="regbtn" style="background-color: #026852;">Sign In</button>
+                            <!-- <p class="text-dark" style="font-size: 12px;">Email address entered here will be your login id</p> -->
+                            <button type="submit" class="btn btn-block text-white mt-4" id="regbtn">Sign Up</button>
                         </form>
                     </div>
                 </div>
@@ -217,6 +247,13 @@
         $('.forgot-pass').on('click',function(){
             $('#fModalLong').modal();
         });
+
+        if(screen.width < 768){
+        	$('#sign .btn').on('click',function(){
+        		console.log(this);
+        		$(this).tooltip('show');
+        	});
+        }
     </script>
 
     <script src="./assets//JS/script.js"></script>

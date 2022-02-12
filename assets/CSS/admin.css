@@ -51,20 +51,27 @@
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: #f8fafb;
-    /*background-image: url(../IMG/dark-green-texture.jpg);*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-    background-color: #245083;
+    /*background-color: #f8fafb;*/
+    background-image: url(../IMG/leaderboard.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 nav{
     position: sticky;
     top: 0;
-    background-color: #283b79 !important;
+    background-color: #172a77 !important;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0px 16px 11px rgba(0,0,0,0.66);
+    z-index: 999;
+
 }
 .navbar-light .navbar-nav .nav-link{
     color: #ffffff;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+	color: #666666;
 }
 .active{
     color: #000;
@@ -84,8 +91,15 @@ nav{
     height: 100%;
 }
 
-h1,#lottery h3,.modal-title,.modal-body button,button{
+h1,#lottery h3,.modal-title,.modal-body button,button,h2{
     font-family: "Montserrat-Bold";
+}
+h1{
+	color: #1773d1 !important;
+}
+h2{
+	color: #ffffff;
+	text-align: center;
 }
 .modal-body h4{
     font-family: "Montserrat-SemiBold";
@@ -96,7 +110,7 @@ input,input::placeholder{
 textarea,textarea::placeholder{
     font-family: "PlayfairDisplay-Italic";
 }
-.instruct{
+.instruct,.selstrong{
     font-family: "Montserrat-Regular";
 }
 option{
@@ -113,7 +127,8 @@ td{
 th{
     font-size: 22px;
     font-family: "Montserrat-SemiBold";
-    color: #ffffff;
+    color: #1773d1;
+    border: solid 1px #666666;
     text-align: center;
 }
 
@@ -124,16 +139,20 @@ th{
 
 
 /* Leaderboard page */
+.pull-right{
+	display: flex;
+	justify-content: center;
+}
 .pull-right a{
-    background-color: #026852;
+    background-color: #278036;
     color: #ffffff;
 }
 .pull-right a:hover{
-    color: #026852;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #1f722c;
 }
 
-#leaderboards th,#leaderboards td,#challenges th,#challenges td,#posts th,#posts td{
+#leaderboards td,#challenges td,#posts td{
     color: #ffffff;
     text-align: center;
 }
@@ -152,14 +171,104 @@ th{
     border: 2px solid #026852;
 }
 .subbtn,.lotbtn{
-    background-color: #026852;
+    background-color: #278036;
     color: #ffffff;
 }
 .subbtn:hover,.lotbtn:hover{
-    background-color: #ffffff;
-    color: #026852;
+    background-color: #1f722c;
+    color: #ffffff;
 }
 
 .adimg,.adtext,.adposts,.useposts{
     display: none;
+}
+
+/*table*/
+table { 
+    border-collapse: separate; 
+    border-spacing: 0;
+}
+td {
+    border: solid 1px #666666;
+    padding: 10px;
+    color: #e6e6e6;
+    vertical-align: middle !important; 
+}
+
+tr:first-child th:first-child { 
+    border-top-left-radius: 20px; 
+}
+tr:first-child th:last-child { 
+    border-top-right-radius: 20px; 
+}
+tr:last-child td:first-child { 
+    border-bottom-left-radius: 20px; 
+}
+tr:last-child td:last-child { 
+    border-bottom-right-radius: 20px; 
+}
+
+
+
+/*Modal*/
+.modal-header{
+    padding:0.5rem 1rem !important;
+}
+.modal-title{
+    font-family: "Montserrat-Bold";
+    color: #ffffff;
+}
+.modal-body h5,.modal-body h4{
+    font-family: "Montserrat-SemiBold";
+    font-size: 17px;
+    color: #cccccc;
+}
+.modal-body button{
+    font-family: "Montserrat-Bold";
+    border-radius: 20px;
+}
+.modal-content{
+    background-color: rgba(23,29,38,0.94);
+    border-radius: 40px;
+    padding:0.2rem 0.5rem;
+    box-shadow: 7px 7px 4px rgba(0,0,0,0.35);
+}
+.close{
+    color: #ffffff;
+    background-color: transparent !important;
+}
+
+.btn{
+	border-radius: 20px;
+	font-family: "Montserrat-Bold";
+}
+table .btn{
+	margin: 0 0.3rem;
+	width: 35%;
+}
+
+.btn-success{
+	background-color: #278036 !important;
+	color: #ffffff;
+}
+.btn-success:hover{
+	background-color: #1f722c;
+    color: #ffffff;
+}
+.btn-danger{
+	background-color: #99343c !important;
+	color: #ffffff;
+}
+.btn-danger:hover{
+	background-color: #8f2c34;
+    color: #ffffff;
+}
+.btn-info{
+	background-color: #1773d1 !important;
+	color: #ffffff;
+	width: 30%;
+}
+.btn-info:hover{
+	background-color: #0e69c4;
+    color: #ffffff;
 }

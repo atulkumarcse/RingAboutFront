@@ -19,15 +19,20 @@
 .main-container{
     width: 100%;
     min-height: 100vh;
-    /*background-image: url(../IMG/green-slate.jpg);*/
-    /*background-size: cover;*/
-    /*background-repeat: no-repeat;*/
-    background-color: #245083;
+    background-image: url(../IMG/leaderboard.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
 }
 nav{
     position: sticky !important;
     top: 0;
+    background-color: #172a77;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 16px 11px rgba(0,0,0,0.66);
+    z-index: 999;
 
 }
 .navbar button[aria-expanded="false"] > .close{
@@ -47,37 +52,74 @@ nav{
     height: 100%;
 }
 .leaderboard h1{
+	padding-top: 2rem;
     font-size: 42px;
     font-family: "Montserrat-Bold";
+    color: #1773d1;
 }
 .leaderboard div{
     width: 45%;
 }
-table,tr,td,th{
-    border-bottom: 1px solid #2d2d2e;
-}
+
 td,.leaderboarddata th{
     text-align: center;
-    color: #faf8fa;
     font-size: 17px;
     font-family: "Montserrat-Light";
 }
 th{
     font-size: 22px;
     font-family: "Montserrat-SemiBold";
+    color: #1773d1;
+    border: solid 1px #808080;
 }
+table { 
+    border-collapse: separate; 
+    border-spacing: 0;
+}
+td {
+    border: solid 1px #808080;
+    padding: 10px;
+    color: #b3b3b3;
+}
+
+tr:first-child th:first-child { 
+    border-top-left-radius: 20px; 
+}
+tr:first-child th:last-child { 
+    border-top-right-radius: 20px; 
+}
+tr:last-child td:first-child { 
+    border-bottom-left-radius: 20px; 
+}
+tr:last-child td:last-child { 
+    border-bottom-right-radius: 20px; 
+}
+
+
 
 .modal-header{
     padding:0.5rem 1rem !important;
 }
 .modal-title{
     font-family: "Montserrat-Bold";
-    color: #004532;
+    color: #ffffff;
 }
 .modal-body h5{
     font-family: "Montserrat-SemiBold";
     font-size: 17px;
+    color: #cccccc;
 }
 .modal-body button{
     font-family: "Montserrat-Bold";
+    border-radius: 20px;
+}
+.modal-content{
+    background-color: rgba(23,29,38,0.94);
+    border-radius: 40px;
+    padding:0.2rem 0.5rem;
+    box-shadow: 7px 7px 4px rgba(0,0,0,0.35);
+}
+.close{
+    color: #ffffff;
+    background-color: transparent !important;
 }

@@ -35,7 +35,9 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
-
+.onliners::-webkit-scrollbar{
+    display: none;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
@@ -55,12 +57,18 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    background-color: #f8fafb;
+    background-color: #171d26;
     /* background-image: url(../IMG/green-slate.jpg);
     background-size: cover;
     background-repeat: no-repeat; */
 }
-
+nav{
+    background-color: #172a77;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 16px 11px rgba(0,0,0,0.66);
+    z-index: 999;
+}
 .navbar button[aria-expanded="false"] > .close{
     display:none;
 }
@@ -77,13 +85,20 @@
     width: 100%;
     /* height: 160px; */
     border: 1px solid #000;
+    border-radius: 40px;
+    display: block !important; 
 }
-.afterheaderad img{
+.afterheaderad>div,.afterheaderad img{
+    border-radius: 40px;
     /* object-fit: cover; */
 }
 .dollar{
     height: 40%;
     border: 1px solid #000;
+    border-radius: 40px;
+}
+.dollar img,.dollar>div,.dollar>div>div{
+    border-radius: 40px;
 }
 
 .upbtn{
@@ -120,8 +135,19 @@
     object-fit: contain;
 }
 
-.img-opt,.text-opt{
+.img-opt,.text-opt,.patt-opt{
     display: none;
+}
+#image{
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #283b79;
+    color: #ffffff;
+    font-family: "Montserrat-Bold";
+    font-size: 1.5rem;
+}
+.patterns img:hover{
+    cursor: pointer;
 }
 .text-opt textarea,.text-opt textarea::placeholder{
     font-family: "PlayfairDisplay-Italic";
@@ -134,12 +160,14 @@
 .modal-body h5{
     font-family: "Montserrat-SemiBold";
     font-size: 17px;
+    color: #cccccc;
 }
 .modal-body option{
     font-family: "Montserrat-Regular";
     font-size: 15px;   
 }
 .modal-body button{
+	border-radius: 20px;
     font-family: "Montserrat-Bold";
 }
 #logoutModal .modal-header{
@@ -148,30 +176,28 @@
 .note{
     font-family: "Montserrat-SemiBold";
 }
-.submitbtn,.txtsubmitbtn{
+.submitbtn,.txtsubmitbtn,.pattsubmitbtn{
     padding: 7px 18px;
     font-size: 12px;
     color: #ffffff;
     font-family: "Montserrat-Bold";
     background-color: #026852;
 }
-.submitbtn:hover,.txtsubmitbtn:hover{
+.submitbtn:hover,.txtsubmitbtn:hover,.pattsubmitbtn:hover{
     color: #ffffff;
     background-color:#004532;
 }
 /* Online users  */
 .onliners{
-    /*background-image: url(../IMG/green-slate.jpg);*/
-    background-color: #283b79;
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    background-size: cover;
+    background-color: #172a77;
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    border-radius: 40px;
 }
 .onliners h4{
    font-family: "Montserrat-Bold";
+   color: #e6e6e6 !important;
 }
 .onliners a{
     text-decoration: none;
@@ -185,14 +211,16 @@
     width: 50px;
     height: 50px;
     position: relative;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
+    border-radius: 11px;
     border: 1px solid grey;
 }
 .ou_img img{
     width: 100%;
     height: 100%;
     position: absolute;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
+    border-radius: 11px;
     object-fit: contain;
 }
 .ou_name{
@@ -208,15 +236,15 @@
 }
 .challenge_div {
     border: 1px solid #000;
-    /*background-image: url(../IMG/dark-green-texture.jpg);*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
+    border-radius: 40px;
 }
 .challenge_div > div{
     position: relative;
+    border-radius: 40px;
 }
-
+.carousel-inner,.carousel-item,.carousel-item img{
+    border-radius: 40px;
+}
 .challenge_div p{
 	font-family: "PlayfairDisplay-Italic";
 	font-size: 20px;
@@ -233,12 +261,18 @@
     height: 54%;
     border: 1px solid #000;
     overflow:hidden;
+    border-radius: 40px;
+    padding: 1rem 0.2rem 0.5rem 0.2rem;
+    background-image: url(../IMG/winner_home-32.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .money h4{
     text-align: center;
     font-family: "Montserrat-Bold";
     font-size: 1.4rem;
-    color: #004532;
+    color: #87d69a;
 }
 .money h1{
     text-align: center;
@@ -247,11 +281,13 @@
     margin-bottom: 1.5rem;
     word-wrap: break-word;
     word-break: break-all;
+    color: #ffffff;
 }
 .money h2{
     text-align: center;
     font-family: "PlayfairDisplay-Bold";
     font-size: 1.5rem;
+    color: #ffffff;
 }
 
 /* Lottery pop up */
@@ -305,17 +341,22 @@
     /*background-position: center;*/
     /*background-repeat: no-repeat;*/
     /*background-size: cover;*/
-    background-color: #245083;
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    background:linear-gradient(to bottom right,#1a3c69,#278036);
+    /* margin-left: -15px !important; */
+    /* margin-right: -15px !important; */
     padding: 0 15px 0 15px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+.clsf,.clsf>div,.clsf img{
+    border-radius: 40px;
+}
+.classifiedrow > div,.classifiedrow > div >div,.classifiedrow > div > div >img{
+	border-radius: 40px;
 }
 
-
-
 .classified > h1{
-    color: #026852;
-    color: #ffffff;
+    color: #e6e6e6;
     font-family: "Montserrat-Bold";
 }
 .classified > h1:hover{
@@ -324,4 +365,55 @@
     color: #000;
 }
 
+.ad2 img,.ad3 img{
+    border-radius: 40px;
+}
 
+
+.modal-content{
+    background-color: rgba(23,29,38,0.94);
+    border-radius: 40px;
+    padding:0.2rem 0.5rem;
+    box-shadow: 7px 7px 4px rgba(0,0,0,0.35);
+}
+.modal-title{
+    color: #ffffff;
+}
+.close{
+    color: #ffffff;
+    background-color: transparent !important;
+}
+#exampleModalLong h5,.note,#eModalLong h5{
+    color: #cccccc;
+}
+#exampleModalLong button,#eModalLong button{
+    background-color: #1773d1;
+    border-radius: 20px;
+}
+#exampleModalLong button:hover,#eModalLong button:hover{
+    background-color: #1065b9;
+}
+#exampleModalLong textarea{
+    border-radius: 20px;
+}
+#eModalLong input{
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    padding-left: 0;
+    border-bottom: 1px solid #808080;
+    font-family: "Montserrat-Regular";
+    color: #e6e6e6;
+}
+#eModalLong input::placeholder{
+    font-family: "Montserrat-Regular";
+    color: #e6e6e6;
+}
+#exampleModalLong textarea,#exampleModalLong textarea::placeholder{
+    font-family: "Montserrat-Regular";
+}
+#exampleModalLong textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}

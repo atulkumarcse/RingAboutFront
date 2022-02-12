@@ -102,7 +102,7 @@
         <!-- advertisement Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 650px;">
-                <div class="modal-content" style="height: 500px;">
+                <div class="modal-content" style="min-height: 500px;">
                     <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLongTitle">Create your Advertisement</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -118,6 +118,7 @@
                                     <option selected >Select one from below</option>
                                     <option class="one opts" value="1">Image</option>
                                     <option class="two opts" value="2">Text</option>
+                                    <option class="three opts" value="3">Image/Text</option>
                                 </select>
                                 <div>
                                     <!-- image option -->
@@ -129,7 +130,7 @@
                                             </div>
                                             <div class="upbtn ml-4">
                                                 <button class="btn igUpload">Upload Picture</button>
-                                                <input type="file" id="imgUpload" name="file" style="display: none;">
+                                                <input type="file" id="imgUpload" onchange="loadAdvFile(event)" name="file" style="display: none;">
                                             </div> 
                                         </div>
                                         <button class="btn submitbtn submitbtnadv ">Submit</button>
@@ -137,8 +138,55 @@
                                     <!-- text option -->
                                     <div class="text-opt mt-5">
                                         <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
-                                        <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name ="detail" ></textarea>
+                                        <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name="detail" ></textarea>
                                         <button class="btn txtsubmitbtn submitbtnadv">Submit</button>
+                                    </div>
+
+                                    </form>
+                                    <form action="" id="formadvimg">
+                                    <!-- text over pattern option -->
+                                    <div class="patt-opt mt-5">
+                                        <div class="d-flex justify-content-center mb-4">
+                                            <div id="image" class="d-flex justify-content-center align-items-center text-center" style="width: 80%; height: 180px; border:1px solid #000;">
+                                                Click on an image below to display here.
+                                            </div>
+                                        </div>
+                                        <p class="mb-3 note"><strong>Choose the pattern for your advertisement's background</strong> </p>
+                                        <div class="patterns">
+                                            <div class="row">
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000; ">
+                                                        <img src="./assets/SVG/bubbles.svg" class="img-fluid w-100" style="object-fit: cover; background-color: #283b79;" onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000;">
+                                                        <img src="./assets/SVG/hideout.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000;">    
+                                                        <img src="./assets/SVG/i-like-food.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000; ">
+                                                        <img src="./assets/SVG/jigsaw.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000;">
+                                                        <img src="./assets/SVG/temple.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="imageUrl" name="imageUrl">
+                                            <div>
+                                                <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
+                                                <textarea id="pattext" name ="detail" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
+                                                <button class="btn pattsubmitbtn">Submit</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -150,7 +198,7 @@
 
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg" style="background-color: #283b79;">
+        <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <!-- <span class="navbar-toggler-icon"></span> -->
@@ -160,7 +208,7 @@
             <div class="collapse navbar-collapse justify-content-end mr-4" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="main.html" style="color: #adb5bd">Home</a>
+                  <a class="nav-link" href="main.html" style="color: #b3b3b3">Home</a>
                 </li>
                 <li class="nav-item ml-lg-3">
                   <a class="nav-link text-white" href="leaderboard.html">Leaderboard</a>
@@ -187,14 +235,14 @@
             <!-- Ad 1   -->
             <div class="afterheaderad my-4 mb-5" id="advert1">
                 <div class="h-100 d-flex">
-                    <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100 " alt="">
+                    <img src="" class="TopHead img-fluid w-100 " alt="">
                 </div>
             </div>
 
             <!-- challenge row -->
-            <div class="row row1">
-                <div class="col-md-2 r1" style="height: 500px;">
-                    <div class="h-100 w-100 d-flex flex-column justify-content-between">
+            <div class="row row1" style="border-radius: 40px">
+                <div class="col-md-2 r1" style="height: 500px; border-radius: 40px">
+                    <div class="h-100 w-100 d-flex flex-column justify-content-between" style="border-radius: 40px">
                         <!-- dollar lucky draw -->
                         <div class="dollar">
                             <div class="w-100 h-100" style="background-color: white;">
@@ -203,8 +251,8 @@
                         </div>
                         <!-- high money winner -->
                         <div class="money">
-                        	<div class="w-100 h-100 p-2">
-                                <h4 class="text-center mb-4">Highest Single Winning</h4>
+                        	<div class="w-100 h-100 " style="padding: 0.75rem;">
+                                <h4 class="text-center mb-4">Highest <br>Single <br>Winning</h4>
                                 <div class="d-flex flex-column align-items-center justify-content-between">
                                     <h1>$ <span class="high_money">54,25,32,214</span></h1>
                                     <h2 class="high_user">UserName</h1>
@@ -247,8 +295,8 @@
 
                 <!-- online users -->
                 <div class="col-md-2 r1" style="height: 500px;">
-                    <div class="onliners h-100 w-100 pt-3 pb-3">
-                    	<h4 class="text-center text-white">Online Users</h4>
+                    <div class="onliners h-100 w-100 pt-4 pb-3">
+                    	<h4 class="text-center text-white mb-4">Online Users</h4>
                         <div class="onilneusers mt-3 d-flex flex-column  align-items-start px-3">
                             <!-- individual user -->
                             <a href="#" class="users mb-3 d-block">
@@ -361,16 +409,16 @@
             </div>
 
             <!-- ad 2 -->
-            <div class="ad2 bg-dark mt-3 mb-5 w-100" id="advert2"  style="border: 1px solid #000;">
-                <div class="h-100 d-flex">
-            		<img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="img-fluid w-100">
+            <div class="ad2 bg-dark mt-3 mb-5 w-100" id="advert2"  style="border: 1px solid #000; border-radius: 40px;">
+                <div class="h-100 d-flex" style="border-radius: 40px;">
+            		<img src="" class=" MiddleHead img-fluid w-100">
             	</div>
             </div>
 
 
              <!-- classifieds -->
             <div class="downcontent mb-5 pb-3">
-                <div class="classified py-3">
+                <div class="classified py-3 mb-3">
                     <h1 class="text-center mt-3 mx-0 p-1">CLASSIFIEDS <i class="far fa-plus-square"></i></h1>
                 </div>
                 <div class="row classifiedrow">
@@ -410,9 +458,9 @@
         
 
             <!-- ad 3 -->
-            <div class="ad2 bg-dark w-100 mb-4" id="advert3" style="border: 1px solid #000;">
-                <div class="h-100 d-flex">
-            		<img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100">
+            <div class="ad2 bg-dark w-100 mb-4" id="advert3" style="border: 1px solid #000;border-radius: 40px;">
+                <div class="h-100 d-flex" style="border-radius: 40px;">
+            		<img src="" class="BottomHead img-fluid w-100">
             	</div>
             </div>
 
@@ -423,7 +471,7 @@
 
 
     <script>
-
+         imageUrl = "";
     	 $('#logOut').on('click',function(){
             $('#logoutModal').modal();
         });
@@ -445,14 +493,22 @@
             var optval = e.target.value;
             console.log(optval);
             if(optval==1){
+            	$('.patt-opt').css('display','none');
                 $('.text-opt').css('display','none');
                 $('.img-opt').css('display','block');
             }
             else if(optval==2){
+	          	$('.patt-opt').css('display','none');
                 $('.img-opt').css('display','none');
                 $('.text-opt').css('display','block');
             }
+            else if(optval==3){
+                $('.text-opt').css('display','none');
+                $('.img-opt').css('display','none');
+                $('.patt-opt').css('display','block');
+            }
             else{
+            	$('.patt-opt').css('display','none');
                 $('.img-opt').css('display','none');
                 $('.text-opt').css('display','none');
             }
@@ -478,6 +534,14 @@
         var uhh = uh + 'px';
         $('.clsf').css('height', uhh);
 
+
+        function upDate(x){
+            imageUrl = x.src;
+            document.getElementById('image').style.backgroundImage="url("+ x.src +")";
+            document.getElementById('imageUrl').value = x.src 
+            document.getElementById('image').innerHTML="Your Advertisement's text will be here...";
+        }
+
     </script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>  
      <script type="text/javascript" src="./assets/JS/script.js"></script>
@@ -496,6 +560,17 @@
 
                
             });
+
+           var loadAdvFile = function(event) {
+    var image = document.getElementsByClassName('uadpic');
+    image[0].src = URL.createObjectURL(event.target.files[0]);
+    //image[1].src = URL.createObjectURL(event.target.files[0]);
+};
        </script>
+       <style type="text/css">
+           .u-para {
+                position: absolute;
+            }
+       </style>
 </body>
 </html>

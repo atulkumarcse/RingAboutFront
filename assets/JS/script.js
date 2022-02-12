@@ -364,6 +364,63 @@ $('.submitbtnadv').on('click',function(e){
 });
 
 
+$('.pattsubmitbtn').on('click',function(e){
+    e.preventDefault();
+    //var formData = $("#formadv").serialize();
+    var form = $('#formadvimg')[0];
+    var formData = new FormData(form);
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/AdvertiseStorepattern",
+        type: "post",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: formData
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        if(response.status == true || response.status == 'true')
+           {
+            $("#uploadmsg").html("Advertise Created Succefully"); 
+            window.location.reload();
+            //return true;
+           }
+        else{
+             
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided" || jqXHR.responseJSON.error == "token_invalid"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+});
+
+
 
 function advlist(){
     bearertoken = readCookie('token');
@@ -383,17 +440,23 @@ function advlist(){
     request.done(function (response, textStatus, jqXHR){
         // Log a message to the console
         console.log(response);
+      
         if(response.status == "true"){
            $(".classifiedrow").html("");
              $.each(response.data, function (key, val) {
+             img = text = "";     
                 if(response.data[key].url != null){
-                    text = '<img src="/ring_about/'+response.data[key].url+'" class="img-fluid w-100"  alt="">'
+                    img = '<img src="'+imgurl+response.data[key].url+'" class="img-fluid w-100"  alt="">'
                 } else {
-                    text = '<p class="img-fluid w-100 u-para " style="color:black; display:block">'+response.data[key].detail+'</p>';
+                    text = '<p class="img-fluid w-100 u-para " style=" display:block">'+response.data[key].detail+'</p>';
                 }
+                if(response.data[key].detail != null && response.data[key].url != null){
+                   img = '<img src="'+response.data[key].url+'" class="img-fluid w-100"  alt="">';
+                   text = '<p class="img-fluid w-100 u-para " style=" display:block">'+response.data[key].detail+'</p>';
+                } 
                 $data = '<div class="col-md-3 " style="height: 200px; margin-bottom:30px; ">'+
-                        '<div class="h-100 d-flex " style="border: 1px solid #000;">'+
-                        text + '</div>'+
+                        '<div class="h-100 d-flex " style="border:2px solid #ffffff;">'+
+                       img + text + '</div>'+
                     '</div>'
                     $(".classifiedrow").append($data);
                 });
@@ -487,6 +550,79 @@ function mnylist(){
        // $inputs.prop("disabled", false);
     });
 }
+
+
+function alluserList(){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/userList",
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        //console.log(response);
+        if(response.status === true){
+          
+             $.each(response.data, function (key, value) {
+            var datafun = value.id + "," +'"'+value.name.toString()+'"' ;
+            if($('.userlist'+value.id).html() === undefined)
+            {
+            $('#joinwebcam').append('<div class="userlist'+value.id+' listuser ">'+
+                '<div class="person chat-active '+value.id+'" data-chat="person1">'+
+                            '<div class="user-info"'+
+                            "onclick='setname("+datafun+")'"+
+                            '>'+
+                                '<div class="meta-initial">'+
+                                    '<div class="user-initial">'+
+                                        '<h2 >'+value.name.charAt(0)+'</h2>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="f-body">'+
+                                    '<div class="meta-info">'+
+                                        '<span '+
+                                        //"onclick='setname("+datafun+")'"+
+                                         'class="user-name" data-name="'+value.name+'">'+value.name+'</span>'+
+                                        '<span class="user-meta-status">'+
+                                            //'<div class="circle c-1"></div>'+
+                                            '<div class="circle c-2 removeb circlered'+value.id+'"></div>'+
+                                        '</span>'+
+                                    '</div>'+
+                                    '<span class="preview"><p></p></span>'+
+                                 '</div>'+
+                            '</div>'+
+                        '</div>'+
+                        '</div>');
+            $(".circlered"+value.id).addClass("blink")
+           }
+                
+                });
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+        console.log(jqXHR.responseJSON);
+          if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided"){
+            window.location.href = "/RingAbout";
+           }
+    });
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+}
+
 function chllist(){
     bearertoken = readCookie('token');
     // Fire off the request to /form.php
@@ -608,7 +744,13 @@ function profilelist($id){
              $arr = response.data[0].twitter.split(",");
               if($arr.length>0){
               $.each($arr,function(key,value){
-                   $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
+                if(value.includes("https://") ===  true){
+                    addhttps = "";
+                  }
+                  else {
+                    addhttps = "https://"
+                  }
+                   $(".addsocial").append('<a href="'+addhttps+value+'" target="_blank"><h4 class="tweet mb-2 ml-4">'+value+'</h4></a>');
               });
               }
           }
@@ -626,7 +768,13 @@ function profilelist($id){
              $arr = response.data[0].twitter.split(",");
               if($arr.length>0){
               $.each($arr,function(key,value){
-                   $(".addsocial").append('<h4 class="tweet mb-2 ml-4">'+value+'</h4>');
+                  if(value.includes("https://") ===  true){
+                    addhttps = "";
+                  }
+                  else {
+                    addhttps = "https://"
+                  }
+                   $(".addsocial").append('<a href="'+addhttps+value+'" target="_blank"><h4 class="tweet mb-2 ml-4">'+value+'</h4></a>');
               });
               }
               }
@@ -905,10 +1053,12 @@ function getleaderboard(){
         $(".insta").html("");
         $(".others").html("");
         if(response.status === true){
+            i=1;
           $.each(response.data.data,function(key,value){
                $(".leaderboarddata").append('<tr>'+
-                        ' <td class="py-3 rank">'+value.order+'</td>'+
+                        ' <td class="py-3 rank">'+(i++)+'</td>'+
                         ' <td class="py-3 rank-user">'+value.name+'</td>'+
+                        ' <td class="py-3 rank-usermoney">'+value.money+'</td>'+
                     '</tr>');
           });
            } else {
@@ -946,11 +1096,135 @@ function toggle(e){
         data: ""
     });
 }
+
+
+$('.fgpbutton').on('click',function(e){
+    e.preventDefault();
+    let fpemail = document.getElementById('fpemail').value;
+    
+    data = {
+        email:fpemail,
+    }
+
+    eraseCookie('token');
+    eraseCookie('userdetails');
+    deleteAllCookies();
+    // setup some local variables
+
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/auth/mailsend",
+        type: "get",
+        data: data
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+
+        console.log(response);
+        if(response.status == "ok"){
+           
+           $("#fgmsg").html("Please check your email")
+        }
+        else{
+             $("#fgmsg").html("Please register yourself")
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           //console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error.status_code == 403)
+           {
+            $("#fgmsg").html("Please register your email"); 
+            return true;
+           }
+            var  i=0; 
+            Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+              if(i==0){
+               $("#fgmsg").html(val); 
+               i++;
+              }     
+            });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       
+    });
+});
+
+function advtopmiddle(){
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/AdvertiselistTop",
+        type: "get",
+        processData: false,
+        contentType: false,
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: ""
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log(response);
+        if(response.status == "true"){
+             $.each(response.data, function (key, val) {
+                if(val.detail == "Top"){
+                    $(".TopHead").attr("src",imgurl+response.data[key].url)
+                } else if(val.detail == "Middle"){
+                    $(".MiddleHead").attr("src",imgurl+response.data[key].url)
+                } else if(val.detail == "Bottom"){
+                    $(".BottomHead").attr("src",imgurl+response.data[key].url)
+                } else {
+                    
+                }
+               
+                });
+           
+           } else {
+
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           console.log(jqXHR.responseJSON);
+           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_invalid"){
+            window.location.href = "/RingAbout";
+           }
+
+           
+           //  var  i=0; 
+           //  Object.entries(jqXHR.responseJSON.error.errors).forEach(([key, val]) => {
+           //    if(i==0){
+           //     $("#loginmsg").html(val); 
+           //     i++;
+           //    }     
+           //  });
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+}
+
 if(window.location.pathname == '/RingAbout/main.html')
 {
   advlist();
   mnylist(); 
-  chllist() 
+  chllist();
+  advtopmiddle(); 
 }
 //
 

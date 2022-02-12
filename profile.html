@@ -46,7 +46,7 @@
         </div>
 
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg" style="background-color: #283b79;">
+        <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon"></span> -->
@@ -65,7 +65,7 @@
                 <a class="nav-link text-white" href="chatroom.html">Chat</a>
                 </li>
                 <li class="nav-item ml-lg-3 dropdown">
-                <a class="nav-link dropdown-toggle" style="color: #adb5bd" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" style="color: #b3b3b3" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                     Profile
                 </a>
                 <div class="dropdown-menu dropspace" aria-labelledby="navbarDropdownMenuLink">
@@ -84,7 +84,7 @@
             <div class="prof-cls">
                 <div class="profile-up">
                     <div class="up-left">
-                        <div class="profile-photo" style="border-radius: 50%;">
+                        <div class="profile-photo">
                             <img src="./assets/IMG/undraw_sign_in_re_o58h.svg" class="profpic" alt="photo">
                         </div>
                         <div class="d-flex align-items-end ml-3 border-0">
@@ -109,11 +109,12 @@
                     <div class="social_links">
                         <label class="tagl mb-auto">Social Media : </label>
                         <div class="d-flex flex-column addsocial">
-                            <h4 class="tweet mb-2 ml-4"></h4>
+                            <!-- <h4 class="tweet mb-2 ml-4"></h4> -->
                         </div>
                     </div>
                     <div class="d-flex justify-content-start mt-4">
-                        <button class="btn px-4 ml-5 editbtn">Edit profile</button>
+                    	<label class="tagl mb-auto"></label>
+                        <button class="btn px-4 ml-4 editbtn">Edit profile</button>
                     </div>
                 </div>
             </div>
@@ -123,7 +124,7 @@
                 <form action="" id="updprofile">
                     <div class="profile-up">
                         <div class="up-left">
-                            <div class="profile-photo" style="border-radius: 50%;">
+                            <div class="profile-photo">
                                 <img src="./assets/IMG/undraw_sign_in_re_o58h.svg" id="photo" class="profpic" alt="photo">
                             </div>
                             <div class="upbtn ml-4">
@@ -165,11 +166,12 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="social_link">
-                        	<div class="d-flex">
+                        <div class="social_link mt-4">
+                        	<div class="d-flex mb-3">
                         		<div class="d-flex justify-content-between" style=" width:65%; margin-left:1rem;">
-		                            <label class="tagl mt-2" style="width:auto;text-align: left;">Social Media Handles : </label>
-		                            <button class="btn p-0 addmore">Add <i class="far fa-plus-square fa-lg"></i></button>
+		                            <label class="tagl mt-2 smh" style="width:auto;text-align: left; font-weight: bold;margin-left: 0.5rem; font-size: 18px;">Social Media Handles : </label>
+		                            <!-- <button class="btn p-0 addmore">Add <i class="far fa-plus-square fa-lg"></i></button> -->
+		                            <button class="btn p-0 addmore"><img src="./assets/IMG/add.svg" alt=""></button>
 		                        </div>
 	                            <div class="toggletxt">
 	                                <p class="txt">hide</p>
@@ -185,7 +187,7 @@
                                 <input type="url" name="others[]" class="inp mb-2"  placeholder="social link 3">
                             </div>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex mt-3">
 	                        <button type="button" class="btn saveprof updbtn">Save</button>
 	                        <button type="button" class="btn cancelprof">Cancel</button>
 	                    </div>

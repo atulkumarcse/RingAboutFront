@@ -445,7 +445,7 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 		}
 		notifym  = 1;
 		//elem.scrollTop = elem.scrollHeight;
-		$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+		$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
 	});
 
 	demo.on("messageonetoone", function(info) {
@@ -512,10 +512,10 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 			{
               //toastr.info(msg);
               savenotificationfrom(msg,"3",info.text.userid);
-            $(".notificationblink").addClass("blink");
+            $(".notificationblink").addClass("blinkblue");
 			}
 			//$(".circlered"+info.text.userid).css("background-color","red");
-			$(".circlered"+info.text.userid).addClass("blink")
+			$(".circlered"+info.text.userid).addClass("blinkblue")
 			$('#'+info.text.userid).append('<div class="chats you">'+
 		      						'<div class="chat-content">'+
 		      							'<div class="message-content y-msg"><p>' + msg  + "</p> "+
@@ -532,12 +532,12 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 		// 	$('.bubble-area').append('<p style="float:right">'  + from + ' :   ' + msg  + " - " +  dateString +"</p>");
 		// }
 		notifym  = 1;
-		if($('.bubble-area').get(0) !== undefined)
+		if($('.chat-box-content').get(0) !== undefined)
 		{
-		 $('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;	
+		 $('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;	
 		}
 		
-		//$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+		//$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
 	});
 
 
@@ -601,7 +601,7 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 			$('.bubble-areasupport').get(0).scrollTop = $('.bubble-areasupport').get(0).scrollHeight;
 		} else {
 			//$(".circlered"+info.text.userid).css("background-color","red");
-			$(".circlered"+info.text.userid).addClass("blink")
+			$(".circlered"+info.text.userid).addClass("blinkblue")
 			$('#'+info.text.userid).append('<div class="chats you">'+
 		      						'<div class="chat-content">'+
 		      							'<div class="message-content y-msg">' + msg  + " </div> "+
@@ -618,12 +618,12 @@ async function publishvideo(roomid,nameid,type,user_type,name) {
 		// 	$('.bubble-area').append('<p style="float:right">'  + from + ' :   ' + msg  + " - " +  dateString +"</p>");
 		// }
 		notifym  = 1;
-		if($('.bubble-area').get(0) !== undefined)
+		if($('.chat-box-content').get(0) !== undefined)
 		{
-		 $('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;	
+		 $('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;	
 		}
 		
-		//$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+		//$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
 	});
 
 	
@@ -1130,7 +1130,8 @@ function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 	}
 	notifym = 2;
-	$(".circlered"+nameidformessage).removeClass("blink")
+	$(".circlered"+nameidformessage).removeClass("blinkblue")
+	//$(".circlered"+nameidformessage).removeClass("blinkgreen")
 	if(theCode == 13) {
 		// Send the chat message
 		
@@ -1166,11 +1167,11 @@ function checkEnter(field, event) {
 			//$('.bubble-area').append('<p style="float:right">' + msg  + " : " +from   + ' - ' + dateString +"</p>");
 		   // $('.bubble-area').append('<p style="float:right; margin-top:5%">' + msg   + " : "+ from +"  "+ dateString+ "</p>"  );
 		}
-		if($('.bubble-area').get(0) !== undefined)
+		if($('.chat-box-content').get(0) !== undefined)
 		{
-		 $('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;	
+		 $('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;	
 		}
-		//$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+		//$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
 		$('.chatboxnet').val('');
         $('.chat_form').val("");
        
@@ -1184,7 +1185,8 @@ function checkEnter(field, event) {
 async function checkEnterss(field, event,supportperson) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 	notifym = 2;
-	$(".circlered"+nameidformessage).removeClass("blink")
+	$(".circlered"+nameidformessage).removeClass("blinkblue")
+	//$(".circlered"+nameidformessage).removeClass("blinkgreen")
 	if(theCode == 13) {
 		// Send the chat message
 		//supportperson = await getCookie("useridformessage"); 
@@ -1511,10 +1513,10 @@ function unreaduserlist(usersida){
 						'</div>');
            	
            }
-           $(".circlered"+value.from).addClass("blink")
+           $(".circlered"+value.from).addClass("blinkblue")
            }
             });
-         //$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+         //$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
           //qna();
           //alert("question asked for you");
        // userlist('RingAbout');
@@ -1565,9 +1567,10 @@ function userlist(usersida){
 						'</div>'+
 						'</div>');
            }
+           $(".circlered"+value.std_id).addClass("blinkgreen")
            }
            });
-         //$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+         //$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
           //qna();
           //alert("question asked for you");
           if(window.location.pathname == '/RingAbout/chatroom.html')
@@ -1616,6 +1619,7 @@ function supportuserlist(usersida){
 
 function setname(nameidss , namevalue)
 {
+$(".chat-meta-user").css("display","block");
 $(".current-chat-user-name").css("display","flex");	
 $(".chat-box-footer").css("display","flex");	
 $(".chat-box-inner").css("background-image","none");
@@ -1624,9 +1628,10 @@ $(".chat-box-inner").css("background-image","none");
     $(".formchatdiv").css("display","block");
    	$('.bubble-area').attr("id",nameidss);
 	$(".fa-videoa").css("pointerEvents","auto");
-	$(".circlered"+nameidss).removeClass("blink")
-	$(".listuser").css("background-color","white");
-    $(".userlist"+nameidss).css("background-color","#c6b079");
+	$(".circlered"+nameidss).removeClass("blinkblue")
+	//$(".circlered"+nameidss).removeClass("blinkgreen")
+	$(".listuser").css("background-color","#171d26");
+    $(".userlist"+nameidss).css("background-color","#252f3d");
 	hidevideodiv();
 	$('.bubble-area').html("");
 	$(".namevalues").html(namevalue);
@@ -1672,11 +1677,11 @@ $(".chat-box-inner").css("background-image","none");
 		      					"</div>");
            		}
            	});
-        if($('.bubble-area').get(0) !== undefined)
+        if($('.chat-box-content').get(0) !== undefined)
 		{
-		 $('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;	
+		 $('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;	
 		}
-           //	$('.bubble-area').get(0).scrollTop = $('.bubble-area').get(0).scrollHeight;
+           //	$('.chat-box-content').get(0).scrollTop = $('.chat-box-content').get(0).scrollHeight;
            }
         }
     });
