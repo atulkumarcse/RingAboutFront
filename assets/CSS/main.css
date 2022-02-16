@@ -162,6 +162,11 @@ nav{
     font-size: 17px;
     color: #cccccc;
 }
+#adafterModal h2{
+	font-family: "Montserrat-SemiBold";
+  	font-size: 21px;
+  	color: #b3b3b3;
+}
 .modal-body option{
     font-family: "Montserrat-Regular";
     font-size: 15px;   
@@ -325,8 +330,9 @@ nav{
 
 .u-para{
     color: #ffffff;
-     font-family: "PlayfairDisplay-Italic";
-    font-size: 0.9rem;
+    font-family: "Montserrat-Bold";
+    /*font-family: "PlayfairDisplay-Italic";*/
+    font-size: 1rem;
     overflow-wrap: break-word;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
@@ -354,7 +360,13 @@ nav{
 .classifiedrow > div,.classifiedrow > div >div,.classifiedrow > div > div >img{
 	border-radius: 40px;
 }
-
+.classifiedrow > div >div{
+	align-items: center;
+	justify-content: center;
+}
+.classifiedrow > div > div >img{
+	height: 100%;
+}
 .classified > h1{
     color: #e6e6e6;
     font-family: "Montserrat-Bold";

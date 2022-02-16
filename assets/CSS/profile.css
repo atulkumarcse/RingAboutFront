@@ -28,6 +28,26 @@
     font-family: "PlayfairDisplay-Bold";
     src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
 }
+/* Scrollbar width reduced---snippet-- */
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 /* navbar-light" style="background-color: #218A7C; */
 .main-container{
@@ -123,17 +143,24 @@ h1,h4{
 label{
     color: #666666;
 }
-.editbtn{
+.editbtn,.chpassbtn{
     color: #ffffff;
     background-color: #278036;
     border-radius: 20px;
     font-family: "Montserrat-Bold";
     font-size: 15px;
-    width:30%;
+    width:33%;
 }
 .editbtn:hover{
     color: #ffffff;
     background-color: #20742e;
+}
+.chpassbtn{
+	background-color: #1773d1;
+}
+.chpassbtn:hover{
+	background-color: #0b5bac;
+	color: #ffffff;
 }
 .inner-cls{
     width: 70%;
@@ -312,9 +339,42 @@ form{
     color: #ffffff;
 }
 
+#changepassModal .modal-header,#changepassModal .container-fluid,#changepassModal .modal-body{
+	padding-left: 0 !important;
 
+}
 
-
+#changepassModal .modal-content{
+	padding: 0.2rem 1.8rem;
+}
+#changepassModal form{
+	width: 100%;
+	margin: 0;
+}
+#changepassModal input{
+	background-color: transparent !important;
+	color: #b3b3b3 ;
+	border:0;
+	border-radius: 0;
+	padding-left: 0;
+	border-bottom: 1px solid #808080;
+}
+#changepassModal input::placeholder{
+	color: #b3b3b3;
+}
+#changepassModal .subpassbtn{
+	background-color: #278036;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 5px 18px;
+    font-family: "Montserrat-Bold";
+    border-radius: 20px;
+    width: 35%;
+}
+#changepassModal .subpassbtn:hover{	
+	background-color: #22722f;
+    color: #ffffff;
+}
 
 
 

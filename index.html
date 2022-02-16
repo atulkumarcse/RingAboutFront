@@ -32,7 +32,23 @@
     		outline: 0;
     		border:0;
     	}
+    	#faModalLong .modal-header{
+    		border-bottom: 0 !important;
+    	}
+    	.modal .close:focus{
+    		outline: none;
+    	}
 
+    	input:-webkit-autofill,
+		input:-webkit-autofill:hover, 
+		input:-webkit-autofill:focus, 
+		input:-webkit-autofill:active{
+		    -webkit-box-shadow: 0 0 0 30px #171d26 inset !important;
+		}
+
+		input:-webkit-autofill{
+    		-webkit-text-fill-color: #b3b3b3 !important;
+		}
     </style>
 </head>
 <body>
@@ -59,6 +75,24 @@
                                 <button class="btn pass_submit fgpbutton">Submit</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- forgot password after popup -->
+    <div class="modal fade" id="faModalLong" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centerd" role="document" style="max-width: 600px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <h2 class=" text-white text-center">Password successfully sent to your registered email id</h2>
                     </div>
                 </div>
             </div>
@@ -209,27 +243,27 @@
                         <form action="#" method="post" id="regform">
                             <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="name" placeholder="Name">
-                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter your first and last name here"><i class="fas fa-info-circle"></i></button>
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter your first and last name here"><i class="fas fa-info-circle text-white"></i></button>
                             </div>
                             <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="user_name" placeholder="Username">
-                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Please enter a unique name that others could recognize you by"><i class="fas fa-info-circle"></i></button>
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Please enter a unique name that others could recognize you by"><i class="fas fa-info-circle text-white"></i></button>
                             </div>
                             <div class="form-group d-flex">
                                 <input type="email" class="form-control" id="email" placeholder="Email">
-                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter your valid email address here"><i class="fas fa-info-circle"></i></button>
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter your valid email address here"><i class="fas fa-info-circle text-white"></i></button>
                             </div>
                             <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="zipcode" placeholder="Post Code">
-                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter zipcode of your area of residence here"><i class="fas fa-info-circle"></i></button>
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Enter zipcode of your area of residence here"><i class="fas fa-info-circle text-white"></i></button>
                             </div>
                             <div class="form-group d-flex">
                                 <input type="password" class="form-control" id="pass_word" placeholder="Password">
-                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Choose a combination of alphabets and numbers, but make sure its easy for you to remember"><i class="fas fa-info-circle"></i></button>
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Choose a combination of alphabets and numbers, but make sure its easy for you to remember"><i class="fas fa-info-circle text-white"></i></button>
                             </div>
                             <div class="form-group d-flex">
                                 <input type="password" class="form-control" id="confirm-pass" placeholder="Confirm Password">
-                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Re-enter the same password entered above"><i class="fas fa-info-circle"></i></button>
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="Re-enter the same password entered above"><i class="fas fa-info-circle text-white"></i></button>
                             </div>
                             <!-- <p class="text-dark" style="font-size: 12px;">Email address entered here will be your login id</p> -->
                             <button type="submit" class="btn btn-block text-white mt-4" id="regbtn">Sign Up</button>
@@ -245,7 +279,7 @@
 
     <script>
         $('.forgot-pass').on('click',function(){
-            $('#fModalLong').modal();
+             $('#fModalLong').modal();
         });
 
         if(screen.width < 768){
@@ -257,7 +291,10 @@
     </script>
 
     <script src="./assets//JS/script.js"></script>
-
-
+<style type="text/css">
+    h5#msg {
+        color: white;
+    }
+</style>
 </body>
 </html>

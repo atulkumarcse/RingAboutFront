@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RingAbout</title>
-     <!--CDN-->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
      <link rel="stylesheet" href="./assets/CSS/profile.css">
      <link rel="stylesheet" href="./assets/CSS/responsive.css">
 
@@ -18,12 +22,50 @@
         .dropspace{
             left:-3rem !important;
         }
+        #changepassModal input:focus{
+        	box-shadow: none;
+        	outline: none;
+        }
+        .close:focus{
+        	outline: none;
+        }
     </style>
 </head>
 <body>
-    <div class="main-container">
+    <!-- Change password modal -->
+        <div class="modal fade" id="changepassModal" tabindex="-1" role="dialog" aria-labelledby="changepassModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document" style="max-width: 600px">
+              <div class="modal-content">
+                <div class="modal-header my-1">
+                  <h5 class="modal-title">Change Password</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                   <div class="container-fluid">
+                      <form action="" id="changepassform">
+                        <h4 class="pmsg"></h4>
+                        <div class="form-group">
+                            <input type="text" class="form-control cpass1" placeholder="Enter your current password">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control cpass2" placeholder="Enter your new password">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control cpass3" placeholder="Confirm your new password">
+                        </div>
+                        <div class="form-group d-flex justify-content-center mt-4">
+                            <button class="btn subpassbtn">Submit</button>
+                        </div>
+                      </form>    
+                   </div>
+                </div>
+              </div>
+            </div>
+        </div>
 
-    	<!-- Logout Modal -->
+<!-- Logout Modal -->
         <div class="modal fade" id="logoutModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div class="modal-content">
@@ -38,13 +80,37 @@
                   <h5 class="text-center mb-3">Are you sure?</h5>
                   <div class="d-flex justify-content-center">
                     <button class="btn btn-success mx-2 px-5 logout">Yes</button>
-                    <button class="btn btn-danger mx-2 px-5">No</button>
+                    <button class="btn btn-danger mx-2 px-5" class="close" data-dismiss="modal" aria-label="Close">No</button>
                   </div>
                 </div>
               </div>
             </div>
         </div>
 
+<!-- Pop up Modal -->
+   <div class="modal fade" id="popmsg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centerd" role="document" style="max-width: 600px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close closemodal" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <h2 class=" text-white text-center popmsgtxt"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+    	
+
+
+        
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
@@ -112,9 +178,13 @@
                             <!-- <h4 class="tweet mb-2 ml-4"></h4> -->
                         </div>
                     </div>
-                    <div class="d-flex justify-content-start mt-4">
+                    <div class="d-flex justify-content-start mt-2">
                     	<label class="tagl mb-auto"></label>
                         <button class="btn px-4 ml-4 editbtn">Edit profile</button>
+                    </div>
+                    <div class="d-flex justify-content-start mt-3">
+                    	<label class="tagl mb-auto"></label>
+                        <button class="btn px-4 ml-4 chpassbtn">Change Password</button>
                     </div>
                 </div>
             </div>
@@ -205,6 +275,12 @@
             $('#logoutModal').modal();
         });
 
+    	$('.chpassbtn').on('click',function(){
+            $('#changepassModal').modal({
+    backdrop: 'static',
+    keyboard: false
+});
+        });
     	
         $('.picUpload').on('click',function(e){
             e.preventDefault();
@@ -222,9 +298,10 @@
         });
 
         $('.cancelprof').on('click',function(e){
-            e.preventDefault();
-            $('.inner-cls').css('display','none');
-            $('.prof-cls').css('display','block');
+            // e.preventDefault();
+            // $('.inner-cls').css('display','none');
+            // $('.prof-cls').css('display','block');
+            window.location.reload();
         });
 
 
@@ -287,6 +364,7 @@
           } else {
             profilelist(uid)
             $(".editbtn").css("display","none");
+            $(".chpassbtn").css("display","none");
           }
             
             });

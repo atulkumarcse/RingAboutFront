@@ -298,6 +298,11 @@ a:hover {
   color: #b3b3b3;
   margin-top: 0.6rem;
 }
+#faModalLong h2{
+	font-family: "Montserrat-SemiBold";
+  	font-size: 21px;
+  	color: #b3b3b3;
+}
 .modal-body button{
   font-family: "Montserrat-Bold";
 }

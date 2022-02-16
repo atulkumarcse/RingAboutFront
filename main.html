@@ -23,6 +23,10 @@
             left:-3rem !important;
         }
 
+        #adafterModal .modal-header{
+        	border-bottom: 0 !important;
+        }
+
         @media screen and (max-width:767px) {
         	.challenge_div p {
 		        font-size: 14px;
@@ -55,7 +59,7 @@
                   <h5 class="text-center mb-3">Are you sure?</h5>
                   <div class="d-flex justify-content-center">
                     <button class="btn btn-success mx-2 px-5 logout">Yes</button>
-                    <button class="btn btn-danger mx-2 px-5">No</button>
+                    <button class="btn btn-danger mx-2 px-5" class="close" data-dismiss="modal" aria-label="Close">No</button>
                   </div>
                 </div>
               </div>
@@ -104,7 +108,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 650px;">
                 <div class="modal-content" style="min-height: 500px;">
                     <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLongTitle">Create your Advertisement</h3>
+                    <h3 class="modal-title" id="exampleModalLongTitle">Create your Classified's</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -113,7 +117,7 @@
                         <div class="container-fluid">
                             <h1 id="uploadmsg"></h1>
                             <form action="" id="formadv">
-                                <h5>Choose from the options below to create your advertisement</h5>
+                                <h5>Choose from the options below to create your classified</h5>
                                 <select name="name" class="custom-select">
                                     <option selected >Select one from below</option>
                                     <option class="one opts" value="1">Image</option>
@@ -151,7 +155,7 @@
                                                 Click on an image below to display here.
                                             </div>
                                         </div>
-                                        <p class="mb-3 note"><strong>Choose the pattern for your advertisement's background</strong> </p>
+                                        <p class="mb-3 note"><strong>Choose the pattern for your classified's background</strong> </p>
                                         <div class="patterns">
                                             <div class="row">
                                                 <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
@@ -193,6 +197,25 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+
+        <!-- advertisement submitted after popup -->
+        <div class="modal fade" id="adafterModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+              <div class="modal-content">
+                <div class="modal-header my-1">
+                  <button type="button" class="close closemodal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <div class="container">
+                 	<h2 class="text-white text-center">Your classified is successfully submitted. It will flash on the page once approved by admin.</h2>
+                 </div>
+                </div>
+              </div>
             </div>
         </div>
 
@@ -473,11 +496,18 @@
     <script>
          imageUrl = "";
     	 $('#logOut').on('click',function(){
-            $('#logoutModal').modal();
+            $('#logoutModal').modal({
+    backdrop: 'static',
+    keyboard: false
+});
         });
 
+
         $('.classified').on('click',function(){
-            $('#exampleModalLong').modal();
+            $('#exampleModalLong').modal({
+    backdrop: 'static',
+    keyboard: false
+});
         });
 
 

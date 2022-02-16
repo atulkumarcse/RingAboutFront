@@ -70,7 +70,10 @@ $('#regbtn').on('click',function(e){
     let zipcode = document.getElementById('zipcode').value;
     let password = document.getElementById('pass_word').value;
     let cpass = document.getElementById('confirm-pass').value;
-
+   if(password != cpass){
+    $("#msg").html("Password does not match")
+    return true;
+   }
     data = {
         name:fullname,
         user_name:username,
@@ -104,7 +107,7 @@ $('#regbtn').on('click',function(e){
         console.log(response);
         if(response.status == "ok"){
             //document.getElementById("myForm").reset();
-            $("#msg").html("Registration Successfully")
+            $("#msg").html("Registration Successful")
         }
         else{
              $("#msg").html("Please Try Again")
@@ -220,9 +223,10 @@ $('.logbtn').on('click',function(e){
             setCookie("userdetails",JSON.stringify(response.user),1)
             window.location.href = "main.html"
 
-        }
-        else{
-             $("#msg").html("Please register yourself")
+        } else if(response.status == "fail"){
+         $("#loginmsg").html(response.msg)
+        }else{
+             $("#loginmsg").html("Please register yourself")
         }
     });
 
@@ -330,8 +334,10 @@ $('.submitbtnadv').on('click',function(e){
         // Log a message to the console
         if(response.status == true || response.status == 'true')
            {
-            $("#uploadmsg").html("Advertise Created Succefully"); 
-            window.location.reload();
+            $("#exampleModalLong").modal('hide');
+            $("#adafterModal").modal();
+            //$("#uploadmsg").html("Advertise Created Succefully"); 
+            //window.location.reload();
             //return true;
            }
         else{
@@ -363,6 +369,63 @@ $('.submitbtnadv').on('click',function(e){
     });
 });
 
+
+$('.subpassbtn').on('click',function(e){
+    // e.preventDefault();
+      e.preventDefault();
+    pass1 = $(".cpass1").val() ;
+    pass2 = $(".cpass2").val() ;
+    pass3 = $(".cpass3").val() ;
+    var formData = { "password" : pass1, "cpassword":pass2 }
+
+    if(pass1 == "" || pass2 == "" || pass3 == "" ){
+        $(".pmsg").html("Please Enter all Details");
+        return true;
+    }
+    if(pass2 != pass3){
+        $(".pmsg").html("Password does not match");
+        return true;
+    }
+    
+    bearertoken = readCookie('token');
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "/ring_about/api/changePassword",
+        type: "post",
+        dataType: 'json',
+        headers: {
+            "Authorization": "Bearer  " + bearertoken 
+          },
+        data: formData
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        if(response.status == true || response.status == 'true')
+           {
+            $(".pmsg").html(response.msg); 
+            $('.logout').click();
+           }
+        else{
+             $(".pmsg").html(response.msg); 
+        }
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+           if(jqXHR.responseJSON.error == "token_expired" || jqXHR.responseJSON.error == "token_not_provided" || jqXHR.responseJSON.error == "token_invalid"){
+            window.location.href = "/RingAbout";
+           }
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+       // $inputs.prop("disabled", false);
+    });
+});
 
 $('.pattsubmitbtn').on('click',function(e){
     e.preventDefault();
@@ -450,15 +513,18 @@ function advlist(){
                 } else {
                     text = '<p class="img-fluid w-100 u-para " style=" display:block">'+response.data[key].detail+'</p>';
                 }
-                if(response.data[key].detail != null && response.data[key].url != null){
-                   img = '<img src="'+response.data[key].url+'" class="img-fluid w-100"  alt="">';
+                  if(response.data[key].detail != null && response.data[key].url != null){
+                   img = "";
                    text = '<p class="img-fluid w-100 u-para " style=" display:block">'+response.data[key].detail+'</p>';
-                } 
+                }
                 $data = '<div class="col-md-3 " style="height: 200px; margin-bottom:30px; ">'+
-                        '<div class="h-100 d-flex " style="border:2px solid #ffffff;">'+
+                        '<div class="h-100 d-flex imgbackground " style="border:2px solid #ffffff;">'+
                        img + text + '</div>'+
                     '</div>'
-                    $(".classifiedrow").append($data);
+                $(".classifiedrow").append($data);
+                if(response.data[key].detail != null && response.data[key].url != null){
+                   $(".imgbackground").css('background-image', 'url('+ response.data[key].url + ')' );
+                    }
                 });
             //$("#uploadmsg").html("Advertise Created Succefully"); 
             //return true;
@@ -827,7 +893,8 @@ $('.updbtn').on('click',function(e){
         // Log a message to the console
         if(response.status == "ok"){
             // document.getElementById("#updprofile").reset();
-            $("#msgedit").html("Profile Edit Successfully")
+            $(".popmsgtxt").html("Profile Edited Successfully")
+            $("#popmsg").modal();
         }
         else{
              $("#msgedit").html("Please Try Again")
@@ -900,7 +967,9 @@ function editlist($id){
             $arr = response.data[0].twitter.split(",");
           if($arr.length>0){
           $.each($arr,function(key,value){
+               if(value !="," && value != ""){
                $(".socials").append('<input type="text" name="others[]" value="'+value+'" class="inp mb-2" placeholder="enter social link">');
+              } 
           });
           }
       }
@@ -1124,8 +1193,9 @@ $('.fgpbutton').on('click',function(e){
 
         console.log(response);
         if(response.status == "ok"){
-           
-           $("#fgmsg").html("Please check your email")
+           $("#faModalLong").modal();
+            $('#fModalLong').modal();
+           //$("#fgmsg").html("Please check your email")
         }
         else{
              $("#fgmsg").html("Please register yourself")
@@ -1218,6 +1288,10 @@ function advtopmiddle(){
        // $inputs.prop("disabled", false);
     });
 }
+
+$('.closemodal').on('click',function(e){
+window.location.reload();
+});
 
 if(window.location.pathname == '/RingAbout/main.html')
 {
