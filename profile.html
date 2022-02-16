@@ -218,7 +218,7 @@
                             <input type="email" name="email"  class="inp" placeholder="email">
                             <input type="hidden" name="password" value="password" >
                             <div class="toggletxt">
-                                <p class="txt">hide</p>
+                                <p class="txt">show</p>
                                 <label class="switch">
                                     <input type="checkbox" onclick="toggle(this)" id="emailstatus" key="emailstatus" class="check">
                                     <span class="slider round"></span>
@@ -229,7 +229,7 @@
                             <!-- <label for="zipcode" class="tagl">Zip Code : </label> -->
                             <input type="text" name="zip_code"  class="inp" placeholder="Post Code" >
                             <div class="toggletxt">
-                                <p class="txt">hide</p>
+                                <p class="txt">show</p>
                                 <label class="switch">
                                     <input type="checkbox" onclick="toggle(this)" key="zipstatus" id="zipstatus"  class="check">
                                     <span class="slider round"></span>
@@ -239,12 +239,12 @@
                         <div class="social_link mt-4">
                         	<div class="d-flex mb-3">
                         		<div class="d-flex justify-content-between" style=" width:65%; margin-left:1rem;">
-		                            <label class="tagl mt-2 smh" style="width:auto;text-align: left; font-weight: bold;margin-left: 0.5rem; font-size: 18px;">Social Media Handles : </label>
+		                            <label class="tagl mt-2 smh" style="width:auto;text-align: left; font-weight: bold;margin-left: 0.5rem; font-size: 18px;">Social Media Handles (Max 5): </label>
 		                            <!-- <button class="btn p-0 addmore">Add <i class="far fa-plus-square fa-lg"></i></button> -->
 		                            <button class="btn p-0 addmore"><img src="./assets/IMG/add.svg" alt=""></button>
 		                        </div>
 	                            <div class="toggletxt">
-	                                <p class="txt">hide</p>
+	                                <p class="txt">show</p>
 	                                <label class="switch">
 	                                    <input type="checkbox" onclick="toggle(this)" id="socialstatus" key="socialstatus" class="check">
 	                                    <span class="slider round"></span>
@@ -307,9 +307,9 @@
 
         $('.check').on('change',function(e){
             if($(this).is(':checked')){
-                $(this).closest('.toggletxt').children('.txt').html('show');
-            }else{
                 $(this).closest('.toggletxt').children('.txt').html('hide');
+            }else{
+                $(this).closest('.toggletxt').children('.txt').html('show');
             }    
         });
 

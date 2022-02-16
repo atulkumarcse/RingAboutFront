@@ -141,8 +141,8 @@
                                     </div>
                                     <!-- text option -->
                                     <div class="text-opt mt-5">
-                                        <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
-                                        <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name="detail" ></textarea>
+                                        <p class="mb-1 note"><strong>*** Maximum 150 characters</strong></p>
+                                        <textarea class="ptext" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name="detail" onchange="turncatesting(this)" ></textarea>
                                         <button class="btn txtsubmitbtn submitbtnadv">Submit</button>
                                     </div>
 
@@ -186,8 +186,8 @@
                                             </div>
                                             <input type="hidden" id="imageUrl" name="imageUrl">
                                             <div>
-                                                <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
-                                                <textarea id="pattext" name ="detail" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
+                                                <p class="mb-1 note"><strong>*** Maximum 150 characters</strong></p>
+                                                <textarea id="pattext" class="ptext" onchange="turncatesting(this)" name ="detail" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
                                                 <button class="btn pattsubmitbtn">Submit</button>
                                             </div>
                                         </div>
@@ -596,6 +596,25 @@
     image[0].src = URL.createObjectURL(event.target.files[0]);
     //image[1].src = URL.createObjectURL(event.target.files[0]);
 };
+
+text_truncate = function(str, length, ending) {
+    if (length == null) {
+      length = 150;
+    }
+    if (ending == null) {
+      ending = '...';
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
+  };
+
+function turncatesting(e){
+   var string = text_truncate(e.value,150);
+   $('.ptext').val(string);
+}
        </script>
        <style type="text/css">
            .u-para {

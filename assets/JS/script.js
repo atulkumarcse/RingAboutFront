@@ -405,7 +405,7 @@ $('.subpassbtn').on('click',function(e){
         if(response.status == true || response.status == 'true')
            {
             $(".pmsg").html(response.msg); 
-            $('.logout').click();
+            //$('.logout').click();
            }
         else{
              $(".pmsg").html(response.msg); 
@@ -450,8 +450,10 @@ $('.pattsubmitbtn').on('click',function(e){
         // Log a message to the console
         if(response.status == true || response.status == 'true')
            {
-            $("#uploadmsg").html("Advertise Created Succefully"); 
-            window.location.reload();
+            // $("#uploadmsg").html("Advertise Created Succefully"); 
+            // window.location.reload();
+            $("#exampleModalLong").modal('hide');
+            $("#adafterModal").modal();
             //return true;
            }
         else{
@@ -826,7 +828,7 @@ function profilelist($id){
            } else {
 
             $(".email1").html(response.data[0].email);
-            $("#socialstatus").attr("checked","checked")
+            //$("#socialstatus").attr("checked","checked")
             
           
             $(".zip1").html(response.data[0].zip_code);
@@ -955,13 +957,16 @@ function editlist($id){
           }
            
            if(response.data[0].emailstatus === 1){
-            $("#socialstatus").attr("checked","checked")
+            $("#emailstatus").attr("checked","checked")
+            $('.email').children('.toggletxt').children('.txt').html('hide');
            }
            if(response.data[0].zipstatus === 1){
             $("#zipstatus").attr("checked","checked")
+            $('.zipcode').children('.toggletxt').children('.txt').html('hide');
            }
            if(response.data[0].socialstatus === 1){
             $("#socialstatus").attr("checked","checked")
+            $('.social_link').children('.d-flex').children('.toggletxt').children('.txt').html('hide');
            }
            if( response.data[0].twitter !== null){
             $arr = response.data[0].twitter.split(",");
