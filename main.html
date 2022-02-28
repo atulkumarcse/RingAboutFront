@@ -108,7 +108,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 650px;">
                 <div class="modal-content" style="min-height: 500px;">
                     <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLongTitle">Create your Classified's</h3>
+                    <h3 class="modal-title" id="exampleModalLongTitle">Create your classifieds</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -122,7 +122,7 @@
                                     <option selected >Select one from below</option>
                                     <option class="one opts" value="1">Image</option>
                                     <option class="two opts" value="2">Text</option>
-                                    <option class="three opts" value="3">Image/Text</option>
+                                    <option class="three opts" value="3">Image & Text</option>
                                 </select>
                                 <div>
                                     <!-- image option -->
@@ -142,7 +142,7 @@
                                     <!-- text option -->
                                     <div class="text-opt mt-5">
                                         <p class="mb-1 note"><strong>*** Maximum 150 characters</strong></p>
-                                        <textarea class="ptext" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name="detail" onchange="turncatesting(this)" ></textarea>
+                                        <textarea class="ptext" placeholder="Your classified's text will be here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;" name="detail" onchange="turncatesting(this)" ></textarea>
                                         <button class="btn txtsubmitbtn submitbtnadv">Submit</button>
                                     </div>
 
@@ -187,7 +187,7 @@
                                             <input type="hidden" id="imageUrl" name="imageUrl">
                                             <div>
                                                 <p class="mb-1 note"><strong>*** Maximum 150 characters</strong></p>
-                                                <textarea id="pattext" class="ptext" onchange="turncatesting(this)" name ="detail" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
+                                                <textarea id="pattext" class="ptext" onchange="turncatesting(this)" name ="detail" placeholder="Your classified's text will be here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
                                                 <button class="btn pattsubmitbtn">Submit</button>
                                             </div>
                                         </div>
@@ -569,7 +569,7 @@
             imageUrl = x.src;
             document.getElementById('image').style.backgroundImage="url("+ x.src +")";
             document.getElementById('imageUrl').value = x.src 
-            document.getElementById('image').innerHTML="Your Advertisement's text will be here...";
+            document.getElementById('image').innerHTML="Your classified's text will be here...";
         }
 
     </script>
